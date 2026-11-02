@@ -31,15 +31,15 @@
     "diario": true,
     "assunto": "Story diário de bom humor sobre a rotina do corretor. Inspiração de hoje: Registrar o que foi combinado logo depois da reunião.",
     "etapa": "story",
-    "versao": 2,
+    "versao": 3,
     "frase": "Saiu da reunião jurando que ia lembrar de tudo. Chegou no carro e já era.",
     "post": {
       "frase": "Saiu da reunião jurando que ia lembrar de tudo. Chegou no carro e já era.",
-      "detalhe": "Manda um áudio ali mesmo. Eu anoto o combinado como tarefa e te mostro pra confirmar antes de salvar.",
-      "pose": "pensando"
+      "detalhe": "Manda um áudio ali mesmo que eu já abro e saio girando: anoto a tarefa e te mostro pra confirmar.",
+      "pose": "falando"
     },
     "imagens": [
-      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/2026-11-02-story-umbi-v2-1-wpyUmpvhpglLGwXQGKo5IueYrDIvpi.jpg"
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/2026-11-02-story-umbi-v3-1-GmUV8SJuiAs8F13RMOTyTNjCWvYLp3.jpg"
     ],
     "legenda": "",
     "status": "pendente"
