@@ -31,23 +31,21 @@ async function telegram(metodo, corpo) {
 
 export const avisar = (text) => telegram('sendMessage', { chat_id: exigir('TELEGRAM_CHAT_ID'), text });
 
-export async function enviarParaVeto(id, urlImagem, legenda, horario) {
-  const chat_id = exigir('TELEGRAM_CHAT_ID');
-  await telegram('sendPhoto', { chat_id, photo: urlImagem });
-  await telegram('sendMessage', {
-    chat_id,
-    text: `${legenda}\n\n———\nPublica hoje às ${horario}, a menos que você vete.`,
-    reply_markup: { inline_keyboard: [[{ text: '❌ Vetar este post', callback_data: `veto:${id}` }]] },
-  });
-}
+export const enviarBotoes = (id, versao, text) => telegram('sendMessage', {
+  chat_id: exigir('TELEGRAM_CHAT_ID'),
+  text,
+  reply_markup: {
+    inline_keyboard: [
+      [{ text: '✅ Aprovar e publicar', callback_data: `aprovar:${versao}:${id}` }],
+      [{ text: '✏️ Editar', callback_data: `editar:${versao}:${id}` }, { text: '❌ Descartar', callback_data: `descartar:${versao}:${id}` }],
+    ],
+  },
+});
 
-export async function foiVetado(id) {
-  const chat = String(exigir('TELEGRAM_CHAT_ID'));
-  const updates = await telegram('getUpdates', { allowed_updates: ['callback_query'], timeout: 0 });
-  const veto = updates.find((u) => u.callback_query?.data === `veto:${id}` && String(u.callback_query.from.id) === chat);
-  if (veto) await telegram('answerCallbackQuery', { callback_query_id: veto.callback_query.id, text: 'Vetado' }).catch(() => {});
-  if (updates.length) await telegram('getUpdates', { offset: updates.at(-1).update_id + 1, timeout: 0 });
-  return Boolean(veto);
+export async function enviarParaAprovacao(id, versao, urlImagem, legenda) {
+  await telegram('sendPhoto', { chat_id: exigir('TELEGRAM_CHAT_ID'), photo: urlImagem });
+  const rotulo = versao > 1 ? `Versão ${versao}. ` : '';
+  await enviarBotoes(id, versao, `${legenda}\n\n———\n${rotulo}Só publico depois que você aprovar.`);
 }
 
 // --- Hospedagem: o Instagram baixa a imagem de uma URL pública ---

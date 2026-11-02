@@ -40,13 +40,8 @@ Campos:
 - legenda: até 900 caracteres, sem hashtags, com parágrafos curtos. Na solucao, termine com "Conheça o Umbrella CRM: link na bio."
 - hashtags: de 3 a 5, em minúsculas e sem acento, começando com #.`;
 
-export async function escreverPost({ tema, etapa, anteriores }, conferirArte, client = new Anthropic()) {
-  const repetidos = anteriores.map((p) => `- ${p.etapa}: ${p.frase}`).join('\n') || 'nenhum';
-  const mensagens = [{
-    role: 'user',
-    content: `ETAPA: ${etapa}\nASSUNTO: ${tema.assunto}\nRECURSO: ${tema.recurso}\nPOSTS JÁ PUBLICADOS SOBRE ESTE ASSUNTO (não repita a ideia):\n${repetidos}`,
-  }];
-
+async function redigir(pedidoInicial, { tema, etapa }, conferirArte, client) {
+  const mensagens = [{ role: 'user', content: pedidoInicial }];
   let ultimoErro;
   for (let tentativa = 1; tentativa <= 2; tentativa++) {
     const resposta = await client.beta.messages.create({
@@ -75,4 +70,15 @@ export async function escreverPost({ tema, etapa, anteriores }, conferirArte, cl
     );
   }
   throw new Error(`Texto reprovado na validação: ${ultimoErro}`);
+}
+
+export function escreverPost({ tema, etapa, anteriores }, conferirArte, client = new Anthropic()) {
+  const repetidos = anteriores.map((p) => `- ${p.etapa}: ${p.frase}`).join('\n') || 'nenhum';
+  const pedido = `ETAPA: ${etapa}\nASSUNTO: ${tema.assunto}\nRECURSO: ${tema.recurso}\nPOSTS JÁ PUBLICADOS SOBRE ESTE ASSUNTO (não repita a ideia):\n${repetidos}`;
+  return redigir(pedido, { tema, etapa }, conferirArte, client);
+}
+
+export function reescreverPost({ tema, etapa, post, pedido }, conferirArte, client = new Anthropic()) {
+  const instrucao = `ETAPA: ${etapa}\nASSUNTO: ${tema.assunto}\nRECURSO: ${tema.recurso}\n\nPOST ATUAL:\n${JSON.stringify(post, null, 2)}\n\nPEDIDO DE ALTERAÇÃO DO FUNDADOR:\n${pedido}\n\nAplique o pedido e mantenha o que ele não mencionou. As regras continuam valendo: se o pedido exigir quebrar alguma, atenda o máximo possível sem quebrá-la.`;
+  return redigir(instrucao, { tema, etapa }, conferirArte, client);
 }

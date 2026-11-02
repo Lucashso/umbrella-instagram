@@ -1,33 +1,33 @@
-import { mkdirSync, readFileSync } from 'node:fs';
+import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
+import { conferidor, prepararEEnviar } from './fluxo.js';
 import { hojeBrasilia, proximoPost } from './plano.js';
 import { escreverPost } from './redator.js';
-import { arteEstoura, montarHtml, renderizarJpeg } from './render.js';
-import { avisar, enviarParaVeto, hospedar, lerHistorico, salvarHistorico } from './servicos.js';
-import { montarLegenda } from './validar.js';
+import { avisar, enviarBotoes, lerHistorico, salvarHistorico } from './servicos.js';
 
 const temas = JSON.parse(readFileSync(resolve(import.meta.dirname, '..', 'conteudo', 'temas.json'), 'utf8'));
 
 try {
   const historico = lerHistorico();
   const data = hojeBrasilia();
+
+  // Sem aprovação nada avança: lembra do post parado em vez de criar outro.
+  const parado = historico.find((p) => p.status === 'pendente');
+  if (parado) {
+    await enviarBotoes(parado.id, parado.versao, `⏳ Este post ainda espera sua decisão, então não gerei um novo hoje:\n\n${parado.legenda}`);
+    process.exit(0);
+  }
   if (historico.some((p) => p.data === data)) {
     console.log(`Já existe post para ${data}.`);
     process.exit(0);
   }
 
-  const plano = proximoPost(historico, temas);
-  const post = await escreverPost(plano, (p) => arteEstoura(montarHtml(p, plano.etapa, plano.tema)));
-  mkdirSync('saida', { recursive: true });
-  const arquivo = `saida/${data}.jpg`;
-  await renderizarJpeg(montarHtml(post, plano.etapa, plano.tema), arquivo);
+  const { tema, etapa, anteriores } = proximoPost(historico, temas);
+  const post = await escreverPost({ tema, etapa, anteriores }, conferidor(etapa, tema));
+  const id = `${data}-${tema.id}-${etapa}`;
+  const { imagem, legenda } = await prepararEEnviar({ id, versao: 1, post, etapa, tema });
 
-  const id = `${data}-${plano.tema.id}-${plano.etapa}`;
-  const imagem = await hospedar(readFileSync(arquivo), id);
-  const legenda = montarLegenda(post);
-  await enviarParaVeto(id, imagem, legenda, process.env.HORARIO_PUBLICACAO ?? '11h30');
-
-  historico.push({ id, data, tema: plano.tema.id, etapa: plano.etapa, frase: `${post.titulo} ${post.destaque}`, imagem, legenda, status: 'pendente' });
+  historico.push({ id, data, tema: tema.id, etapa, versao: 1, frase: `${post.titulo} ${post.destaque}`, post, imagem, legenda, status: 'pendente' });
   salvarHistorico(historico);
   console.log(`Post ${id} enviado para aprovação.`);
 } catch (erro) {

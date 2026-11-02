@@ -1,0 +1,7 @@
+# Só o webhook vai para a Vercel. O histórico e o token cifrado nunca saem do repositório.
+*
+!api
+!api/**
+!public
+!public/**
+!vercel.json
