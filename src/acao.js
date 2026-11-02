@@ -27,15 +27,16 @@ try {
     const tema = temas.find((t) => t.id === entrada.tema);
     const post = await reescreverPost({ tema, etapa: entrada.etapa, post: entrada.post, pedido: exigir('PEDIDO') }, conferidor(entrada.etapa, tema));
     const nova = entrada.versao + 1;
-    const { imagem, legenda } = await prepararEEnviar({ id, versao: nova, post, etapa: entrada.etapa, tema });
-    Object.assign(entrada, { versao: nova, post, imagem, legenda, frase: `${post.titulo} ${post.destaque}` });
+    const { imagens, legenda } = await prepararEEnviar({ id, versao: nova, post, etapa: entrada.etapa, tema });
+    Object.assign(entrada, { versao: nova, post, imagens, legenda, frase: `${post.titulo} ${post.destaque}` });
+    delete entrada.imagem;
   } else if (acao === 'aprovar') {
     if (process.env.PUBLICAR_DE_VERDADE !== 'sim') {
       // Trava: enquanto a variável não for "sim", nada vai para o Instagram.
       entrada.status = 'simulado';
       await avisar(`Teste: aprovado, mas a publicação está travada, então nada foi ao Instagram.\n${id}`);
     } else {
-      entrada.media_id = await publicarNoInstagram(exigir('IG_USER_ID'), entrada.imagem, entrada.legenda, exigir('IG_ACCESS_TOKEN'));
+      entrada.media_id = await publicarNoInstagram(exigir('IG_USER_ID'), entrada.imagens ?? [entrada.imagem], entrada.legenda, exigir('IG_ACCESS_TOKEN'));
       entrada.status = 'publicado';
       await avisar('✅ Publicado no Instagram.');
     }

@@ -40,8 +40,13 @@ export const enviarBotoes = (id, versao, text) => telegram('sendMessage', {
   },
 });
 
-export async function enviarParaAprovacao(id, versao, urlImagem, legenda) {
-  await telegram('sendPhoto', { chat_id: exigir('TELEGRAM_CHAT_ID'), photo: urlImagem });
+export async function enviarParaAprovacao(id, versao, imagens, legenda) {
+  const chat_id = exigir('TELEGRAM_CHAT_ID');
+  if (imagens.length > 1) {
+    await telegram('sendMediaGroup', { chat_id, media: imagens.map((media) => ({ type: 'photo', media })) });
+  } else {
+    await telegram('sendPhoto', { chat_id, photo: imagens[0] });
+  }
   const rotulo = versao > 1 ? `Versão ${versao}. ` : '';
   await enviarBotoes(id, versao, `${legenda}\n\n———\n${rotulo}Só publico depois que você aprovar.`);
 }
@@ -66,15 +71,31 @@ async function ig(metodo, caminho, token, corpo) {
   return j;
 }
 
-export async function publicarNoInstagram(igId, urlImagem, legenda, token, esperaMs = 60000) {
-  const { id: container } = await ig('POST', `${igId}/media`, token, { image_url: urlImagem, caption: legenda });
+async function aguardarContainer(container, token, esperaMs) {
   for (let i = 0; i < 5; i++) {
     const { status_code } = await ig('GET', `${container}?fields=status_code`, token);
-    if (status_code === 'FINISHED') break;
+    if (status_code === 'FINISHED') return;
     if (status_code === 'ERROR' || status_code === 'EXPIRED') throw new Error(`Container ${status_code}`);
-    if (i === 4) throw new Error('Container não ficou pronto em 5 tentativas');
-    await new Promise((ok) => setTimeout(ok, esperaMs));
+    if (i < 4) await new Promise((ok) => setTimeout(ok, esperaMs));
   }
-  const { id } = await ig('POST', `${igId}/media_publish`, token, { creation_id: container });
+  throw new Error('Container não ficou pronto em 5 tentativas');
+}
+
+// Uma imagem vira post simples; mais de uma vira carrossel, com a legenda só no container principal.
+export async function publicarNoInstagram(igId, imagens, legenda, token, esperaMs = 60000) {
+  let principal;
+  if (imagens.length === 1) {
+    ({ id: principal } = await ig('POST', `${igId}/media`, token, { image_url: imagens[0], caption: legenda }));
+  } else {
+    const itens = [];
+    for (const image_url of imagens) {
+      const { id } = await ig('POST', `${igId}/media`, token, { image_url, is_carousel_item: true });
+      await aguardarContainer(id, token, esperaMs);
+      itens.push(id);
+    }
+    ({ id: principal } = await ig('POST', `${igId}/media`, token, { media_type: 'CAROUSEL', children: itens.join(','), caption: legenda }));
+  }
+  await aguardarContainer(principal, token, esperaMs);
+  const { id } = await ig('POST', `${igId}/media_publish`, token, { creation_id: principal });
   return id;
 }

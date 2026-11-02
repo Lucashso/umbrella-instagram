@@ -25,9 +25,9 @@ try {
   const { tema, etapa, anteriores } = proximoPost(historico, temas);
   const post = await escreverPost({ tema, etapa, anteriores }, conferidor(etapa, tema));
   const id = `${data}-${tema.id}-${etapa}`;
-  const { imagem, legenda } = await prepararEEnviar({ id, versao: 1, post, etapa, tema });
+  const { imagens, legenda } = await prepararEEnviar({ id, versao: 1, post, etapa, tema });
 
-  historico.push({ id, data, tema: tema.id, etapa, versao: 1, frase: `${post.titulo} ${post.destaque}`, post, imagem, legenda, status: 'pendente' });
+  historico.push({ id, data, tema: tema.id, etapa, versao: 1, frase: `${post.titulo} ${post.destaque}`, post, imagens, legenda, status: 'pendente' });
   salvarHistorico(historico);
   console.log(`Post ${id} enviado para aprovação.`);
 } catch (erro) {

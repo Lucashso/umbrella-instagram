@@ -35,8 +35,8 @@ Campos:
 - apoio (dor): uma frase curta que aprofunda a cena, até 150 caracteres.
 - fala (solucao): o que o corretor diz ao Umbi, até 120 caracteres.
 - resposta (solucao): a resposta do Umbi, até 170 caracteres, coerente com o RECURSO.
-- passos (dica): exatamente 3. titulo até 30 e texto até 58 caracteres.
-- rodape (dica): chamada curta para salvar ou compartilhar, até 34 caracteres.
+- passos (dica): exatamente 3, cada um em um slide do carrossel. titulo até 30 e texto até 120 caracteres.
+- rodape (dica): frase do último slide do carrossel, chamando para salvar ou compartilhar, até 34 caracteres.
 - legenda: até 900 caracteres, sem hashtags, com parágrafos curtos. Na solucao, termine com "Conheça o Umbrella CRM: link na bio."
 - hashtags: de 3 a 5, em minúsculas e sem acento, começando com #.`;
 

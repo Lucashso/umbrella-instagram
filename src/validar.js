@@ -21,7 +21,7 @@ export function validarPost(post, etapa) {
     if (post.passos?.length !== 3) erros.push('dica precisa de exatamente 3 passos');
     for (const p of post.passos ?? []) {
       if (p.titulo.length > 30) erros.push(`passo "${p.titulo}" passa de 30 caracteres`);
-      if (p.texto.length > 58) erros.push(`texto do passo "${p.titulo}" passa de 58 caracteres`);
+      if (p.texto.length > 120) erros.push(`texto do passo "${p.titulo}" passa de 120 caracteres`);
     }
   }
   if (!Array.isArray(post.hashtags) || post.hashtags.length === 0 || post.hashtags.length > 5) {

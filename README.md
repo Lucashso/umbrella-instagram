@@ -2,6 +2,11 @@
 
 Post diário no Instagram `@umbrella.crm`, na sequência **dor → CRM resolve → dica de venda**, com o mesmo assunto nos três dias. Nada é publicado sem aprovação no Telegram.
 
+## Formatos
+
+- **Dor e CRM resolve:** uma imagem, sempre com o Umbi.
+- **Dica de venda:** sempre carrossel de 5 slides (capa, 3 passos e encerramento), com o Umbi em todos.
+
 ## Como funciona
 
 1. **7h (Brasília):** `gerar.yml` escreve o texto, monta a arte em JPEG e envia para o Telegram com os botões Aprovar, Editar e Descartar.

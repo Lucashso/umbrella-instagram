@@ -32,7 +32,12 @@ h1 em{display:block;font-style:normal;background:var(--grad);-webkit-background-
 .row b{flex:1;font-weight:600}.row small{font-size:26px;font-weight:600;color:#FF9DB5}
 .bar{display:flex;align-items:center;justify-content:space-between;margin-top:22px;gap:20px}
 .bar>span:first-child{font-size:27px;font-weight:600;color:var(--mut)}
+.umbi{display:block;height:400px;width:auto;margin:18px auto 0;flex:none}
+.stage>.apoio+.umbi,.stage>.card+.umbi{height:330px;margin:24px 0 0 auto}
+.who img.umbi-mini{height:104px}
 body.light{background:#F7F5FF;color:#17112E}
+body.light .apoio{color:#544C72}
+body.light h1 em{padding-bottom:6px}
 body.light .eyebrow{color:#6A3FE0}
 body.light .foot{border-top-color:#DDD6F4}
 body.light .foot span{color:#544C72}

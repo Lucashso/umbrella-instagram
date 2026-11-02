@@ -6,7 +6,7 @@
     "node": ">=22"
   },
   "scripts": {
-    "test": "node --test test/regras.test.js test/aprovacao.test.js",
+    "test": "node --test test/regras.test.js test/aprovacao.test.js test/publicacao.test.js",
     "gerar": "node src/gerar.js",
     "previa": "node src/previa.js"
   },
