@@ -1,5 +1,5 @@
 import { timingSafeEqual } from 'node:crypto';
-import { interpretarUpdate, marcaEdicao } from './_logica.js';
+import { interpretarUpdate, marcaEdicao, textoIdeia } from './_logica.js';
 
 const REPO = 'Lucashso/umbrella-instagram';
 
@@ -26,7 +26,8 @@ function segredoConfere(recebido) {
   return b.length > 0 && a.length === b.length && timingSafeEqual(a, b);
 }
 
-const AVISO = { aprovar: '✅ Aprovado. Publicando…', descartar: '❌ Descartado.' };
+const AVISO = { aprovar: '✅ Aprovado. Publicando…', descartar: '❌ Descartado.', ideia_story: '🎬 Criando o story…', ideia_post: '🖼️ Criando o post…' };
+const AJUDA = 'Oi! Me mande uma ideia em texto e eu pergunto se vira story ou post. Tudo volta aqui para você aprovar, editar ou descartar antes de publicar.';
 
 export default async function handler(req, res) {
   if (req.method !== 'POST' || !segredoConfere(req.headers['x-telegram-bot-api-secret-token'])) {
@@ -50,14 +51,20 @@ export default async function handler(req, res) {
         await telegram('sendMessage', { chat_id, text: '✏️ Editando. A nova versão chega em cerca de 1 minuto.' });
       }
       await disparar(a);
+    } else if (a?.tipo === 'ideia') {
+      await telegram('sendMessage', {
+        chat_id,
+        text: textoIdeia(a.pedido),
+        reply_markup: { inline_keyboard: [[{ text: '🎬 Story do Umbi', callback_data: 'ideia:story' }, { text: '🖼️ Post no feed', callback_data: 'ideia:post' }]] },
+      });
     } else if (a?.tipo === 'so-texto') {
-      await telegram('sendMessage', { chat_id, text: 'Por enquanto só entendo edição por texto. Escreva o que quer mudar.' });
+      await telegram('sendMessage', { chat_id, text: 'Por enquanto só entendo texto. Escreva a ideia ou o que quer mudar.' });
     } else if (a?.tipo === 'ajuda') {
-      await telegram('sendMessage', { chat_id, text: 'Para mudar um post, toque em ✏️ Editar nele e responda à mensagem que vou enviar.' });
+      await telegram('sendMessage', { chat_id, text: AJUDA });
     }
   } catch (erro) {
     console.error(erro);
-    await telegram('sendMessage', { chat_id, text: `⚠️ Não consegui processar seu pedido: ${erro.message}. O post não foi publicado.` });
+    await telegram('sendMessage', { chat_id, text: `⚠️ Não consegui processar seu pedido: ${erro.message}. Nada foi publicado.` });
   }
   // Sempre 200: outro código faria o Telegram reenviar o mesmo toque.
   return res.status(200).end();

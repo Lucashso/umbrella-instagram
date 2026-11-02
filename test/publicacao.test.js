@@ -2,7 +2,9 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { afterEach, test } from 'node:test';
 import { montarSlides } from '../src/render.js';
-import { publicarNoInstagram } from '../src/servicos.js';
+import { proximoPost } from '../src/plano.js';
+import { publicarNoInstagram, publicarStory } from '../src/servicos.js';
+import { validarPost } from '../src/validar.js';
 
 const temas = JSON.parse(readFileSync(new URL('../conteudo/temas.json', import.meta.url)));
 const original = globalThis.fetch;
@@ -47,6 +49,31 @@ test('container com erro não é publicado', async () => {
   const c = simularMeta('ERROR');
   await assert.rejects(publicarNoInstagram('42', ['a.jpg'], 'oi', 'tk', 0), /Container ERROR/);
   assert.ok(!c.some((x) => x.url.endsWith('/media_publish')));
+});
+
+test('story vai com media_type STORIES e sem legenda', async () => {
+  const c = simularMeta();
+  await publicarStory('42', 's.jpg', 'tk', 0);
+  assert.deepEqual(criacoes(c), [{ image_url: 's.jpg', media_type: 'STORIES' }]);
+  assert.deepEqual(c.at(-1).corpo, { creation_id: 'id1' });
+});
+
+test('stories e posts avulsos publicados não avançam a sequência', () => {
+  const h = [{ status: 'publicado', tema: temas[0].id }, { status: 'publicado', tipo: 'story' }, { status: 'publicado', tipo: 'post' }];
+  assert.equal(proximoPost(h, temas).etapa, 'solucao');
+});
+
+const story = { frase: 'Você jurou que ia anotar. Eu vi.', detalhe: 'Eu sempre vejo.', pose: 'ok' };
+
+test('story normal passa na validação sem hashtag', () => assert.deepEqual(validarPost(story, 'story'), []));
+
+for (const palavra of ['morte', 'morreu', 'doença', 'sinistro', 'viúva', 'acidente']) {
+  test(`story não brinca com "${palavra}"`, () => assert.notEqual(validarPost({ ...story, detalhe: `Piada com ${palavra}` }, 'story').length, 0));
+}
+
+test('story sobre o Umbi vira arte vertical', () => {
+  const [html] = montarSlides(story, 'story', temas[0]);
+  assert.ok(html.includes('<body class="story">') && html.includes('umbi-ok-parado.webp'));
 });
 
 const dica = { eyebrow: 'E', titulo: 'T', destaque: 'D', rodape: 'R', passos: [1, 2, 3].map((n) => ({ titulo: `P${n}`, texto: `X${n}` })) };

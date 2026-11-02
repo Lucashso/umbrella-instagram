@@ -11,6 +11,8 @@ export const conferidor = (etapa, tema) => async (post) => {
   return false;
 };
 
+export const fraseDe = (post, etapa) => (etapa === 'story' ? post.frase : `${post.titulo} ${post.destaque}`);
+
 // Monta as artes, hospeda e manda para aprovação. Devolve os dados a guardar no histórico.
 export async function prepararEEnviar({ id, versao, post, etapa, tema }) {
   mkdirSync('saida', { recursive: true });
@@ -20,7 +22,9 @@ export async function prepararEEnviar({ id, versao, post, etapa, tema }) {
     await renderizarJpeg(html, arquivo);
     imagens.push(await hospedar(readFileSync(arquivo), `${id}-v${versao}-${i + 1}`));
   }
-  const legenda = montarLegenda(post);
-  await enviarParaAprovacao(id, versao, imagens, legenda);
+  // Story não tem legenda: o texto vai só para quem aprova ler.
+  const legenda = etapa === 'story' ? '' : montarLegenda(post);
+  const texto = etapa === 'story' ? `🎬 Story do Umbi\n\n${post.frase}\n${post.detalhe}` : legenda;
+  await enviarParaAprovacao(id, versao, imagens, texto);
   return { imagens, legenda };
 }

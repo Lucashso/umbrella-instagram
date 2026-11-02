@@ -35,6 +35,12 @@ h1 em{display:block;font-style:normal;background:var(--grad);-webkit-background-
 .umbi{display:block;height:400px;width:auto;margin:18px auto 0;flex:none}
 .stage>.apoio+.umbi,.stage>.card+.umbi{height:330px;margin:24px 0 0 auto}
 .who img.umbi-mini{height:104px}
+html:has(body.story),body.story{height:1920px}
+body.story{padding:270px 72px 290px;background:radial-gradient(circle at 50% 72%,#2A1A66 0,var(--ink) 62%)}
+body.story h1{background:#fff;color:#17112E;border-radius:40px 40px 40px 8px;padding:44px 48px;font-size:78px}
+body.story .apoio{border:0;padding:0;font-size:40px;color:var(--txt)}
+body.story .stage>.apoio+.umbi{height:620px;margin:30px auto 0}
+.assinatura{text-align:center;font-size:30px;font-weight:700;color:var(--mut)}
 body.light{background:#F7F5FF;color:#17112E}
 body.light .apoio{color:#544C72}
 body.light h1 em{padding-bottom:6px}

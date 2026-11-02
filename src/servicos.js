@@ -81,6 +81,14 @@ async function aguardarContainer(container, token, esperaMs) {
   throw new Error('Container não ficou pronto em 5 tentativas');
 }
 
+// Story não aceita legenda nem link pela API.
+export async function publicarStory(igId, imagem, token, esperaMs = 60000) {
+  const { id: container } = await ig('POST', `${igId}/media`, token, { image_url: imagem, media_type: 'STORIES' });
+  await aguardarContainer(container, token, esperaMs);
+  const { id } = await ig('POST', `${igId}/media_publish`, token, { creation_id: container });
+  return id;
+}
+
 // Uma imagem vira post simples; mais de uma vira carrossel, com a legenda só no container principal.
 export async function publicarNoInstagram(igId, imagens, legenda, token, esperaMs = 60000) {
   let principal;

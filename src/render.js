@@ -53,8 +53,19 @@ function slidesDica(post) {
   return [capa, ...passos, fim];
 }
 
+// O story é o Umbi falando em primeira pessoa, em formato vertical.
+function slideStory(post) {
+  return documento('story', `<div class="eyebrow">Umbi na área</div><h1>${esc(post.frase)}</h1><div class="stage"><p class="apoio">${esc(post.detalhe)}</p>${umbi(post.pose in UMBI ? post.pose : 'falando')}</div><div class="assinatura">@umbrella.crm</div>`);
+}
+
+function slideIdeia(post) {
+  return documento('', `${titulo(post)}<div class="stage"><p class="apoio">${esc(post.apoio)}</p>${umbi('falando')}</div>${rodape('logo.png', 'Umbrella CRM')}`);
+}
+
 // Cada item é a página de uma imagem; mais de uma vira carrossel na publicação.
 export function montarSlides(post, etapa, tema) {
+  if (etapa === 'story') return [slideStory(post)];
+  if (etapa === 'ideia') return [slideIdeia(post)];
   if (etapa === 'dor') return [slideDor(post)];
   if (etapa === 'dica') return slidesDica(post);
   return [slideSolucao(post, tema)];
@@ -74,6 +85,8 @@ const AJUSTE = `document.fonts.ready.then(function(){
   document.body.dataset.estouro=cabe()?'nao':'sim';
 });`;
 
+const janela = (html) => `--window-size=1080,${html.includes('<body class="story">') ? 1920 : 1350}`;
+
 export async function arteEstoura(html) {
   const chrome = process.env.CHROME_PATH ?? 'google-chrome';
   const pasta = await mkdtemp(join(tmpdir(), 'ig-'));
@@ -82,7 +95,7 @@ export async function arteEstoura(html) {
     await writeFile(pagina, html);
     const { stdout } = await run(chrome, [
       '--headless=new', '--no-sandbox', '--disable-gpu', '--hide-scrollbars',
-      '--force-device-scale-factor=1', '--window-size=1080,1350', '--virtual-time-budget=6000',
+      '--force-device-scale-factor=1', janela(html), '--virtual-time-budget=6000',
       `--user-data-dir=${join(pasta, 'perfil')}`, '--dump-dom', pathToFileURL(pagina).href,
     ], { timeout: 90000, maxBuffer: 10 * 1024 * 1024 });
     const marca = stdout.match(/data-estouro="(sim|nao)"/)?.[1];
@@ -102,7 +115,7 @@ export async function renderizarJpeg(html, destino) {
     await writeFile(pagina, html);
     await run(chrome, [
       '--headless=new', '--no-sandbox', '--disable-gpu', '--hide-scrollbars',
-      '--force-device-scale-factor=1', '--window-size=1080,1350', '--virtual-time-budget=6000',
+      '--force-device-scale-factor=1', janela(html), '--virtual-time-budget=6000',
       `--user-data-dir=${join(pasta, 'perfil')}`, `--screenshot=${resolve(destino)}`,
       pathToFileURL(pagina).href,
     ], { timeout: 90000 });

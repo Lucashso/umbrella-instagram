@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
-import { interpretarUpdate, marcaEdicao } from '../api/_logica.js';
+import { interpretarUpdate, marcaEdicao, textoIdeia } from '../api/_logica.js';
 
 const DONO = 1362962741;
 const id = '2026-11-03-registro-pos-reuniao-dor';
@@ -29,8 +29,29 @@ test('áudio na resposta pede texto', () => {
   assert.equal(a.tipo, 'so-texto');
 });
 
-test('mensagem solta recebe ajuda e não edita nada', () => {
-  assert.equal(interpretarUpdate({ message: { from: { id: DONO }, text: 'oi' } }, DONO).tipo, 'ajuda');
+test('mensagem solta vira ideia e não edita nada', () => {
+  const a = interpretarUpdate({ message: { from: { id: DONO }, text: ' story sobre segunda-feira ' } }, DONO);
+  assert.deepEqual([a.tipo, a.pedido], ['ideia', 'story sobre segunda-feira']);
+});
+
+test('comando /start recebe ajuda', () => {
+  assert.equal(interpretarUpdate({ message: { from: { id: DONO }, text: '/start' } }, DONO).tipo, 'ajuda');
+});
+
+test('escolher story recupera a ideia da própria mensagem', () => {
+  const update = { callback_query: { id: 'c', data: 'ideia:story', from: { id: DONO }, message: { message_id: 1, text: textoIdeia('zoar quem não anota\nnada') } } };
+  const a = interpretarUpdate(update, DONO);
+  assert.deepEqual([a.tipo, a.acao, a.pedido], ['executar', 'ideia_story', 'zoar quem não anota\nnada']);
+});
+
+test('escolher post vira ideia_post', () => {
+  const update = { callback_query: { id: 'c', data: 'ideia:post', from: { id: DONO }, message: { text: textoIdeia('dia do corretor') } } };
+  assert.equal(interpretarUpdate(update, DONO).acao, 'ideia_post');
+});
+
+test('outra pessoa não consegue pedir story', () => {
+  const update = { callback_query: { id: 'c', data: 'ideia:story', from: { id: 999 }, message: { text: textoIdeia('x') } } };
+  assert.equal(interpretarUpdate(update, DONO), null);
 });
 
 test('mensagem de outra pessoa é ignorada', () => {

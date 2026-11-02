@@ -6,6 +6,8 @@ Post diário no Instagram `@umbrella.crm`, na sequência **dor → CRM resolve �
 
 - **Dor e CRM resolve:** uma imagem, sempre com o Umbi.
 - **Dica de venda:** sempre carrossel de 5 slides (capa, 3 passos e encerramento), com o Umbi em todos.
+- **Story do Umbi:** 1 por dia, vertical e em primeira pessoa, com deboche. Não fala de morte, doença, acidente ou sinistro.
+- **Ideias da social media:** mensagem solta no bot vira ideia, com a escolha entre story e post. O resultado volta para aprovação e não conta na sequência.
 
 ## Como funciona
 
