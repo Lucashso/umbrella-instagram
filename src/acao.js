@@ -3,7 +3,7 @@ import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { conferidor, prepararEEnviar } from './fluxo.js';
 import { reescreverPost } from './redator.js';
-import { avisar, enviarBotoes, exigir, lerHistorico, obterToken, publicarNoInstagram, salvarHistorico } from './servicos.js';
+import { avisar, enviarBotoes, exigir, lerHistorico, publicarNoInstagram, salvarHistorico } from './servicos.js';
 
 const temas = JSON.parse(readFileSync(resolve(import.meta.dirname, '..', 'conteudo', 'temas.json'), 'utf8'));
 const acao = exigir('ACAO');
@@ -35,8 +35,7 @@ try {
       entrada.status = 'simulado';
       await avisar(`Teste: aprovado, mas a publicação está travada, então nada foi ao Instagram.\n${id}`);
     } else {
-      const token = await obterToken();
-      entrada.media_id = await publicarNoInstagram(exigir('IG_USER_ID'), entrada.imagem, entrada.legenda, token);
+      entrada.media_id = await publicarNoInstagram(exigir('IG_USER_ID'), entrada.imagem, entrada.legenda, exigir('IG_ACCESS_TOKEN'));
       entrada.status = 'publicado';
       await avisar('✅ Publicado no Instagram.');
     }

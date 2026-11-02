@@ -3,7 +3,6 @@ import { readFileSync } from 'node:fs';
 import { test } from 'node:test';
 import { ETAPAS, hojeBrasilia, proximoPost } from '../src/plano.js';
 import { esc } from '../src/render.js';
-import { cifrar, decifrar } from '../src/servicos.js';
 import { montarLegenda, validarPost } from '../src/validar.js';
 
 const temas = JSON.parse(readFileSync(new URL('../conteudo/temas.json', import.meta.url)));
@@ -41,9 +40,3 @@ for (const [campo, valor] of [['legenda', 'Aumente 30% das vendas'], ['legenda',
 test('dica exige 3 passos', () => assert.notEqual(validarPost({ ...valido, passos: [] }, 'dica').length, 0));
 test('legenda recebe as hashtags', () => assert.equal(montarLegenda({ legenda: ' Oi ', hashtags: ['#a', '#b'] }), 'Oi\n\n#a #b'));
 test('texto gerado não vira HTML', () => assert.equal(esc('<img src=x>'), '&lt;img src=x&gt;'));
-
-test('token cifrado volta igual e chave errada falha', () => {
-  const k = Buffer.alloc(32, 7);
-  assert.equal(decifrar(cifrar('segredo', k), k), 'segredo');
-  assert.throws(() => decifrar(cifrar('segredo', k), Buffer.alloc(32, 8)));
-});

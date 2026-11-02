@@ -21,11 +21,15 @@ Os botões chegam em `api/telegram.js`, um webhook na Vercel que confere o segre
 
 ## Segredos
 
-**GitHub:** `ANTHROPIC_API_KEY`, `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID`, `BLOB_READ_WRITE_TOKEN`, `IG_USER_ID`, `IG_ACCESS_TOKEN`, `IG_TOKEN_KEY`.
+**GitHub:** `ANTHROPIC_API_KEY`, `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID`, `BLOB_READ_WRITE_TOKEN`, `IG_USER_ID`, `IG_ACCESS_TOKEN`.
 
 **Vercel:** `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID`, `TELEGRAM_WEBHOOK_SECRET`, `GH_DISPATCH_TOKEN` (token do GitHub restrito a este repositório, só com Actions: leitura e escrita).
 
-O token do Instagram vale 60 dias: é renovado a cada 30 e guardado cifrado em `estado/token.enc`.
+O app da Meta usa a API com login unificado (`graph.facebook.com`). O token é de usuário do sistema e o painel indica que não expira; se a Meta passar a recusá-lo, gere outro no painel do app e atualize `IG_ACCESS_TOKEN`.
+
+## Publicar o webhook
+
+Não rode `vercel deploy` na pasta do repositório: o último commit costuma ser do robô da automação e a Vercel bloqueia a publicação. Copie `api`, `public`, `vercel.json`, `package.json`, `.vercelignore` e `.vercel` para uma pasta sem git e rode o deploy com `--cwd`.
 
 ## O que o conteúdo pode dizer
 

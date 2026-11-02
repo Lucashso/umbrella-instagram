@@ -1,14 +1,12 @@
-import { createCipheriv, createDecipheriv, createHash, randomBytes } from 'node:crypto';
-import { existsSync, readFileSync, writeFileSync } from 'node:fs';
+import { readFileSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { put } from '@vercel/blob';
 
 const ESTADO = resolve(import.meta.dirname, '..', 'estado');
 const HISTORICO = resolve(ESTADO, 'historico.json');
-const TOKEN = resolve(ESTADO, 'token.enc');
-const GRAPH = 'https://graph.instagram.com';
+// O app usa a API com login unificado: host do Facebook e token de usuário do sistema, que não expira.
+const GRAPH = 'https://graph.facebook.com';
 const VERSAO = 'v26.0';
-const RENOVAR_DIAS = 30;
 
 export const lerHistorico = () => JSON.parse(readFileSync(HISTORICO, 'utf8'));
 export const salvarHistorico = (h) => writeFileSync(HISTORICO, JSON.stringify(h, null, 2) + '\n');
@@ -54,41 +52,6 @@ export async function hospedar(buffer, nome) {
     access: 'public', contentType: 'image/jpeg', addRandomSuffix: true, token: exigir('BLOB_READ_WRITE_TOKEN'),
   });
   return url;
-}
-
-// --- Token do Instagram: vale 60 dias e fica cifrado no repositório depois de renovado ---
-const chave = () => createHash('sha256').update(exigir('IG_TOKEN_KEY')).digest();
-
-export function cifrar(texto, k = chave()) {
-  const iv = randomBytes(12);
-  const c = createCipheriv('aes-256-gcm', k, iv);
-  const dados = Buffer.concat([c.update(texto, 'utf8'), c.final()]);
-  return Buffer.concat([iv, c.getAuthTag(), dados]).toString('base64');
-}
-
-export function decifrar(b64, k = chave()) {
-  const b = Buffer.from(b64, 'base64');
-  const d = createDecipheriv('aes-256-gcm', k, b.subarray(0, 12));
-  d.setAuthTag(b.subarray(12, 28));
-  return Buffer.concat([d.update(b.subarray(28)), d.final()]).toString('utf8');
-}
-
-export async function obterToken(agora = Date.now()) {
-  const salvo = existsSync(TOKEN) ? JSON.parse(readFileSync(TOKEN, 'utf8')) : null;
-  const atual = salvo ? decifrar(salvo.token) : exigir('IG_ACCESS_TOKEN');
-  const idade = salvo ? (agora - salvo.renovado_em) / 86400000 : Infinity;
-  if (idade < RENOVAR_DIAS) return atual;
-
-  const q = new URLSearchParams({ grant_type: 'ig_refresh_token', access_token: atual });
-  const r = await fetch(`${GRAPH}/refresh_access_token?${q}`);
-  const j = await r.json();
-  if (!r.ok) {
-    // Token recém-criado não renova nas primeiras 24 h; ele continua válido.
-    if (!salvo) return atual;
-    throw new Error(`Renovar token: ${j.error?.message ?? r.status}`);
-  }
-  writeFileSync(TOKEN, JSON.stringify({ token: cifrar(j.access_token), renovado_em: agora }) + '\n');
-  return j.access_token;
 }
 
 // --- Instagram ---
