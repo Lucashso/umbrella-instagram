@@ -1,0 +1,83 @@
+[
+  {
+    "id": "registro-pos-reuniao",
+    "assunto": "Registrar o que foi combinado logo depois da reunião",
+    "recurso": "O corretor manda um áudio ou texto para o Umbi no WhatsApp. O Umbi prepara o lead e a tarefa e mostra botões Confirmar e Cancelar; nada é gravado antes da confirmação.",
+    "visual": "chat",
+    "confirmar": true,
+    "eyebrow_solucao": "Umbi no seu WhatsApp"
+  },
+  {
+    "id": "atrasos",
+    "assunto": "Clientes com parcela em atraso que ninguém acompanha de perto",
+    "recurso": "Na tela de Atrasos, o corretor seleciona os clientes e envia todos de uma vez para um funil de oportunidades, escolhendo a etapa. Quem já tem card ativo fica de fora, sem duplicar.",
+    "visual": "lista",
+    "itens": [["Cliente A", "12 dias"], ["Cliente B", "9 dias"], ["Cliente C", "5 dias"]],
+    "botao": "Enviar para o funil",
+    "eyebrow_solucao": "Atrasos"
+  },
+  {
+    "id": "indicacoes",
+    "assunto": "Indicações recebidas que se perdem antes do primeiro contato",
+    "recurso": "O corretor manda várias indicações em uma mensagem, texto ou áudio, para o Umbi no WhatsApp. O Umbi cria os leads em lote, ligados a quem indicou, depois de um único Confirmar.",
+    "visual": "chat",
+    "confirmar": true,
+    "eyebrow_solucao": "Indicações"
+  },
+  {
+    "id": "comeco-do-dia",
+    "assunto": "Começar o dia sem saber o que é prioridade",
+    "recurso": "O corretor pede ao Umbi o resumo do dia e recebe tarefas, agenda, retornos e atrasos em uma só resposta.",
+    "visual": "chat",
+    "confirmar": false,
+    "eyebrow_solucao": "Resumo do dia"
+  },
+  {
+    "id": "apolice-pdf",
+    "assunto": "Digitar à mão os dados de apólice no sistema",
+    "recurso": "O corretor envia o PDF da apólice para o Umbi. O Umbi extrai cliente, apólice, coberturas, beneficiários, forma de pagamento e responsável, e pede confirmação antes de gravar.",
+    "visual": "chat",
+    "confirmar": true,
+    "eyebrow_solucao": "Apólice em PDF"
+  },
+  {
+    "id": "leads-parados",
+    "assunto": "Leads que esfriam porque ninguém viu que pararam",
+    "recurso": "O corretor pergunta ao Umbi quais leads estão parados e recebe a lista na hora.",
+    "visual": "chat",
+    "confirmar": false,
+    "eyebrow_solucao": "Leads parados"
+  },
+  {
+    "id": "aniversariantes",
+    "assunto": "Perder a chance de um contato simples com a carteira",
+    "recurso": "O corretor pergunta ao Umbi quem faz aniversário e recebe a lista de clientes.",
+    "visual": "chat",
+    "confirmar": false,
+    "eyebrow_solucao": "Relacionamento"
+  },
+  {
+    "id": "vencimentos",
+    "assunto": "Descobrir tarde demais que uma apólice está para vencer",
+    "recurso": "O corretor pergunta ao Umbi quais apólices estão vencendo e recebe a lista na hora.",
+    "visual": "chat",
+    "confirmar": false,
+    "eyebrow_solucao": "Vencimentos"
+  },
+  {
+    "id": "agenda",
+    "assunto": "Marcar reunião entre um compromisso e outro e esquecer de lançar",
+    "recurso": "O corretor pede ao Umbi para marcar a reunião. Depois de confirmar, o evento vai para o Google Agenda ou Outlook que ele já tiver conectado, como convite real.",
+    "visual": "chat",
+    "confirmar": true,
+    "eyebrow_solucao": "Agenda"
+  },
+  {
+    "id": "documentos",
+    "assunto": "Documentos de cliente espalhados pelo celular",
+    "recurso": "O corretor envia a imagem ou o documento para o Umbi no WhatsApp e pede para anexar. Depois de confirmar, o arquivo vai para a ficha do cliente.",
+    "visual": "chat",
+    "confirmar": true,
+    "eyebrow_solucao": "Documentos"
+  }
+]

@@ -1,0 +1,35 @@
+name: Publicar post
+on:
+  schedule:
+    - cron: '30 14 * * *' # 11h30 em Brasília
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency: instagram
+jobs:
+  publicar:
+    if: vars.ATIVO == 'sim'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run publicar
+        env:
+          PUBLICAR_DE_VERDADE: ${{ vars.PUBLICAR_DE_VERDADE }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          IG_TOKEN_KEY: ${{ secrets.IG_TOKEN_KEY }}
+      - name: Salvar estado
+        if: always()
+        run: |
+          git config user.name "umbrella-instagram[bot]"
+          git config user.email "actions@users.noreply.github.com"
+          git add estado
+          git diff --cached --quiet || (git commit -m "estado: publicação $(date -u +%F)" && git push)

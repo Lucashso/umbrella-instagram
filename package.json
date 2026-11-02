@@ -1,0 +1,18 @@
+{
+  "name": "umbrella-instagram",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test test/regras.test.js",
+    "gerar": "node src/gerar.js",
+    "publicar": "node src/publicar.js",
+    "previa": "node src/previa.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "1.4.0",
+    "@vercel/blob": "2.8.2"
+  }
+}
