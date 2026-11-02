@@ -5,3 +5,5 @@
 !public
 !public/**
 !vercel.json
+# Necessário para os arquivos de api/ serem tratados como módulos ES.
+!package.json
