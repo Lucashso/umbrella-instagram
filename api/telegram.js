@@ -1,5 +1,5 @@
 import { timingSafeEqual } from 'node:crypto';
-import { interpretarUpdate, marcaEdicao, textoIdeia } from './_logica.js';
+import { botoesIdeia, interpretarUpdate, marcaEdicao, textoIdeia } from './_logica.js';
 
 const REPO = 'Lucashso/umbrella-instagram';
 
@@ -11,11 +11,11 @@ async function telegram(metodo, corpo) {
 }
 
 // A arte precisa de navegador, então o trabalho pesado roda no GitHub Actions.
-async function disparar({ acao, id, versao, pedido = '' }) {
+async function disparar({ acao, id, versao, pedido = '', conta = '' }) {
   const r = await fetch(`https://api.github.com/repos/${REPO}/actions/workflows/aprovacao.yml/dispatches`, {
     method: 'POST',
     headers: { authorization: `Bearer ${process.env.GH_DISPATCH_TOKEN}`, accept: 'application/vnd.github+json', 'x-github-api-version': '2022-11-28' },
-    body: JSON.stringify({ ref: 'main', inputs: { acao, id, versao: String(versao), pedido } }),
+    body: JSON.stringify({ ref: 'main', inputs: { acao, id, versao: String(versao), pedido, conta } }),
   });
   if (!r.ok) throw new Error(`GitHub respondeu ${r.status}`);
 }
@@ -27,7 +27,7 @@ function segredoConfere(recebido) {
 }
 
 const AVISO = { aprovar: '✅ Aprovado. Publicando…', descartar: '❌ Descartado.', ideia_story: '🎬 Criando o story…', ideia_post: '🖼️ Criando o post…' };
-const AJUDA = 'Oi! Me mande uma ideia em texto e eu pergunto se vira story ou post. Tudo volta aqui para você aprovar, editar ou descartar antes de publicar.';
+const AJUDA = 'Oi! Me mande uma ideia em texto e eu pergunto em qual conta ela entra e se vira story ou post. Tudo volta aqui para você aprovar, editar ou descartar antes de publicar.';
 
 export default async function handler(req, res) {
   if (req.method !== 'POST' || !segredoConfere(req.headers['x-telegram-bot-api-secret-token'])) {
@@ -55,7 +55,7 @@ export default async function handler(req, res) {
       await telegram('sendMessage', {
         chat_id,
         text: textoIdeia(a.pedido),
-        reply_markup: { inline_keyboard: [[{ text: '🎬 Story do Umbi', callback_data: 'ideia:story' }, { text: '🖼️ Post no feed', callback_data: 'ideia:post' }]] },
+        reply_markup: { inline_keyboard: botoesIdeia() },
       });
     } else if (a?.tipo === 'so-texto') {
       await telegram('sendMessage', { chat_id, text: 'Por enquanto só entendo texto. Escreva a ideia ou o que quer mudar.' });

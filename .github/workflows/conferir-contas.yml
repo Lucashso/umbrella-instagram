@@ -1,0 +1,25 @@
+name: Conferir contas do Instagram
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  conferir:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: node src/conferir-contas.js
+        env:
+          CONTAS_ATIVAS: ${{ vars.CONTAS_ATIVAS }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          IG_USER_ID_PRISCILLA: ${{ secrets.IG_USER_ID_PRISCILLA }}
+          IG_ACCESS_TOKEN_PRISCILLA: ${{ secrets.IG_ACCESS_TOKEN_PRISCILLA }}
+          IG_USER_ID_ARCANA: ${{ secrets.IG_USER_ID_ARCANA }}
+          IG_ACCESS_TOKEN_ARCANA: ${{ secrets.IG_ACCESS_TOKEN_ARCANA }}

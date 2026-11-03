@@ -1,6 +1,23 @@
 # umbrella-instagram
 
-Post diário no Instagram `@umbrella.crm`, na sequência **dor → CRM resolve → dica de venda**, com o mesmo assunto nos três dias. Nada é publicado sem aprovação no Telegram.
+Conteúdo diário para três perfis do Instagram, com aprovação de todos no mesmo chat do Telegram. Nada é publicado sem aprovação.
+
+| Conta | Perfil | Público | Sequência |
+|---|---|---|---|
+| `umbrella` | `@umbrella.crm` | Corretores | dor → CRM resolve → dica de venda, com o Umbi |
+| `priscilla` | `@freitas.priscilla` | Clientes finais, em primeira pessoa | situação → caminho → dica |
+| `arcana` | a definir em `src/contas.js` | Clientes finais, como empresa | situação → caminho → dica |
+
+As configurações ficam em `src/contas.js`. As contas de cliente usam `conteudo/temas-cliente.json`, sem Umbi e com regras próprias para seguro e consórcio.
+
+## Ligar uma conta nova
+
+1. Confirme o `usuario` da conta em `src/contas.js`; sem ele a conta não liga.
+2. Crie os segredos `IG_USER_ID_<CONTA>` e `IG_ACCESS_TOKEN_<CONTA>` no GitHub.
+3. Acrescente a conta à variável `CONTAS_ATIVAS` do GitHub e rode o workflow **Conferir contas do Instagram**.
+4. Acrescente a conta à variável `CONTAS_ATIVAS` da Vercel e publique o webhook de novo, para os botões de ideia aparecerem.
+
+Antes de cada publicação, o sistema confere se o token aponta para o @ esperado. Se não apontar, nada é publicado.
 
 ## Formatos
 

@@ -1,6 +1,7 @@
 // Renderiza exemplos e o pior caso de tamanho de texto, sem chamar nenhuma API.
 import { mkdirSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
+import { CONTAS } from './contas.js';
 import { arteEstoura, montarSlides, renderizarJpeg } from './render.js';
 
 const temas = JSON.parse(readFileSync(resolve(import.meta.dirname, '..', 'conteudo', 'temas.json'), 'utf8'));
@@ -21,9 +22,28 @@ const casos = {
   limite_dica: ['dica', chat, { eyebrow: m(28), titulo: m(34), destaque: m(44), rodape: m(34), passos: [1, 2, 3].map(() => ({ titulo: m(30), texto: m(120) })) }],
 };
 
+// Contas de cliente, com os dois assuntos de partida e o pior caso de tamanho.
+const situacao = { eyebrow: 'Família', titulo: 'A conta da casa', destaque: 'depende só de você?', apoio: 'Muita família nunca conversou sobre o que aconteceria se essa renda parasse de entrar de um mês para o outro.' };
+const caminho = { eyebrow: 'Seguro de vida', titulo: 'Seguro de vida', destaque: 'também é para viver.', apoio: 'Alguns seguros têm coberturas que podem ser usadas em vida, como invalidez e doenças graves. Depende de cada contrato.' };
+const dicaCliente = { eyebrow: 'Dica prática', titulo: 'Antes de aderir,', destaque: 'responda estas 3 perguntas', rodape: 'Salve para consultar depois', passos: [{ titulo: 'O que você quer comprar?', texto: 'Defina o bem e o valor da carta antes de olhar qualquer grupo.' }, { titulo: 'Qual parcela cabe no mês?', texto: 'Olhe o orçamento com folga, lembrando que a parcela pode ser reajustada.' }, { titulo: 'Você leu o contrato?', texto: 'Confira taxa de administração, índice de reajuste e regras de contemplação.' }] };
+const storyCliente = { frase: 'Seguro de vida não é assunto só para depois.', detalhe: 'Essa conversa fica mais leve quando acontece com calma, antes de qualquer pressa.' };
+const limiteCliente = { eyebrow: m(28), titulo: m(34), destaque: m(44), apoio: m(150) };
+for (const conta of [CONTAS.priscilla, CONTAS.arcana]) {
+  const n = conta.id;
+  Object.assign(casos, {
+    [`${n}_situacao`]: ['situacao', chat, situacao, conta],
+    [`${n}_caminho`]: ['caminho', chat, caminho, conta],
+    [`${n}_dica`]: ['dica', chat, dicaCliente, conta],
+    [`${n}_story`]: ['story', chat, storyCliente, conta],
+    [`limite_${n}`]: ['situacao', chat, limiteCliente, conta],
+    [`limite_${n}_dica`]: ['dica', chat, { ...limiteCliente, rodape: m(34), passos: [1, 2, 3].map(() => ({ titulo: m(30), texto: m(120) })) }, conta],
+    [`limite_${n}_story`]: ['story', chat, { frase: m(90), detalhe: m(110) }, conta],
+  });
+}
+
 mkdirSync('saida', { recursive: true });
-for (const [nome, [etapa, tema, post]] of Object.entries(casos)) {
-  for (const [i, html] of montarSlides(post, etapa, tema).entries()) {
+for (const [nome, [etapa, tema, post, conta]] of Object.entries(casos)) {
+  for (const [i, html] of montarSlides(post, etapa, tema, conta).entries()) {
     const estoura = await arteEstoura(html);
     const arquivo = `saida/${nome}-${i + 1}.jpg`;
     await renderizarJpeg(html, arquivo);

@@ -4,12 +4,13 @@ import { validarPost } from './validar.js';
 const texto = { type: 'string' };
 const comum = { eyebrow: texto, titulo: texto, destaque: texto, legenda: texto, hashtags: { type: 'array', items: texto } };
 
-function esquema(etapa, tema) {
+function esquema(etapa, tema, conta) {
   if (etapa === 'story') {
-    const properties = { frase: texto, detalhe: texto, pose: { type: 'string', enum: ['falando', 'pensando', 'ok', 'comemorando'] } };
+    const pose = conta.persona === 'umbi' ? { pose: { type: 'string', enum: ['falando', 'pensando', 'ok', 'comemorando'] } } : {};
+    const properties = { frase: texto, detalhe: texto, ...pose };
     return { type: 'object', properties, required: Object.keys(properties), additionalProperties: false };
   }
-  const extras = etapa === 'dor' || etapa === 'ideia' ? { apoio: texto }
+  const extras = ['dor', 'ideia', 'situacao', 'caminho'].includes(etapa) ? { apoio: texto }
     : etapa === 'dica' ? {
       passos: { type: 'array', items: { type: 'object', properties: { titulo: texto, texto }, required: ['titulo', 'texto'], additionalProperties: false } },
       rodape: texto,
@@ -62,7 +63,50 @@ Campos:
 - detalhe: uma segunda frase curta que completa a graça, até 110 caracteres.
 - pose: falando, pensando, ok ou comemorando. Escolha a que combina com a frase.`;
 
-async function redigir(pedidoInicial, { tema, etapa }, conferirArte, client) {
+const REGRAS_CLIENTE = `Regras que nunca podem ser quebradas:
+- Só afirme sobre seguro e consórcio o que está no campo RECURSO. Não invente coberturas, condições, números ou resultados.
+- Sem estatísticas, percentuais, valores em reais, promessas de resultado ou superlativos. Sem citar tempo de experiência, quantidade de clientes ou prêmios.
+- Sem nome de seguradora, administradora, concorrente ou pessoa real, e sem depoimento de cliente.
+- Nunca invente fatos em primeira pessoa, como atendimentos, conversas com clientes ou histórias pessoais. Descreva situações comuns de forma geral ("muita gente...", "quando a família cresce...").
+- Nada de recomendar um produto ou valor específico para quem lê: as condições dependem do contrato e da análise de cada caso.
+- Morte, doença e acidente são tratados com respeito: sem piada, sem culpa e sem assustar para vender.
+- Consórcio: nunca prometa contemplação, prazo ou crédito aprovado, nem o apresente como investimento seguro. Não diga "sem juros"; ao comparar custos, lembre que existe taxa de administração.
+- Nunca cite Umbi, Umbrella ou CRM.`;
+
+const sistemaCliente = (conta) => `Você escreve o Instagram de ${conta.quem}. O público são pessoas e famílias no Brasil, não corretores. ${conta.voz} Use português do Brasil, direto e humano.
+
+Os posts seguem uma sequência de três dias sobre o mesmo assunto:
+- situacao: mostra uma cena real da vida de quem lê. Não vende nada.
+- caminho: mostra como o seguro de vida ou o consórcio pode ajudar nessa cena, usando somente o RECURSO.
+- dica: dá uma dica prática ligada ao assunto, útil mesmo para quem não vai contratar nada.
+- ideia: post avulso pedido pela social media no campo ASSUNTO. Siga a ideia dela, sempre dentro das regras abaixo.
+
+${REGRAS_CLIENTE}
+
+Campos:
+- titulo + destaque formam a frase principal da arte. Até 34 e 44 caracteres.
+- eyebrow: rótulo curto acima da frase, até 28 caracteres.
+- apoio (situacao, caminho e ideia): uma frase curta que aprofunda a ideia, até 150 caracteres.
+- passos (dica): exatamente 3, cada um em um slide do carrossel. titulo até 30 e texto até 120 caracteres.
+- rodape (dica): frase do último slide do carrossel, chamando para salvar ou compartilhar, até 34 caracteres.
+- legenda: até 900 caracteres, sem hashtags, com parágrafos curtos. No caminho, termine com "${conta.cta}"
+- hashtags: de 3 a 5, em minúsculas e sem acento, começando com #.`;
+
+const sistemaStoryCliente = (conta) => `Você escreve os stories do Instagram de ${conta.quem}. O público são pessoas e famílias no Brasil. ${conta.voz} O story parece conversa do dia a dia, não anúncio, e na maioria dos dias não precisa vender nada.
+
+${REGRAS_CLIENTE}
+- Sem hashtags e sem pedir para clicar em link: story pela API não aceita link.
+
+Campos:
+- frase: a frase principal, até 90 caracteres.
+- detalhe: uma segunda frase curta que completa a ideia, até 110 caracteres.`;
+
+function sistemaDe(conta, etapa) {
+  if (conta.persona === 'umbi') return etapa === 'story' ? SISTEMA_STORY : SISTEMA;
+  return etapa === 'story' ? sistemaStoryCliente(conta) : sistemaCliente(conta);
+}
+
+async function redigir(pedidoInicial, { tema, etapa, conta }, conferirArte, client) {
   const mensagens = [{ role: 'user', content: pedidoInicial }];
   let ultimoErro;
   for (let tentativa = 1; tentativa <= 2; tentativa++) {
@@ -71,15 +115,15 @@ async function redigir(pedidoInicial, { tema, etapa }, conferirArte, client) {
       max_tokens: 16000,
       betas: ['server-side-fallback-2026-07-01'],
       fallbacks: 'default',
-      system: etapa === 'story' ? SISTEMA_STORY : SISTEMA,
+      system: sistemaDe(conta, etapa),
       messages: mensagens,
-      output_config: { effort: 'medium', format: { type: 'json_schema', schema: esquema(etapa, tema) } },
+      output_config: { effort: 'medium', format: { type: 'json_schema', schema: esquema(etapa, tema, conta) } },
     });
     if (resposta.stop_reason !== 'end_turn') throw new Error(`Claude parou com stop_reason=${resposta.stop_reason}`);
 
     const bloco = resposta.content.find((b) => b.type === 'text');
     const post = JSON.parse(bloco.text);
-    const erros = validarPost(post, etapa);
+    const erros = validarPost(post, etapa, conta.persona);
     if (erros.length === 0 && (await conferirArte(post))) {
       erros.push('o texto não coube na arte; encurte os textos');
     }
@@ -94,13 +138,13 @@ async function redigir(pedidoInicial, { tema, etapa }, conferirArte, client) {
   throw new Error(`Texto reprovado na validação: ${ultimoErro}`);
 }
 
-export function escreverPost({ tema, etapa, anteriores }, conferirArte, client = new Anthropic()) {
+export function escreverPost({ tema, etapa, anteriores, conta }, conferirArte, client = new Anthropic()) {
   const repetidos = anteriores.map((p) => `- ${p.etapa}: ${p.frase}`).join('\n') || 'nenhum';
   const pedido = `ETAPA: ${etapa}\nASSUNTO: ${tema.assunto}\nRECURSO: ${tema.recurso}\nJÁ PUBLICADO SOBRE ISTO (não repita a ideia):\n${repetidos}`;
-  return redigir(pedido, { tema, etapa }, conferirArte, client);
+  return redigir(pedido, { tema, etapa, conta }, conferirArte, client);
 }
 
-export function reescreverPost({ tema, etapa, post, pedido }, conferirArte, client = new Anthropic()) {
+export function reescreverPost({ tema, etapa, post, pedido, conta }, conferirArte, client = new Anthropic()) {
   const instrucao = `ETAPA: ${etapa}\nASSUNTO: ${tema.assunto}\nRECURSO: ${tema.recurso}\n\nCONTEÚDO ATUAL:\n${JSON.stringify(post, null, 2)}\n\nPEDIDO DE ALTERAÇÃO:\n${pedido}\n\nAplique o pedido e mantenha o que ele não mencionou. As regras continuam valendo: se o pedido exigir quebrar alguma, atenda o máximo possível sem quebrá-la.`;
-  return redigir(instrucao, { tema, etapa }, conferirArte, client);
+  return redigir(instrucao, { tema, etapa, conta }, conferirArte, client);
 }

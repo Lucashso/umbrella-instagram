@@ -10,6 +10,8 @@ on:
         required: true
       pedido:
         required: false
+      conta:
+        required: false
 permissions:
   contents: write
 concurrency:
@@ -35,6 +37,8 @@ jobs:
           POST_ID: ${{ inputs.id }}
           POST_VERSAO: ${{ inputs.versao }}
           PEDIDO: ${{ inputs.pedido }}
+          CONTA: ${{ inputs.conta }}
+          CONTAS_ATIVAS: ${{ vars.CONTAS_ATIVAS }}
           PUBLICAR_DE_VERDADE: ${{ vars.PUBLICAR_DE_VERDADE }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
@@ -42,6 +46,10 @@ jobs:
           BLOB_READ_WRITE_TOKEN: ${{ secrets.BLOB_READ_WRITE_TOKEN }}
           IG_USER_ID: ${{ secrets.IG_USER_ID }}
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          IG_USER_ID_PRISCILLA: ${{ secrets.IG_USER_ID_PRISCILLA }}
+          IG_ACCESS_TOKEN_PRISCILLA: ${{ secrets.IG_ACCESS_TOKEN_PRISCILLA }}
+          IG_USER_ID_ARCANA: ${{ secrets.IG_USER_ID_ARCANA }}
+          IG_ACCESS_TOKEN_ARCANA: ${{ secrets.IG_ACCESS_TOKEN_ARCANA }}
       - name: Salvar estado
         if: always()
         run: |

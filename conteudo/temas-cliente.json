@@ -1,0 +1,62 @@
+[
+  {
+    "id": "seguro-em-vida",
+    "assunto": "Achar que seguro de vida só serve depois que a pessoa morre",
+    "recurso": "Alguns seguros de vida têm coberturas que podem ser usadas em vida, como invalidez e doenças graves. O que está coberto depende de cada contrato."
+  },
+  {
+    "id": "consorcio-basico",
+    "assunto": "Querer comprar um imóvel e não entender como o consórcio funciona",
+    "recurso": "No consórcio, um grupo paga parcelas e as contemplações acontecem por sorteio ou lance. Há taxa de administração, e as regras estão no contrato de adesão."
+  },
+  {
+    "id": "renda-da-familia",
+    "assunto": "Família que depende de uma renda só e nunca conversou sobre o que aconteceria sem ela",
+    "recurso": "No seguro de vida, o capital é pago aos beneficiários indicados, nas condições previstas na apólice. Ajuda a família a se organizar em um momento difícil."
+  },
+  {
+    "id": "consorcio-x-urgencia",
+    "assunto": "Comparar consórcio e financiamento sem pensar no prazo em que precisa do bem",
+    "recurso": "O consórcio combina com quem pode planejar, porque não há data certa de contemplação. Cada modalidade tem custos e prazos próprios, que devem ser comparados caso a caso."
+  },
+  {
+    "id": "autonomo-parado",
+    "assunto": "Profissional autônomo que para de ganhar quando não consegue trabalhar",
+    "recurso": "Alguns seguros oferecem cobertura para afastamento temporário por doença ou acidente, conforme as regras e os limites da apólice."
+  },
+  {
+    "id": "lance-consorcio",
+    "assunto": "Achar que dar lance no consórcio é certeza de ser contemplado",
+    "recurso": "O lance é uma oferta para tentar antecipar a contemplação e concorre com os lances do grupo. Não existe certeza de contemplação, e as regras variam por grupo."
+  },
+  {
+    "id": "beneficiarios",
+    "assunto": "Seguro contratado há anos e beneficiários que nunca foram revistos",
+    "recurso": "O segurado pode indicar e atualizar beneficiários conforme as regras da apólice. Vale revisar quando a família muda, como em casamento, separação ou nascimento de filho."
+  },
+  {
+    "id": "carta-de-credito",
+    "assunto": "Não saber o que fazer com a carta de crédito depois da contemplação",
+    "recurso": "A carta de crédito é usada na compra do bem previsto no contrato, depois da análise da administradora. O valor pode ser reajustado por um índice definido no contrato."
+  },
+  {
+    "id": "declaracao-saude",
+    "assunto": "Ficar em dúvida sobre responder com detalhes a declaração de saúde",
+    "recurso": "A declaração de saúde precisa ser preenchida com verdade e por completo. Informações omitidas podem causar problemas com o seguro; condições de aceitação variam por seguradora."
+  },
+  {
+    "id": "parcela-reajuste",
+    "assunto": "Levar susto com o reajuste da parcela do consórcio",
+    "recurso": "As parcelas e o valor da carta costumam ser reajustados por um índice previsto no contrato. Conhecer esse índice antes de aderir ajuda no planejamento."
+  },
+  {
+    "id": "deixar-para-depois",
+    "assunto": "Deixar o seguro de vida para depois porque ainda é jovem e saudável",
+    "recurso": "Idade e saúde estão entre os fatores que influenciam o preço e a aceitação do seguro de vida. A análise é feita em cada contratação."
+  },
+  {
+    "id": "objetivo-do-consorcio",
+    "assunto": "Entrar em um consórcio sem ter um objetivo e um valor de parcela claros",
+    "recurso": "Antes de aderir, vale definir o bem desejado, o valor da carta e a parcela que cabe no orçamento, e ler o contrato de adesão com atenção."
+  }
+]

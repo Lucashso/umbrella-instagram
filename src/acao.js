@@ -1,13 +1,11 @@
 // Executa o que foi pedido pelo Telegram. Roda no GitHub Actions, disparado pelo webhook.
 import { randomBytes } from 'node:crypto';
-import { readFileSync } from 'node:fs';
-import { resolve } from 'node:path';
+import { CONTAS, contaDe, contasAtivas, rotulo, temasDe } from './contas.js';
 import { conferidor, fraseDe, prepararEEnviar } from './fluxo.js';
 import { hojeBrasilia, temaLivre } from './plano.js';
 import { escreverPost, reescreverPost } from './redator.js';
-import { avisar, enviarBotoes, exigir, lerHistorico, publicarNoInstagram, publicarStory, salvarHistorico } from './servicos.js';
+import { avisar, conferirConta, credenciais, enviarBotoes, exigir, lerHistorico, publicarNoInstagram, publicarStory, salvarHistorico } from './servicos.js';
 
-const temas = JSON.parse(readFileSync(resolve(import.meta.dirname, '..', 'conteudo', 'temas.json'), 'utf8'));
 const acao = exigir('ACAO');
 const id = exigir('POST_ID');
 const versao = Number(exigir('POST_VERSAO'));
@@ -15,16 +13,26 @@ const versao = Number(exigir('POST_VERSAO'));
 const historico = lerHistorico();
 const entrada = historico.find((p) => p.id === id);
 
-// Pedido da social media: não entra na sequência dor, CRM resolve e dica.
+// Pedido da social media: não entra na sequência da conta.
 async function criarDaIdeia(tipo) {
+  const conta = CONTAS[process.env.CONTA || 'umbrella'];
+  if (!conta || !contasAtivas().includes(conta)) throw new Error(`a conta "${process.env.CONTA}" ainda não está ligada`);
   const assunto = exigir('PEDIDO');
   const etapa = tipo === 'story' ? 'story' : 'ideia';
-  const tema = temaLivre(assunto, temas);
-  const post = await escreverPost({ tema, etapa, anteriores: [] }, conferidor(etapa, tema));
+  const tema = temaLivre(assunto, temasDe(conta));
+  const post = await escreverPost({ tema, etapa, anteriores: [], conta }, conferidor(etapa, tema, conta));
   const data = hojeBrasilia();
-  const novoId = `${data}-${tipo}-${randomBytes(3).toString('hex')}`;
-  const { imagens, legenda } = await prepararEEnviar({ id: novoId, versao: 1, post, etapa, tema });
-  historico.push({ id: novoId, data, tipo, assunto, etapa, versao: 1, frase: fraseDe(post, etapa), post, imagens, legenda, status: 'pendente' });
+  const novoId = `${conta.prefixo}${data}-${tipo}-${randomBytes(3).toString('hex')}`;
+  const { imagens, legenda } = await prepararEEnviar({ id: novoId, versao: 1, post, etapa, tema, conta });
+  historico.push({ ...(conta.prefixo && { conta: conta.id }), id: novoId, data, tipo, assunto, etapa, versao: 1, frase: fraseDe(post, etapa), post, imagens, legenda, status: 'pendente' });
+}
+
+async function publicar(conta) {
+  const { igId, token } = credenciais(conta);
+  // Última barreira contra publicar no perfil errado: nada sai se o @ do token não for o esperado.
+  await conferirConta(igId, token, conta.usuario);
+  if (entrada.tipo === 'story') return publicarStory(igId, entrada.imagens[0], token);
+  return publicarNoInstagram(igId, entrada.imagens ?? [entrada.imagem], entrada.legenda, token);
 }
 
 try {
@@ -40,25 +48,24 @@ try {
     entrada.status = 'descartado';
     await avisar(entrada.tipo ? 'Descartado.' : 'Post descartado. Amanhã gero um novo para a mesma etapa da sequência.');
   } else if (acao === 'editar') {
+    const conta = contaDe(entrada);
+    const temas = temasDe(conta);
     const tema = entrada.tipo ? temaLivre(entrada.assunto, temas) : temas.find((t) => t.id === entrada.tema);
-    const post = await reescreverPost({ tema, etapa: entrada.etapa, post: entrada.post, pedido: exigir('PEDIDO') }, conferidor(entrada.etapa, tema));
+    const post = await reescreverPost({ tema, etapa: entrada.etapa, post: entrada.post, pedido: exigir('PEDIDO'), conta }, conferidor(entrada.etapa, tema, conta));
     const nova = entrada.versao + 1;
-    const { imagens, legenda } = await prepararEEnviar({ id, versao: nova, post, etapa: entrada.etapa, tema });
+    const { imagens, legenda } = await prepararEEnviar({ id, versao: nova, post, etapa: entrada.etapa, tema, conta });
     Object.assign(entrada, { versao: nova, post, imagens, legenda, frase: fraseDe(post, entrada.etapa) });
     delete entrada.imagem;
   } else if (acao === 'aprovar') {
+    const conta = contaDe(entrada);
     if (process.env.PUBLICAR_DE_VERDADE !== 'sim') {
       // Trava: enquanto a variável não for "sim", nada vai para o Instagram.
       entrada.status = 'simulado';
       await avisar(`Teste: aprovado, mas a publicação está travada, então nada foi ao Instagram.\n${id}`);
-    } else if (entrada.tipo === 'story') {
-      entrada.media_id = await publicarStory(exigir('IG_USER_ID'), entrada.imagens[0], exigir('IG_ACCESS_TOKEN'));
-      entrada.status = 'publicado';
-      await avisar('✅ Story publicado no Instagram.');
     } else {
-      entrada.media_id = await publicarNoInstagram(exigir('IG_USER_ID'), entrada.imagens ?? [entrada.imagem], entrada.legenda, exigir('IG_ACCESS_TOKEN'));
+      entrada.media_id = await publicar(conta);
       entrada.status = 'publicado';
-      await avisar('✅ Publicado no Instagram.');
+      await avisar(`✅ ${entrada.tipo === 'story' ? 'Story publicado' : 'Publicado'} em ${rotulo(conta)}.`);
     }
   } else {
     throw new Error(`Ação desconhecida: ${acao}`);

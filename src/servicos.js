@@ -81,6 +81,18 @@ async function aguardarContainer(container, token, esperaMs) {
   throw new Error('Container não ficou pronto em 5 tentativas');
 }
 
+export const credenciais = (conta) => ({
+  igId: exigir(`IG_USER_ID${conta.sufixo}`),
+  token: exigir(`IG_ACCESS_TOKEN${conta.sufixo}`),
+});
+
+export async function conferirConta(igId, token, esperado) {
+  const { username } = await ig('GET', `${igId}?fields=username`, token);
+  if (String(username).toLowerCase() !== esperado.toLowerCase()) {
+    throw new Error(`o token aponta para @${username}, mas o esperado era @${esperado}`);
+  }
+}
+
 // Story não aceita legenda nem link pela API.
 export async function publicarStory(igId, imagem, token, esperaMs = 60000) {
   const { id: container } = await ig('POST', `${igId}/media`, token, { image_url: imagem, media_type: 'STORIES' });

@@ -26,9 +26,10 @@ const umbi = (pose) => `<img class="umbi" src="${UMBI[pose]}" alt="Umbi">`;
 const titulo = (p) => `<div class="eyebrow">${esc(p.eyebrow)}</div><h1>${esc(p.titulo)}<em>${esc(p.destaque)}</em></h1>`;
 const rodape = (logo, texto) => `<div class="foot"><img src="${logo}" alt="Umbrella CRM"><span>${esc(texto)}</span></div>`;
 
-function documento(classe, html) {
+function documento(classe, html, folhas = ['base.css']) {
   const base = pathToFileURL(TEMPLATES + '/').href;
-  return `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><base href="${base}"><link rel="stylesheet" href="base.css"></head><body class="${classe}">${html}<script>${AJUSTE}</script></body></html>`;
+  const estilos = folhas.map((f) => `<link rel="stylesheet" href="${f}">`).join('');
+  return `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><base href="${base}">${estilos}</head><body class="${classe}">${html}<script>${AJUSTE}</script></body></html>`;
 }
 
 function slideDor(post) {
@@ -62,8 +63,31 @@ function slideIdeia(post) {
   return documento('', `${titulo(post)}<div class="stage"><p class="apoio">${esc(post.apoio)}</p>${umbi('falando')}</div>${rodape('logo.png', 'Umbrella CRM')}`);
 }
 
+// Contas que falam com o cliente final: sem Umbi, com a identidade de cada marca.
+function slidesCliente(post, etapa, conta) {
+  const pagina = (classe, html) => documento(`m-${conta.marca} ${classe}`.trim(), html, ['base.css', 'cliente.css']);
+  const assinatura = conta.marca === 'arcana' ? '<img src="logo-arcana.png" alt="Arcana Corretora de Seguros">' : `<b>${esc(conta.nome)}</b>`;
+  const pe = (texto) => `<div class="foot">${assinatura}<span>${esc(texto)}</span></div>`;
+  const apoio = (texto) => `<div class="stage"><p class="apoio">${esc(texto)}</p></div>`;
+
+  if (etapa === 'story') {
+    return [pagina('story', `<div class="eyebrow">${esc(conta.nome)}</div><h1>${esc(post.frase)}</h1>${apoio(post.detalhe)}<div class="assinatura">${conta.usuario ? `@${esc(conta.usuario)}` : ''}</div>`)];
+  }
+  if (etapa === 'dica') {
+    const total = post.passos.length + 2;
+    return [
+      pagina('', `${titulo(post)}${apoio(`${post.passos.length} passos para pôr em prática`)}${pe('Arraste para ver')}`),
+      ...post.passos.map((p, i) => pagina('', `<div class="eyebrow">Passo ${i + 1} de ${post.passos.length}</div><h1><em>${esc(p.titulo)}</em></h1>${apoio(p.texto)}${pe(`${i + 2}/${total}`)}`)),
+      pagina('', `<div class="eyebrow">${esc(post.eyebrow)}</div><h1><em>${esc(post.rodape)}</em></h1>${apoio(conta.cta)}${pe(`${total}/${total}`)}`),
+    ];
+  }
+  const fim = etapa === 'situacao' ? 'Já pensou nisso?' : conta.cta;
+  return [pagina('', `${titulo(post)}${apoio(post.apoio)}${pe(fim)}`)];
+}
+
 // Cada item é a página de uma imagem; mais de uma vira carrossel na publicação.
-export function montarSlides(post, etapa, tema) {
+export function montarSlides(post, etapa, tema, conta) {
+  if (conta && conta.persona !== 'umbi') return slidesCliente(post, etapa, conta);
   if (etapa === 'story') return [slideStory(post)];
   if (etapa === 'ideia') return [slideIdeia(post)];
   if (etapa === 'dor') return [slideDor(post)];
@@ -85,7 +109,7 @@ const AJUSTE = `document.fonts.ready.then(function(){
   document.body.dataset.estouro=cabe()?'nao':'sim';
 });`;
 
-const janela = (html) => `--window-size=1080,${html.includes('<body class="story">') ? 1920 : 1350}`;
+const janela = (html) => `--window-size=1080,${/<body class="[^"]*\bstory\b/.test(html) ? 1920 : 1350}`;
 
 export async function arteEstoura(html) {
   const chrome = process.env.CHROME_PATH ?? 'google-chrome';

@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=block');
+body.m-arcana{--ink:#04340B;--ink2:#0A4212;--line:#2B5A30;--txt:#F7F3E7;--mut:#E4E8DC;--vio:#B49554;--grad:linear-gradient(100deg,#E3C98D,#B49554)}
+body.m-priscilla{--ink:#FAF6EC;--ink2:#FFFFFF;--line:#E2DBC8;--txt:#16260F;--mut:#2F3B28;--vio:#B49554;--grad:linear-gradient(100deg,#7C5E22,#7C5E22)}
+body.m-arcana h1,body.m-priscilla h1{font-family:'Playfair Display',Georgia,serif;font-size:88px;line-height:1.1;letter-spacing:-.01em;font-weight:700}
+body.m-arcana h1 em,body.m-priscilla h1 em{padding-bottom:8px}
+body.m-arcana .eyebrow{color:#D3B674}
+body.m-priscilla .eyebrow{color:#7C5E22}
+body.m-arcana .apoio,body.m-priscilla .apoio{font-size:54px;line-height:1.32}
+body.m-arcana .foot img{height:150px;width:auto;margin:-10px 0 0}
+body.m-arcana .foot,body.m-priscilla .foot{min-height:96px}
+.foot b{font-size:30px;font-weight:700;color:var(--txt)}
+.foot span{position:relative}
+/* Marca-d'água fora do fluxo: não interfere na medição do texto. */
+body.m-arcana::after{content:'';position:absolute;right:-110px;bottom:270px;width:560px;height:790px;background:url('logo-arcana.png') no-repeat center/contain;opacity:.07;pointer-events:none}
+body.m-priscilla::after{content:'';position:absolute;right:-240px;bottom:-200px;width:720px;height:720px;border:70px solid #B49554;border-radius:50%;opacity:.16;pointer-events:none}
+body.m-arcana>*,body.m-priscilla>*{position:relative;z-index:1}
+body.m-arcana.story{background:radial-gradient(circle at 50% 70%,#0E5219 0,#04340B 62%)}
+body.m-priscilla.story{background:radial-gradient(circle at 50% 70%,#FFFFFF 0,#F4ECD8 62%)}
+body.m-arcana.story h1{background:#F7F3E7;color:#04340B}
+body.m-priscilla.story h1{background:#04340B;color:#F7F3E7}
+body.m-arcana.story::after{bottom:320px}
