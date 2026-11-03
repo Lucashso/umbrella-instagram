@@ -44,5 +44,53 @@
     "legenda": "",
     "status": "publicado",
     "media_id": "18005927127032498"
+  },
+  {
+    "id": "2026-11-03-registro-pos-reuniao-solucao",
+    "data": "2026-11-03",
+    "tema": "registro-pos-reuniao",
+    "etapa": "solucao",
+    "versao": 1,
+    "frase": "Saiu da reunião? Manda um áudio. O Umbi prepara tudo. Você só confirma.",
+    "post": {
+      "eyebrow": "Umbi no WhatsApp",
+      "titulo": "Saiu da reunião? Manda um áudio.",
+      "destaque": "O Umbi prepara tudo. Você só confirma.",
+      "legenda": "Acabou a reunião e a cabeça ainda está cheia de detalhes. É agora que vale registrar, antes que o dia leve tudo embora.\n\nCom o Umbrella CRM, você não precisa abrir sistema nem preencher campo. Manda um áudio ou um texto para o Umbi no WhatsApp, do jeito que falaria com um colega.\n\nO Umbi prepara o lead e a tarefa com o que você contou e mostra tudo para você conferir. Está certo? Toca em Confirmar. Quer ajustar? Toca em Cancelar.\n\nNada é gravado antes da sua confirmação. Você continua no controle do que entra na sua carteira.\n\nO combinado fica registrado ainda no estacionamento, e você segue para o próximo compromisso tranquilo.\n\nConheça o Umbrella CRM: link na bio.",
+      "hashtags": [
+        "#corretordeseguros",
+        "#segurodevida",
+        "#umbrellacrm",
+        "#organizacao",
+        "#whatsapp"
+      ],
+      "fala": "Saí da reunião com a Carla. Ela manda os documentos até sexta e eu ligo na segunda pra revisar a proposta.",
+      "resposta": "Preparei o lead Carla e a tarefa: ligar na segunda para revisar a proposta. Confere e toca em Confirmar ou Cancelar. Nada é salvo antes disso."
+    },
+    "imagens": [
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/2026-11-03-registro-pos-reuniao-solucao-v1-1-CFaWH4CpTllc9uKoC3RUJQN3GQppNe.jpg"
+    ],
+    "legenda": "Acabou a reunião e a cabeça ainda está cheia de detalhes. É agora que vale registrar, antes que o dia leve tudo embora.\n\nCom o Umbrella CRM, você não precisa abrir sistema nem preencher campo. Manda um áudio ou um texto para o Umbi no WhatsApp, do jeito que falaria com um colega.\n\nO Umbi prepara o lead e a tarefa com o que você contou e mostra tudo para você conferir. Está certo? Toca em Confirmar. Quer ajustar? Toca em Cancelar.\n\nNada é gravado antes da sua confirmação. Você continua no controle do que entra na sua carteira.\n\nO combinado fica registrado ainda no estacionamento, e você segue para o próximo compromisso tranquilo.\n\nConheça o Umbrella CRM: link na bio.\n\n#corretordeseguros #segurodevida #umbrellacrm #organizacao #whatsapp",
+    "status": "pendente"
+  },
+  {
+    "id": "2026-11-03-story-umbi",
+    "data": "2026-11-03",
+    "tipo": "story",
+    "diario": true,
+    "assunto": "Story diário de bom humor sobre a rotina do corretor. Inspiração de hoje: Registrar o que foi combinado logo depois da reunião.",
+    "etapa": "story",
+    "versao": 1,
+    "frase": "Reunião boa é aquela que termina com combinado. Pena que o combinado mora num guardanapo.",
+    "post": {
+      "frase": "Reunião boa é aquela que termina com combinado. Pena que o combinado mora num guardanapo.",
+      "detalhe": "Manda um áudio pra mim ainda no elevador. Eu preparo a tarefa e só gravo depois do seu Confirmar.",
+      "pose": "falando"
+    },
+    "imagens": [
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/2026-11-03-story-umbi-v1-1-36FlweKlFkmPv67y0YdRm2uxyBjAPR.jpg"
+    ],
+    "legenda": "",
+    "status": "pendente"
   }
 ]
