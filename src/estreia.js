@@ -15,14 +15,16 @@ usarCanal(conta);
 if (process.env.PUBLICAR_DE_VERDADE !== 'sim') throw new Error('a publicação está travada (PUBLICAR_DE_VERDADE)');
 
 const posts = JSON.parse(readFileSync(resolve(import.meta.dirname, '..', 'conteudo', `estreia-${conta.id}.json`), 'utf8'));
-const tema = temasDe(conta)[0];
+const temaPadrao = temasDe(conta)[0];
 const historico = lerHistorico();
 const { igId, token } = credenciais(conta);
 await conferirConta(igId, token, conta.usuario);
 
 mkdirSync('saida', { recursive: true });
 try {
-  for (const { id, etapa, post, rotuloPasso = 'Recurso' } of posts) {
+  for (const { id, etapa, post, rotuloPasso = 'Recurso', ...item } of posts) {
+    // "tema": null deixa a arte decidir a cor pelo texto; sem o campo, vale o primeiro tema da conta.
+    const tema = 'tema' in item ? (temasDe(conta).find((t) => t.id === item.tema) ?? {}) : temaPadrao;
     if (historico.some((p) => p.id === id && p.status === 'publicado')) {
       console.log(`${id}: já publicado, pulei.`);
       continue;

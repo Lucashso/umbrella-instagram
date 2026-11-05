@@ -79,8 +79,61 @@ function slidesCliente(post, etapa, conta) {
   return [pagina('', `${titulo(post)}${apoio(post.apoio)}${pe(fim)}`)];
 }
 
+// Leme Hub: um layout por etapa, como as seções do lemehub.com.br, na cor do produto do assunto.
+const PRODUTOS_HUB = [
+  { nome: 'Softwares', re: /softwares?|sob medida|sistema/i, cor: '#cbd5e1', claro: '#f1f5f9' },
+  { nome: 'IA', re: /\bIA\b|intelig[êe]ncia artificial/, cor: '#c084fc', claro: '#e9d5ff' },
+  { nome: 'Wellness', re: /wellness|check-in|academia/i, cor: '#6ee07a', claro: '#bbf7c4' },
+  { nome: 'Gestão', re: /gest[ãa]o|cobran[çc]a/i, cor: '#fb923c', claro: '#fed7aa' },
+  { nome: 'Chat', re: /\bchat\b/i, cor: '#2dd4bf', claro: '#99f6e4' },
+];
+const AZUL_HUB = { nome: 'Leme Hub', cor: '#7dd3fc', claro: '#bae6fd' };
+// O produto vem do começo do RECURSO do tema ("Gestão da Leme Hub: ..."), ou do próprio texto.
+const produtoHub = (texto = '') => {
+  const inicio = texto.split(':')[0];
+  const noInicio = PRODUTOS_HUB.find((p) => p.re.test(inicio));
+  if (noInicio) return noInicio;
+  // Texto que fala de mais de um produto é sobre a Leme Hub em geral: fica no azul da marca.
+  const achados = PRODUTOS_HUB.filter((p) => p.re.test(texto));
+  return achados.length === 1 ? achados[0] : AZUL_HUB;
+};
+const corHub = (p) => `<style>body.m-lemehub.m-lemehub{--ac:${p.cor};--ac-lt:${p.claro};--grad:linear-gradient(100deg,${p.claro},${p.cor})}</style>`;
+// Variação estável por post: o mesmo texto sempre dá o mesmo desenho, mas posts diferentes variam.
+const variante = (s, n) => [...String(s)].reduce((h, c) => (h * 31 + c.charCodeAt(0)) >>> 0, 7) % n;
+
+function slidesLemehub(post, etapa, tema, conta) {
+  const doc = (classe, cor, html) => documento(`m-lemehub ${classe}`, corHub(cor) + html, conta.css);
+  const pe = (texto) => `<div class="foot"><img src="${conta.logo}" alt="${esc(conta.nome)}"><span>${esc(texto)}</span></div>`;
+  const cor = produtoHub(tema?.recurso ?? JSON.stringify(post));
+  const v = variante(post.titulo ?? post.frase, 2);
+
+  if (etapa === 'story') {
+    return [doc('story l-story', cor, `<img class="vela" src="vela-lemehub.png" alt=""><div class="eyebrow">${esc(conta.nome)}</div><h1>${esc(post.frase)}</h1><div class="stage"><p class="apoio">${esc(post.detalhe)}</p></div><div class="assinatura">@${esc(conta.usuario)}</div>`)];
+  }
+  if (etapa === 'dica') {
+    const total = post.passos.length + 2;
+    const capa = doc(`l-capa v${v}`, cor, `${titulo(post)}<div class="stage"><div class="seta">Arraste <b>→</b></div></div>${pe(`1/${total}`)}`);
+    const passos = post.passos.map((p, i) => doc('l-passo', produtoHub(`${p.titulo} ${p.texto}`) === AZUL_HUB ? cor : produtoHub(`${p.titulo} ${p.texto}`),
+      `<div class="num">${String(i + 1).padStart(2, '0')}</div><div class="eyebrow">Passo ${i + 1} de ${post.passos.length}</div><h1><em>${esc(p.titulo)}</em></h1><div class="stage"><p class="apoio">${esc(p.texto)}</p></div>${pe(`${i + 2}/${total}`)}`));
+    const fim = doc('l-fim', cor, `<div class="eyebrow">${esc(post.eyebrow)}</div><h1>${esc(post.rodape)}</h1><div class="stage"><img class="vela" src="vela-lemehub.png" alt=""></div>${pe('lemehub.com.br')}`);
+    return [capa, ...passos, fim];
+  }
+  if (etapa === conta.etapas[0]) {
+    // Problema: manchete grande, sem cartão, e a pergunta que puxa o comentário.
+    return [doc(`l-hero v${v}`, cor, `${titulo(post)}<div class="stage"><p class="apoio"><span class="aspas">“</span>${esc(post.apoio)}</p></div><div class="pergunta">${esc(conta.perguntaFim)}</div>${pe('lemehub.com.br')}`)];
+  }
+  if (etapa === 'ideia' && cor === AZUL_HUB) {
+    // Post avulso sobre a Leme Hub em geral: a vitrine com os cinco produtos, como no site.
+    const chips = PRODUTOS_HUB.map((p) => `<span class="chip" style="--c:${p.cor}"><i></i>${p.nome}</span>`).join('');
+    return [doc(`l-vitrine v${v}`, cor, `${titulo(post)}<div class="stage"><p class="apoio">${esc(post.apoio)}</p><div class="chips">${chips}</div></div>${pe(conta.cta)}`)];
+  }
+  // Solução e ideias de um produto: o texto dentro de uma janela de sistema.
+  return [doc(`l-janela v${v}`, cor, `${titulo(post)}<div class="stage"><div class="janela"><div class="barra"><i></i><i></i><i></i><span>lemehub · ${esc(cor.nome)}</span></div><p class="apoio">${esc(post.apoio)}</p><div class="ok">✓ ${esc(conta.cta)}</div></div></div>${pe('lemehub.com.br')}`)];
+}
+
 // Cada item é a página de uma imagem; mais de uma vira carrossel na publicação.
 export function montarSlides(post, etapa, tema, conta = CONTAS.umbrella) {
+  if (conta.marca === 'lemehub') return slidesLemehub(post, etapa, tema, conta);
   if (!conta.mascote) return slidesCliente(post, etapa, conta);
   const artes = artesCrm(conta);
   if (etapa === 'dica') return artes.dica(post);
