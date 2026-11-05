@@ -6,19 +6,21 @@ import { CONTAS, rotulo, temasDe } from './contas.js';
 import { fraseDe } from './fluxo.js';
 import { hojeBrasilia } from './plano.js';
 import { arteEstoura, montarSlides, renderizarJpeg } from './render.js';
-import { avisar, conferirConta, credenciais, exigir, hospedar, lerHistorico, publicarNoInstagram, salvarHistorico, usarCanal } from './servicos.js';
+import { avisar, conferirConta, credenciais, enviarPrevia, exigir, hospedar, lerHistorico, publicarNoInstagram, salvarHistorico, usarCanal } from './servicos.js';
 import { montarLegenda, validarPost } from './validar.js';
 
 const conta = CONTAS[exigir('CONTA')];
 if (!conta) throw new Error(`conta desconhecida: ${process.env.CONTA}`);
 usarCanal(conta);
-if (process.env.PUBLICAR_DE_VERDADE !== 'sim') throw new Error('a publicação está travada (PUBLICAR_DE_VERDADE)');
+// MODO=previa monta as artes e manda para o Telegram da conta, sem tocar no Instagram nem no histórico.
+const previa = process.env.MODO === 'previa';
+if (!previa && process.env.PUBLICAR_DE_VERDADE !== 'sim') throw new Error('a publicação está travada (PUBLICAR_DE_VERDADE)');
 
 const posts = JSON.parse(readFileSync(resolve(import.meta.dirname, '..', 'conteudo', `estreia-${conta.id}.json`), 'utf8'));
 const temaPadrao = temasDe(conta)[0];
 const historico = lerHistorico();
-const { igId, token } = credenciais(conta);
-await conferirConta(igId, token, conta.usuario);
+const { igId, token } = previa ? {} : credenciais(conta);
+if (!previa) await conferirConta(igId, token, conta.usuario);
 
 mkdirSync('saida', { recursive: true });
 try {
@@ -41,6 +43,11 @@ try {
       imagens.push(await hospedar(readFileSync(arquivo), `${id}-${i + 1}`));
     }
     const legenda = montarLegenda(post);
+    if (previa) {
+      await enviarPrevia(imagens, `👀 Prévia da estreia de ${rotulo(conta)} (${id.split('-estreia-')[1]}). Nada foi publicado.\n\n${legenda}`);
+      console.log(`${id}: prévia enviada.`);
+      continue;
+    }
     const media_id = await publicarNoInstagram(igId, imagens, legenda, token);
     historico.push({ conta: conta.id, id, data: hojeBrasilia(), tipo: 'post', assunto: 'estreia do perfil', etapa, versao: 1, frase: fraseDe(post, etapa), post, imagens, legenda, status: 'publicado', media_id });
     salvarHistorico(historico);

@@ -4,6 +4,10 @@ on:
     inputs:
       conta:
         required: true
+      modo:
+        description: previa (só manda para o Telegram) ou publicar
+        required: true
+        default: previa
 permissions:
   contents: write
 concurrency:
@@ -27,6 +31,7 @@ jobs:
       - run: node src/estreia.js
         env:
           CONTA: ${{ inputs.conta }}
+          MODO: ${{ inputs.modo }}
           PUBLICAR_DE_VERDADE: ${{ vars.PUBLICAR_DE_VERDADE }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}

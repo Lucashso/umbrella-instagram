@@ -45,6 +45,17 @@ export const enviarBotoes = (id, versao, text) => telegram('sendMessage', {
   },
 });
 
+// Só mostra: imagens e texto, sem botões.
+export async function enviarPrevia(imagens, texto) {
+  const chat_id = chatAtual();
+  if (imagens.length > 1) {
+    await telegram('sendMediaGroup', { chat_id, media: imagens.map((media) => ({ type: 'photo', media })) });
+  } else {
+    await telegram('sendPhoto', { chat_id, photo: imagens[0] });
+  }
+  await telegram('sendMessage', { chat_id, text: texto });
+}
+
 export async function enviarParaAprovacao(id, versao, imagens, legenda) {
   const chat_id = chatAtual();
   if (imagens.length > 1) {

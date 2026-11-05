@@ -81,13 +81,13 @@ function slidesCliente(post, etapa, conta) {
 
 // Leme Hub: um layout por etapa, como as seções do lemehub.com.br, na cor do produto do assunto.
 const PRODUTOS_HUB = [
-  { nome: 'Softwares', re: /softwares?|sob medida|sistema/i, cor: '#cbd5e1', claro: '#f1f5f9' },
-  { nome: 'IA', re: /\bIA\b|intelig[êe]ncia artificial/, cor: '#c084fc', claro: '#e9d5ff' },
-  { nome: 'Wellness', re: /wellness|check-in|academia/i, cor: '#6ee07a', claro: '#bbf7c4' },
-  { nome: 'Gestão', re: /gest[ãa]o|cobran[çc]a/i, cor: '#fb923c', claro: '#fed7aa' },
-  { nome: 'Chat', re: /\bchat\b/i, cor: '#2dd4bf', claro: '#99f6e4' },
+  { nome: 'Softwares', re: /softwares?|sob medida|sistema/i, cor: '#cbd5e1', claro: '#f1f5f9', escuro: '#334155' },
+  { nome: 'IA', re: /\bIA\b|intelig[êe]ncia artificial/, cor: '#c084fc', claro: '#e9d5ff', escuro: '#7e22ce' },
+  { nome: 'Wellness', re: /wellness|check-in|academia/i, cor: '#6ee07a', claro: '#bbf7c4', escuro: '#15803d' },
+  { nome: 'Gestão', re: /gest[ãa]o|cobran[çc]a/i, cor: '#fb923c', claro: '#fed7aa', escuro: '#c2410c' },
+  { nome: 'Chat', re: /\bchat\b/i, cor: '#2dd4bf', claro: '#99f6e4', escuro: '#0f766e' },
 ];
-const AZUL_HUB = { nome: 'Leme Hub', cor: '#7dd3fc', claro: '#bae6fd' };
+const AZUL_HUB = { nome: 'Leme Hub', cor: '#7dd3fc', claro: '#bae6fd', escuro: '#0369a1' };
 // O produto vem do começo do RECURSO do tema ("Gestão da Leme Hub: ..."), ou do próprio texto.
 const produtoHub = (texto = '') => {
   const inicio = texto.split(':')[0];
@@ -97,12 +97,17 @@ const produtoHub = (texto = '') => {
   const achados = PRODUTOS_HUB.filter((p) => p.re.test(texto));
   return achados.length === 1 ? achados[0] : AZUL_HUB;
 };
-const corHub = (p) => `<style>body.m-lemehub.m-lemehub{--ac:${p.cor};--ac-lt:${p.claro};--grad:linear-gradient(100deg,${p.claro},${p.cor})}</style>`;
+// No fundo claro a cor do produto escurece para continuar legível.
+const corHub = (p, claro) => (claro
+  ? `<style>body.m-lemehub.m-lemehub{--ac:${p.escuro};--ac-lt:${p.escuro};--grad:linear-gradient(100deg,${p.escuro},${p.escuro} 40%,${p.cor} 140%)}</style>`
+  : `<style>body.m-lemehub.m-lemehub{--ac:${p.cor};--ac-lt:${p.claro};--grad:linear-gradient(100deg,${p.claro},${p.cor})}</style>`);
 // Variação estável por post: o mesmo texto sempre dá o mesmo desenho, mas posts diferentes variam.
 const variante = (s, n) => [...String(s)].reduce((h, c) => (h * 31 + c.charCodeAt(0)) >>> 0, 7) % n;
 
 function slidesLemehub(post, etapa, tema, conta) {
-  const doc = (classe, cor, html) => documento(`m-lemehub ${classe}`, corHub(cor) + html, conta.css);
+  // O carrossel de dica sai claro: a cada três posts do feed, dois escuros e um claro.
+  const claro = etapa === 'dica';
+  const doc = (classe, cor, html) => documento(`m-lemehub ${claro ? 'claro ' : ''}${classe}`, corHub(cor, claro) + html, conta.css);
   const pe = (texto) => `<div class="foot"><img src="${conta.logo}" alt="${esc(conta.nome)}"><span>${esc(texto)}</span></div>`;
   const cor = produtoHub(tema?.recurso ?? JSON.stringify(post));
   const v = variante(post.titulo ?? post.frase, 2);
