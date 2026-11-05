@@ -25,6 +25,15 @@ export const CONTAS = {
     jeito: 'o mascote do Leme CRM: um robozinho timoneiro, de quepe de marinheiro, que vive no WhatsApp dos corretores de seguro de vida',
     humor: 'brinca com a correria do corretor com humor leve e tranquilo, como um parceiro de bordo que já viu muita maré. Usa imagens de navegação (rumo, maré, porto, bússola) de vez em quando, sem forçar trocadilho em toda frase. É calmo, confiante e nunca maldoso',
   },
+  lemehub: {
+    // Aprovada num grupo próprio do Telegram (@instalemehubbot), separado das outras contas.
+    id: 'lemehub', usuario: 'lemehub', persona: 'empresa', sufixo: '_LEMEHUB', prefixo: 'lemehub-', bot: '_LEMEHUB',
+    arquivoTemas: 'temas-lemehub.json', etapas: ['problema', 'solucao', 'dica'], inicio: 0,
+    marca: 'lemehub', css: ['base.css', 'lemehub.css'], logo: 'logo-lemehub.png',
+    nome: 'Leme Hub', cta: 'Fale com a gente: link na bio.', perguntaFim: 'Isso acontece aí?',
+    quem: 'a Leme Hub, empresa de tecnologia que faz softwares sob medida, IA de atendimento no WhatsApp e plataformas prontas (Wellness, Gestão e Chat) para pequenas e médias empresas',
+    voz: 'Escreva como empresa, usando "nós" ou "a Leme Hub": direta, moderna e próxima, sem jargão técnico.',
+  },
   priscilla: {
     id: 'priscilla', usuario: 'freitas.priscilla', persona: 'cliente', sufixo: '_PRISCILLA', prefixo: 'priscilla-',
     arquivoTemas: 'temas-cliente.json', etapas: ['situacao', 'caminho', 'dica'], inicio: 0,
@@ -36,13 +45,14 @@ export const CONTAS = {
     id: 'arcana', usuario: '', persona: 'cliente', sufixo: '_ARCANA', prefixo: 'arcana-',
     // Começa em outro assunto para o seguidor das duas contas não ver o mesmo tema no mesmo dia.
     arquivoTemas: 'temas-cliente.json', etapas: ['situacao', 'caminho', 'dica'], inicio: 6,
-    marca: 'arcana', nome: 'Arcana Corretora de Seguros', cta: 'Chame a Arcana no direct.',
+    marca: 'arcana', logo: 'logo-arcana.png', nome: 'Arcana Corretora de Seguros', cta: 'Chame a Arcana no direct.',
     quem: 'a Arcana Corretora de Seguros, cujo lema é "Proteção, preparo e antecipação"',
     voz: 'Escreva como empresa, usando "nós" ou "a Arcana": segura, clara e respeitosa, sem soar distante.',
   },
 };
 
-export const ehCrm = (conta) => conta.persona !== 'cliente';
+// Contas com mascote (Umbrella e Leme CRM) falam com o corretor; as outras usam a arte só de texto.
+export const temMascote = (conta) => Boolean(conta.mascote);
 
 export const contaDe = (entrada) => CONTAS[entrada.conta ?? 'umbrella'];
 

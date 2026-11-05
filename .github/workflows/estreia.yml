@@ -30,9 +30,13 @@ jobs:
           PUBLICAR_DE_VERDADE: ${{ vars.PUBLICAR_DE_VERDADE }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          TELEGRAM_BOT_TOKEN_LEMEHUB: ${{ secrets.TELEGRAM_BOT_TOKEN_LEMEHUB }}
+          TELEGRAM_CHAT_ID_LEMEHUB: ${{ secrets.TELEGRAM_CHAT_ID_LEMEHUB }}
           BLOB_READ_WRITE_TOKEN: ${{ secrets.BLOB_READ_WRITE_TOKEN }}
           IG_USER_ID_LEME: ${{ secrets.IG_USER_ID_LEME }}
           IG_ACCESS_TOKEN_LEME: ${{ secrets.IG_ACCESS_TOKEN_LEME }}
+          IG_USER_ID_LEMEHUB: ${{ secrets.IG_USER_ID_LEMEHUB }}
+          IG_ACCESS_TOKEN_LEMEHUB: ${{ secrets.IG_ACCESS_TOKEN_LEMEHUB }}
       - name: Salvar estado
         if: always()
         run: |

@@ -153,6 +153,49 @@ test('artes da Leme têm Timo, logo e cores da Leme; as da Umbrella não mudam',
   assert.deepEqual(todas(undefined), artesUmbrella);
 });
 
+test('Leme Hub: botões de ideia só no bot dela, e o bot de sempre não mostra a Leme Hub', () => {
+  const ativas = 'umbrella,leme,lemehub';
+  assert.deepEqual(botoesIdeia(ativas, '_LEMEHUB').flat().map((b) => b.callback_data), ['ideia:lemehub:story', 'ideia:lemehub:post']);
+  assert.ok(!botoesIdeia(ativas, '').flat().some((b) => b.callback_data.includes('lemehub')));
+});
+
+test('no grupo de aprovação qualquer membro aprova; fora dele, ninguém', () => {
+  const grupo = -100123;
+  const toque = (chat) => ({ callback_query: { id: 'c', data: 'aprovar:1:lemehub-x', from: { id: 77 }, message: { message_id: 5, chat: { id: chat } } } });
+  assert.equal(interpretarUpdate(toque(grupo), grupo).acao, 'aprovar');
+  assert.equal(interpretarUpdate(toque(-999), grupo), null);
+});
+
+test('no grupo a ideia chega pelo comando /ideia', () => {
+  const grupo = -100123;
+  const msg = (text) => ({ message: { text, from: { id: 77 }, chat: { id: grupo } } });
+  assert.deepEqual(interpretarUpdate(msg('/ideia@instalemehubbot post sobre cobrança'), grupo), { tipo: 'ideia', pedido: 'post sobre cobrança' });
+  assert.equal(interpretarUpdate(msg('/start'), grupo).tipo, 'ajuda');
+});
+
+test('Leme Hub não cita cliente nem produto de cliente', () => {
+  for (const texto of ['Fizemos o Umbrella CRM', 'o LemeJur', 'clube AlegriaCard', 'a Arcana', 'o Leme CRM']) {
+    assert.notEqual(validarPost({ ...base, legenda: texto }, 'problema', 'empresa').length, 0, texto);
+  }
+  assert.deepEqual(validarPost({ ...base, legenda: 'A Leme Hub faz softwares sob medida.' }, 'solucao', 'empresa'), []);
+});
+
+test('artes da Leme Hub: só texto, logo e cores dela, com a sequência problema → solução → dica', () => {
+  const lemehub = CONTAS.lemehub;
+  assert.deepEqual(lemehub.etapas, ['problema', 'solucao', 'dica']);
+  const dica = { ...base, rodape: 'R', passos: [1, 2, 3].map((n) => ({ titulo: `P${n}`, texto: `X${n}` })) };
+  const artes = [
+    ...montarSlides(base, 'problema', {}, lemehub),
+    ...montarSlides(base, 'solucao', {}, lemehub),
+    ...montarSlides(dica, 'dica', {}, lemehub),
+    ...montarSlides({ frase: 'F', detalhe: 'D' }, 'story', {}, lemehub),
+  ];
+  assert.equal(artes.length, 8);
+  assert.ok(artes.every((h) => h.includes('m-lemehub') && h.includes('lemehub.css') && !h.includes('cliente.css') && !/umbi-|timo-/.test(h)));
+  assert.ok(artes[0].includes('Isso acontece aí?') && artes[1].includes('link na bio'));
+  assert.ok(temasDe(lemehub).length >= 10);
+});
+
 test('aprovação de story da Leme diz que é do Timo', () => {
   assert.ok(textoAprovacao({ frase: 'a', detalhe: 'b' }, 'story', '', leme).startsWith('🎬 Story do Timo · @leme.crm'));
 });

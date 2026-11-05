@@ -2,7 +2,7 @@ import { conferidor, fraseDe, prepararEEnviar } from './fluxo.js';
 import { contaDe, contasAtivas, rotulo, temasDe } from './contas.js';
 import { hojeBrasilia, proximoPost, temaLivre } from './plano.js';
 import { escreverPost } from './redator.js';
-import { avisar, enviarBotoes, lerHistorico, salvarHistorico } from './servicos.js';
+import { avisar, enviarBotoes, lerHistorico, salvarHistorico, usarCanal } from './servicos.js';
 
 const historico = lerHistorico();
 const data = hojeBrasilia();
@@ -44,10 +44,10 @@ async function passoStory(conta, doHistorico, temas) {
   // O primeiro story de uma conta é sempre de apresentação.
   const estreia = !doHistorico.some((p) => p.tipo === 'story' && p.status === 'publicado');
   const assunto = estreia
-    ? (conta.persona !== 'cliente'
+    ? (conta.mascote
       ? 'Primeiro story do perfil: apresente-se aos corretores, diga quem você é e o que faz por eles, usando só o RECURSO.'
       : 'Primeiro story do perfil: apresente o perfil, quem fala aqui e o que a pessoa vai encontrar nos próximos posts, sem vender nada.')
-    : conta.persona !== 'cliente'
+    : conta.mascote
       ? `Story diário de bom humor sobre a rotina do corretor. Inspiração de hoje: ${doDia.assunto}.`
       : `Story diário leve e próximo. Inspiração de hoje: ${doDia.assunto}.`;
   const tema = temaLivre(assunto, temas);
@@ -61,6 +61,7 @@ async function passoStory(conta, doHistorico, temas) {
 // Um passo com falha não impede os outros; o erro aparece no Telegram e no GitHub.
 let falhou = false;
 for (const conta of contasAtivas()) {
+  usarCanal(conta);
   const temas = temasDe(conta);
   for (const [nome, passo] of [['o post', passoPost], ['o story', passoStory]]) {
     try {

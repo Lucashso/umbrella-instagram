@@ -1,0 +1,52 @@
+[
+  {
+    "id": "planilhas",
+    "assunto": "A operação inteira presa em planilhas que só uma pessoa entende",
+    "recurso": "Softwares sob medida da Leme Hub: sistema criado a partir do processo da empresa para tirar a operação das planilhas e automatizar o repetitivo. Primeiro vem a conversa e o levantamento do processo; o cliente navega por um protótipo das telas antes de começar e recebe proposta com prazo e valor fechados."
+  },
+  {
+    "id": "whatsapp-de-madrugada",
+    "assunto": "Cliente que manda mensagem fora do horário e fica sem resposta",
+    "recurso": "IA de atendimento da Leme Hub: uma IA treinada com as respostas do negócio atende no WhatsApp da empresa, responde as perguntas frequentes na hora, de dia ou de madrugada, agenda horários e passa para o responsável quando o assunto pede uma pessoa."
+  },
+  {
+    "id": "cobranca-manual",
+    "assunto": "Correr atrás de cliente para cobrar mensalidade todo mês",
+    "recurso": "Gestão da Leme Hub: cobrança recorrente por Pix, boleto ou cartão, com régua de lembretes automáticos antes e depois do vencimento, nota fiscal de serviço junto com a cobrança e painel com receita, inadimplência e recebimentos. Leva o logo e as cores da empresa."
+  },
+  {
+    "id": "whatsapp-espalhado",
+    "assunto": "Cada pessoa da equipe atendendo clientes num celular diferente",
+    "recurso": "Chat da Leme Hub: o WhatsApp da equipe inteira num só lugar, com vários números em abas (comercial, suporte, financeiro), cada conversa como um card num Kanban, campanhas para listas de contatos, mensagens agendadas e um agente de IA que responde, agenda e retoma conversas paradas. Conecta pela API oficial do WhatsApp ou pelo QR Code."
+  },
+  {
+    "id": "conversas-paradas",
+    "assunto": "Orçamento enviado e cliente que some sem resposta",
+    "recurso": "IA de atendimento da Leme Hub: retoma sozinha as conversas que pararam no meio, confirma a agenda, lembra o cliente do compromisso e passa para a equipe quando precisa de uma pessoa."
+  },
+  {
+    "id": "recepcao-academia",
+    "assunto": "Recepção de academia ou studio ainda no papel e na planilha",
+    "recurso": "Wellness da Leme Hub: check-in por QR Code, aulas e turmas com horários, vagas e presença, treinos no app, mensalidades por Pix ou cartão com controle de quem está em atraso, avisos e comunidade, e app do aluno com a marca do espaço, que abre pelo navegador sem baixar da loja. Integra com o Strava."
+  },
+  {
+    "id": "sistema-generico",
+    "assunto": "Sistema pronto que obriga a empresa a mudar o próprio processo",
+    "recurso": "Softwares sob medida da Leme Hub: sistema feito a partir do processo real da empresa, não de templates. O cliente aprova as telas antes da primeira linha de código. Depois da entrega há 90 dias de suporte gratuito e 120 dias de garantia."
+  },
+  {
+    "id": "resumo-do-dia",
+    "assunto": "Dono que só descobre o que aconteceu no atendimento quando dá problema",
+    "recurso": "IA gestora da Leme Hub: manda no WhatsApp do responsável um resumo diário de todas as conversas, os agendamentos do dia e do dia seguinte, lembretes de pagamentos e cobranças pendentes e avisos de tarefas em aberto."
+  },
+  {
+    "id": "ferramentas-soltas",
+    "assunto": "Ferramentas que não conversam entre si e geram retrabalho",
+    "recurso": "Softwares sob medida da Leme Hub: integração de sistemas, com ferramentas e APIs conectadas em fluxos automáticos, automação de processos e dashboards com indicadores em tempo real. Conecta à IA, ao Chat e à Gestão da Leme Hub quando fizer sentido."
+  },
+  {
+    "id": "clube-assinatura",
+    "assunto": "Clube de benefícios ou associação controlando sócios na mão",
+    "recurso": "Gestão da Leme Hub: cadastro de membros, planos e o que cada um tem direito, cobrança recorrente, modelos de contrato com assinatura sem papel e portais por perfil (cliente, vendedor e RH), com a marca da empresa."
+  }
+]

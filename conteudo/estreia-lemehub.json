@@ -1,0 +1,44 @@
+[
+  {
+    "id": "lemehub-estreia-1-quem-somos",
+    "etapa": "ideia",
+    "post": {
+      "eyebrow": "Ecossistema Leme Hub",
+      "titulo": "Tecnologia que dá rumo",
+      "destaque": "ao seu negócio.",
+      "apoio": "Sistemas sob medida, inteligência artificial e plataformas prontas para automatizar processos e organizar clientes.",
+      "legenda": "Muito prazer, nós somos a Leme Hub.\n\nCriamos tecnologia para pequenas e médias empresas brasileiras que querem sair das planilhas, automatizar o que é repetitivo e organizar os clientes num só lugar.\n\nFazemos sistemas sob medida, colocamos inteligência artificial para atender no WhatsApp e oferecemos plataformas prontas para academias, clubes, empresas de serviços e associações.\n\nNos próximos posts você vai ver como trabalhamos e o que dá para resolver na sua operação.\n\nSiga a @lemehub para acompanhar.",
+      "hashtags": ["#tecnologia", "#automacao", "#gestao", "#pme", "#lemehub"]
+    }
+  },
+  {
+    "id": "lemehub-estreia-2-como-trabalhamos",
+    "etapa": "ideia",
+    "post": {
+      "eyebrow": "Como trabalhamos",
+      "titulo": "Você vê o sistema",
+      "destaque": "antes de começar.",
+      "apoio": "Primeiro a conversa. Depois você navega pelo protótipo das telas e recebe a proposta com prazo e valor fechados.",
+      "legenda": "Sistema sob medida não precisa ser uma aposta.\n\nNa Leme Hub, tudo começa com uma conversa: você conta como a sua operação funciona hoje, pelo WhatsApp ou numa reunião.\n\nDepois, você navega por um protótipo das telas e recebe a proposta com prazo e valor fechados, antes da primeira linha de código.\n\nCom tudo aprovado, construímos, testamos com a sua equipe e colocamos no ar. E seguimos junto depois da entrega, com 90 dias de suporte.\n\nFale com a gente: link na bio.",
+      "hashtags": ["#sistemasobmedida", "#software", "#automacao", "#pme", "#lemehub"]
+    }
+  },
+  {
+    "id": "lemehub-estreia-3-solucoes",
+    "etapa": "dica",
+    "rotuloPasso": "Solução",
+    "post": {
+      "eyebrow": "Soluções",
+      "titulo": "Escolha o que o seu",
+      "destaque": "negócio precisa.",
+      "passos": [
+        { "titulo": "Softwares sob medida", "texto": "Sistema feito a partir do seu processo para tirar a operação das planilhas e automatizar o repetitivo." },
+        { "titulo": "IA no WhatsApp", "texto": "Atende os clientes, agenda horários, retoma conversas paradas e manda para você um resumo do dia." },
+        { "titulo": "Plataformas prontas", "texto": "Wellness para academias e clubes, Gestão para cobrança recorrente e Chat para o WhatsApp da equipe." }
+      ],
+      "rodape": "Fale com a gente: link na bio",
+      "legenda": "Cada negócio tem uma dor diferente. Por isso a Leme Hub é um ecossistema: você usa só o que precisa e integra o resto quando fizer sentido.\n\nSoftwares sob medida: um sistema para o seu processo.\n\nIA no WhatsApp: atendimento, agendamento e retorno de conversas, com resumo do dia para você.\n\nWellness, Gestão e Chat: plataformas prontas para check-in e mensalidades, cobrança recorrente e o WhatsApp da equipe num lugar só.\n\nArraste para ver e conte nos comentários qual delas faria diferença aí.",
+      "hashtags": ["#tecnologia", "#inteligenciaartificial", "#automacao", "#gestao", "#lemehub"]
+    }
+  }
+]

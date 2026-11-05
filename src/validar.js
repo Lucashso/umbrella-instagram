@@ -28,6 +28,8 @@ const OUTRA_MARCA = {
   umbi: [[/\btimo\b|leme\s*crm/i, 'marca da Leme']],
   timo: [[/\bumbi\b|\bumbrella\b/i, 'marca da Umbrella']],
   cliente: PROIBIDOS_CLIENTE,
+  // A Leme Hub não expõe cliente nem produto feito para cliente.
+  empresa: [[/\bumbi\b|\bumbrella\b|\btimo\b|leme\s*crm|lemejur|alegria\s*card|arcana/i, 'nome de cliente ou de produto de cliente']],
 };
 
 export function validarPost(post, etapa, persona = 'umbi') {
@@ -45,7 +47,7 @@ export function validarPost(post, etapa, persona = 'umbi') {
     }
   }
   if (etapa === 'story') {
-    if (persona !== 'cliente' && SENSIVEIS_STORY.test(`${post.frase} ${post.detalhe}`)) erros.push('story não pode falar de morte, doença, acidente ou sinistro');
+    if ((persona === 'umbi' || persona === 'timo') && SENSIVEIS_STORY.test(`${post.frase} ${post.detalhe}`)) erros.push('story não pode falar de morte, doença, acidente ou sinistro');
   } else if (!Array.isArray(post.hashtags) || post.hashtags.length === 0 || post.hashtags.length > 5) {
     erros.push('use de 1 a 5 hashtags');
   } else if (post.hashtags.some((h) => !/^#[\p{L}\p{N}_]+$/u.test(h))) {

@@ -10,7 +10,8 @@ function esquema(etapa, tema, conta) {
     const properties = { frase: texto, detalhe: texto, ...pose };
     return { type: 'object', properties, required: Object.keys(properties), additionalProperties: false };
   }
-  const extras = ['dor', 'ideia', 'situacao', 'caminho'].includes(etapa) ? { apoio: texto }
+  const comApoio = ['dor', 'ideia', 'situacao', 'caminho', 'problema'].includes(etapa) || (etapa === 'solucao' && !conta.mascote);
+  const extras = comApoio ? { apoio: texto }
     : etapa === 'dica' ? {
       passos: { type: 'array', items: { type: 'object', properties: { titulo: texto, texto }, required: ['titulo', 'texto'], additionalProperties: false } },
       rodape: texto,
@@ -102,8 +103,44 @@ Campos:
 - frase: a frase principal, até 90 caracteres.
 - detalhe: uma segunda frase curta que completa a ideia, até 110 caracteres.`;
 
+const REGRAS_EMPRESA = `Regras que nunca podem ser quebradas:
+- Só afirme sobre os produtos e o jeito de trabalhar da Leme Hub o que está no campo RECURSO. Não invente funções, integrações, prazos, preços ou resultados.
+- Sem estatísticas, percentuais, valores em reais, promessas de resultado ou superlativos.
+- Sem cases, clientes, depoimentos ou números de clientes. Não cite o nome de nenhum cliente nem de sistemas feitos para clientes.
+- Nunca invente fatos em primeira pessoa, como projetos, conversas ou histórias da equipe. Descreva situações comuns de forma geral ("muita empresa...", "quando o time cresce...").
+- Sem jargão técnico que o dono de uma empresa pequena não use no dia a dia.`;
+
+const sistemaEmpresa = (conta) => `Você escreve o Instagram de ${conta.quem}. O público são donos e gestores de pequenas e médias empresas no Brasil. ${conta.voz} Use português do Brasil, direto e humano.
+
+Os posts seguem uma sequência de três dias sobre o mesmo assunto:
+- problema: mostra uma cena real da operação de uma empresa (planilha, WhatsApp sem resposta, cobrança manual...). Não vende nada.
+- solucao: mostra como a Leme Hub resolve essa cena, usando somente o RECURSO e citando o produto pelo nome.
+- dica: dá uma dica prática ligada ao assunto, útil mesmo para quem não vai contratar nada.
+- ideia: post avulso pedido pela social media no campo ASSUNTO. Siga a ideia, sempre dentro das regras abaixo.
+
+${REGRAS_EMPRESA}
+
+Campos:
+- titulo + destaque formam a frase principal da arte. Até 34 e 44 caracteres.
+- eyebrow: rótulo curto acima da frase, até 28 caracteres.
+- apoio (problema, solucao e ideia): uma frase curta que aprofunda a ideia, até 150 caracteres.
+- passos (dica): exatamente 3, cada um em um slide do carrossel. titulo até 30 e texto até 120 caracteres.
+- rodape (dica): frase do último slide do carrossel, chamando para salvar ou compartilhar, até 34 caracteres.
+- legenda: até 900 caracteres, sem hashtags, com parágrafos curtos. Na solucao, termine com "${conta.cta}"
+- hashtags: de 3 a 5, em minúsculas e sem acento, começando com #.`;
+
+const sistemaStoryEmpresa = (conta) => `Você escreve os stories do Instagram de ${conta.quem}. O público são donos e gestores de pequenas e médias empresas. ${conta.voz} O story parece conversa do dia a dia, não anúncio, e na maioria dos dias não precisa vender nada.
+
+${REGRAS_EMPRESA}
+- Sem hashtags e sem pedir para clicar em link: story pela API não aceita link.
+
+Campos:
+- frase: a frase principal, até 90 caracteres.
+- detalhe: uma segunda frase curta que completa a ideia, até 110 caracteres.`;
+
 function sistemaDe(conta, etapa) {
-  if (conta.persona !== 'cliente') return etapa === 'story' ? sistemaStoryCrm(conta) : sistemaCrm(conta);
+  if (conta.mascote) return etapa === 'story' ? sistemaStoryCrm(conta) : sistemaCrm(conta);
+  if (conta.persona === 'empresa') return etapa === 'story' ? sistemaStoryEmpresa(conta) : sistemaEmpresa(conta);
   return etapa === 'story' ? sistemaStoryCliente(conta) : sistemaCliente(conta);
 }
 

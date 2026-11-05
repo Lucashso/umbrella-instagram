@@ -46,6 +46,8 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          TELEGRAM_BOT_TOKEN_LEMEHUB: ${{ secrets.TELEGRAM_BOT_TOKEN_LEMEHUB }}
+          TELEGRAM_CHAT_ID_LEMEHUB: ${{ secrets.TELEGRAM_CHAT_ID_LEMEHUB }}
           BLOB_READ_WRITE_TOKEN: ${{ secrets.BLOB_READ_WRITE_TOKEN }}
           IG_USER_ID: ${{ secrets.IG_USER_ID }}
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
@@ -55,6 +57,8 @@ jobs:
           IG_ACCESS_TOKEN_ARCANA: ${{ secrets.IG_ACCESS_TOKEN_ARCANA }}
           IG_USER_ID_LEME: ${{ secrets.IG_USER_ID_LEME }}
           IG_ACCESS_TOKEN_LEME: ${{ secrets.IG_ACCESS_TOKEN_LEME }}
+          IG_USER_ID_LEMEHUB: ${{ secrets.IG_USER_ID_LEMEHUB }}
+          IG_ACCESS_TOKEN_LEMEHUB: ${{ secrets.IG_ACCESS_TOKEN_LEMEHUB }}
       - name: Salvar estado
         if: always()
         run: |

@@ -1,0 +1,36 @@
+name: Configurar bot do Telegram
+on:
+  workflow_dispatch:
+    inputs:
+      modo:
+        description: descobrir (lista os chats) ou ligar (aponta o webhook)
+        required: true
+        default: descobrir
+      sufixo:
+        description: sufixo das variáveis do bot, ex. _LEMEHUB
+        required: true
+        default: _LEMEHUB
+      webhook:
+        description: rota na Vercel, ex. telegram-lemehub
+        required: false
+        default: telegram-lemehub
+permissions:
+  contents: read
+jobs:
+  configurar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: node src/configurar-bot.js
+        env:
+          MODO: ${{ inputs.modo }}
+          SUFIXO: ${{ inputs.sufixo }}
+          WEBHOOK_URL: https://umbrella-instagram.vercel.app/api/${{ inputs.webhook }}
+          TELEGRAM_BOT_TOKEN_LEMEHUB: ${{ secrets.TELEGRAM_BOT_TOKEN_LEMEHUB }}
+          TELEGRAM_WEBHOOK_SECRET_LEMEHUB: ${{ secrets.TELEGRAM_WEBHOOK_SECRET_LEMEHUB }}

@@ -18,8 +18,13 @@ export function exigir(nome) {
 }
 
 // --- Telegram ---
+// Cada conta é aprovada no chat do seu bot. Sem `bot`, vale o bot de sempre (Umbrella, Leme, Priscilla, Arcana).
+let canal = '';
+export const usarCanal = (conta) => { canal = conta?.bot ?? ''; };
+const chatAtual = () => exigir(`TELEGRAM_CHAT_ID${canal}`);
+
 async function telegram(metodo, corpo) {
-  const r = await fetch(`https://api.telegram.org/bot${exigir('TELEGRAM_BOT_TOKEN')}/${metodo}`, {
+  const r = await fetch(`https://api.telegram.org/bot${exigir(`TELEGRAM_BOT_TOKEN${canal}`)}/${metodo}`, {
     method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(corpo),
   });
   const j = await r.json();
@@ -27,10 +32,10 @@ async function telegram(metodo, corpo) {
   return j.result;
 }
 
-export const avisar = (text) => telegram('sendMessage', { chat_id: exigir('TELEGRAM_CHAT_ID'), text });
+export const avisar = (text) => telegram('sendMessage', { chat_id: chatAtual(), text });
 
 export const enviarBotoes = (id, versao, text) => telegram('sendMessage', {
-  chat_id: exigir('TELEGRAM_CHAT_ID'),
+  chat_id: chatAtual(),
   text,
   reply_markup: {
     inline_keyboard: [
@@ -41,7 +46,7 @@ export const enviarBotoes = (id, versao, text) => telegram('sendMessage', {
 });
 
 export async function enviarParaAprovacao(id, versao, imagens, legenda) {
-  const chat_id = exigir('TELEGRAM_CHAT_ID');
+  const chat_id = chatAtual();
   if (imagens.length > 1) {
     await telegram('sendMediaGroup', { chat_id, media: imagens.map((media) => ({ type: 'photo', media })) });
   } else {

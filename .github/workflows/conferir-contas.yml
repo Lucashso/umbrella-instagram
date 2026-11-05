@@ -25,3 +25,5 @@ jobs:
           IG_ACCESS_TOKEN_ARCANA: ${{ secrets.IG_ACCESS_TOKEN_ARCANA }}
           IG_USER_ID_LEME: ${{ secrets.IG_USER_ID_LEME }}
           IG_ACCESS_TOKEN_LEME: ${{ secrets.IG_ACCESS_TOKEN_LEME }}
+          IG_USER_ID_LEMEHUB: ${{ secrets.IG_USER_ID_LEMEHUB }}
+          IG_ACCESS_TOKEN_LEMEHUB: ${{ secrets.IG_ACCESS_TOKEN_LEMEHUB }}

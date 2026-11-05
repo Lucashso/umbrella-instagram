@@ -4,7 +4,7 @@ import { CONTAS, contaDe, contasAtivas, rotulo, temasDe } from './contas.js';
 import { conferidor, fraseDe, prepararEEnviar } from './fluxo.js';
 import { hojeBrasilia, temaLivre } from './plano.js';
 import { escreverPost, reescreverPost } from './redator.js';
-import { avisar, conferirConta, credenciais, enviarBotoes, exigir, lerHistorico, publicarNoInstagram, publicarStory, salvarHistorico } from './servicos.js';
+import { avisar, conferirConta, credenciais, enviarBotoes, exigir, lerHistorico, publicarNoInstagram, publicarStory, salvarHistorico, usarCanal } from './servicos.js';
 
 const acao = exigir('ACAO');
 const id = exigir('POST_ID');
@@ -12,6 +12,8 @@ const versao = Number(exigir('POST_VERSAO'));
 
 const historico = lerHistorico();
 const entrada = historico.find((p) => p.id === id);
+// Responde no chat do bot da conta: a Leme Hub tem bot e grupo próprios.
+usarCanal(entrada ? contaDe(entrada) : CONTAS[process.env.CONTA || 'umbrella']);
 
 // Pedido da social media: não entra na sequência da conta.
 async function criarDaIdeia(tipo) {

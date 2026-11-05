@@ -1,0 +1,19 @@
+/* Leme Hub: o "vidro escuro" do lemehub.com.br. Títulos Space Grotesk, rótulos JetBrains Mono, texto Inter. */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@500&display=block');
+body.m-lemehub{--ink:#060a11;--ink2:#0a1424;--line:rgba(125,211,252,.18);--txt:#e8ecf1;--mut:#9aa6b8;--vio:#7dd3fc;--grad:linear-gradient(100deg,#bae6fd,#7dd3fc 55%,#38bdf8);
+  font-family:Inter,sans-serif;background:radial-gradient(circle at 85% 18%,rgba(56,189,248,.20) 0,transparent 46%),radial-gradient(circle at 10% 100%,#12355c 0,transparent 55%),var(--ink)}
+body.m-lemehub h1{font-family:'Space Grotesk',sans-serif;font-size:86px;line-height:1.06;letter-spacing:-.03em;font-weight:700}
+body.m-lemehub h1 em{padding-bottom:6px}
+body.m-lemehub .eyebrow{font-family:'JetBrains Mono',monospace;font-weight:500;letter-spacing:.14em;color:#7dd3fc}
+/* Apoio dentro de um cartão de vidro, como no site. */
+body.m-lemehub .apoio{font-size:46px;line-height:1.38;color:#e8ecf1;border:1px solid rgba(125,211,252,.22);border-left:6px solid #38bdf8;border-radius:28px;padding:40px 44px;background:linear-gradient(160deg,rgba(255,255,255,.07),rgba(255,255,255,.02))}
+body.m-lemehub .foot{min-height:90px;border-top:1px solid rgba(125,211,252,.18)}
+body.m-lemehub .foot img{height:74px;width:auto;margin:0}
+body.m-lemehub .foot span{font-family:'JetBrains Mono',monospace;font-size:24px;color:#7dd3fc;position:relative}
+body.m-lemehub>*{position:relative;z-index:1}
+/* A vela do logo, grande e apagada no canto: fora do fluxo, não interfere na medição do texto. */
+body.m-lemehub::after{content:'';position:absolute;right:-150px;bottom:150px;width:760px;height:760px;background:url('vela-lemehub.png') no-repeat center/contain;filter:brightness(0) invert(1);opacity:.05;pointer-events:none}
+body.m-lemehub.story{background:radial-gradient(circle at 50% 30%,rgba(56,189,248,.22) 0,transparent 50%),radial-gradient(circle at 50% 100%,#12355c 0,transparent 60%),#060a11}
+body.m-lemehub.story h1{background:linear-gradient(160deg,rgba(255,255,255,.12),rgba(255,255,255,.04));border:1px solid rgba(125,211,252,.3);color:#e8ecf1}
+body.m-lemehub.story .apoio{border:0;background:none;padding:0}
+body.m-lemehub.story::after{bottom:380px}

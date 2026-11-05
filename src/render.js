@@ -57,10 +57,10 @@ function artesCrm(c) {
   };
 }
 
-// Contas que falam com o cliente final: sem Umbi, com a identidade de cada marca.
+// Contas sem mascote (cliente final e Leme Hub): arte só de texto, com a identidade de cada marca.
 function slidesCliente(post, etapa, conta) {
-  const pagina = (classe, html) => documento(`m-${conta.marca} ${classe}`.trim(), html, ['base.css', 'cliente.css']);
-  const assinatura = conta.marca === 'arcana' ? '<img src="logo-arcana.png" alt="Arcana Corretora de Seguros">' : `<b>${esc(conta.nome)}</b>`;
+  const pagina = (classe, html) => documento(`m-${conta.marca} ${classe}`.trim(), html, conta.css ?? ['base.css', 'cliente.css']);
+  const assinatura = conta.logo ? `<img src="${conta.logo}" alt="${esc(conta.nome)}">` : `<b>${esc(conta.nome)}</b>`;
   const pe = (texto) => `<div class="foot">${assinatura}<span>${esc(texto)}</span></div>`;
   const apoio = (texto) => `<div class="stage"><p class="apoio">${esc(texto)}</p></div>`;
 
@@ -75,13 +75,13 @@ function slidesCliente(post, etapa, conta) {
       pagina('', `<div class="eyebrow">${esc(post.eyebrow)}</div><h1><em>${esc(post.rodape)}</em></h1>${apoio(conta.cta)}${pe(`${total}/${total}`)}`),
     ];
   }
-  const fim = etapa === 'situacao' ? 'Já pensou nisso?' : conta.cta;
+  const fim = etapa === conta.etapas[0] ? (conta.perguntaFim ?? 'Já pensou nisso?') : conta.cta;
   return [pagina('', `${titulo(post)}${apoio(post.apoio)}${pe(fim)}`)];
 }
 
 // Cada item é a página de uma imagem; mais de uma vira carrossel na publicação.
 export function montarSlides(post, etapa, tema, conta = CONTAS.umbrella) {
-  if (conta.persona === 'cliente') return slidesCliente(post, etapa, conta);
+  if (!conta.mascote) return slidesCliente(post, etapa, conta);
   const artes = artesCrm(conta);
   if (etapa === 'dica') return artes.dica(post);
   if (etapa === 'solucao') return [artes.solucao(post, tema)];
