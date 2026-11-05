@@ -53,6 +53,8 @@ jobs:
           IG_ACCESS_TOKEN_PRISCILLA: ${{ secrets.IG_ACCESS_TOKEN_PRISCILLA }}
           IG_USER_ID_ARCANA: ${{ secrets.IG_USER_ID_ARCANA }}
           IG_ACCESS_TOKEN_ARCANA: ${{ secrets.IG_ACCESS_TOKEN_ARCANA }}
+          IG_USER_ID_LEME: ${{ secrets.IG_USER_ID_LEME }}
+          IG_ACCESS_TOKEN_LEME: ${{ secrets.IG_ACCESS_TOKEN_LEME }}
       - name: Salvar estado
         if: always()
         run: |

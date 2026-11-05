@@ -8,7 +8,7 @@ import { montarSlides } from '../src/render.js';
 import { conferirConta, credenciais } from '../src/servicos.js';
 import { validarPost } from '../src/validar.js';
 
-const { umbrella, priscilla, arcana } = CONTAS;
+const { umbrella, leme, priscilla, arcana } = CONTAS;
 const original = globalThis.fetch;
 afterEach(() => { globalThis.fetch = original; });
 
@@ -108,6 +108,54 @@ test('a mensagem de aprovação sempre diz o perfil', () => {
 });
 
 const base = { eyebrow: 'E', titulo: 'T', destaque: 'D', apoio: 'A', legenda: 'L', hashtags: ['#seguro'] };
+
+test('a Leme usa os temas da Umbrella com o Timo no lugar do Umbi', () => {
+  const temas = JSON.stringify(temasDe(leme));
+  assert.ok(!/umbi|umbrella/i.test(temas));
+  assert.ok(temas.includes('Timo'));
+  assert.ok(JSON.stringify(temasDe(umbrella)).includes('Umbi'));
+});
+
+test('Leme e Umbrella começam em assuntos diferentes', () => {
+  const [u, l] = [umbrella, leme].map((c) => proximoPost([], temasDe(c), c.etapas, c.inicio));
+  assert.equal(l.etapa, 'dor');
+  assert.notEqual(u.tema.id, l.tema.id);
+});
+
+test('uma marca de CRM nunca aparece no post da outra', () => {
+  assert.notEqual(validarPost({ ...base, legenda: 'Fale com o Umbi' }, 'dor', 'timo').length, 0);
+  assert.notEqual(validarPost({ ...base, legenda: 'Conheça o Umbrella CRM' }, 'solucao', 'timo').length, 0);
+  assert.notEqual(validarPost({ ...base, legenda: 'Fale com o Timo' }, 'dor', 'umbi').length, 0);
+  assert.notEqual(validarPost({ ...base, legenda: 'Conheça o Leme CRM' }, 'solucao', 'umbi').length, 0);
+  assert.deepEqual(validarPost({ ...base, legenda: 'Conheça o Leme CRM e fale com o Timo' }, 'solucao', 'timo'), []);
+});
+
+test('story do Timo também não brinca com morte ou doença', () => {
+  assert.notEqual(validarPost({ frase: 'Ninguém gosta de falar de morte.', detalhe: 'x' }, 'story', 'timo').length, 0);
+});
+
+test('artes da Leme têm Timo, logo e cores da Leme; as da Umbrella não mudam', () => {
+  const dica = { ...base, rodape: 'R', passos: [1, 2, 3].map((n) => ({ titulo: `P${n}`, texto: `X${n}` })) };
+  const chat = { visual: 'chat', confirmar: true };
+  const todas = (conta) => [
+    ...montarSlides(base, 'dor', {}, conta),
+    ...montarSlides({ ...base, fala: 'f', resposta: 'r' }, 'solucao', chat, conta),
+    ...montarSlides(dica, 'dica', {}, conta),
+    ...montarSlides({ frase: 'F', detalhe: 'D', pose: 'ok' }, 'story', {}, conta),
+    ...montarSlides(base, 'ideia', {}, conta),
+  ];
+  const artesLeme = todas(leme);
+  assert.equal(artesLeme.length, 9);
+  assert.ok(artesLeme.every((h) => h.includes('m-leme') && h.includes('leme.css') && /timo-/.test(h) && !/umbi-|logo\.png|logo_dark|Umbrella|Umbi/.test(h)));
+  assert.ok(artesLeme.find((h) => h.includes('class="m-leme story"')).includes('@leme.crm'));
+  const artesUmbrella = todas(umbrella);
+  assert.ok(artesUmbrella.every((h) => /umbi-/.test(h) && !/leme|timo/i.test(h)));
+  assert.deepEqual(todas(undefined), artesUmbrella);
+});
+
+test('aprovação de story da Leme diz que é do Timo', () => {
+  assert.ok(textoAprovacao({ frase: 'a', detalhe: 'b' }, 'story', '', leme).startsWith('🎬 Story do Timo · @leme.crm'));
+});
 
 for (const texto of ['Conheça o Umbi', 'Use o Umbrella CRM', 'Contemplação garantida', 'Crédito aprovado em 24h', 'Consórcio sem juros', 'Sem análise de crédito']) {
   test(`conta de cliente recusa: ${texto}`, () => assert.notEqual(validarPost({ ...base, legenda: texto }, 'situacao', 'cliente').length, 0));

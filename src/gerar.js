@@ -41,7 +41,7 @@ async function passoStory(conta, doHistorico, temas) {
   }
   // O story conversa com o assunto do post da vez, sem precisar vender.
   const { tema: doDia } = proximoPost(doHistorico.filter((p) => p.status === 'publicado'), temas, conta.etapas, conta.inicio);
-  const assunto = conta.persona === 'umbi'
+  const assunto = conta.persona !== 'cliente'
     ? `Story diário de bom humor sobre a rotina do corretor. Inspiração de hoje: ${doDia.assunto}.`
     : `Story diário leve e próximo. Inspiração de hoje: ${doDia.assunto}.`;
   const tema = temaLivre(assunto, temas);

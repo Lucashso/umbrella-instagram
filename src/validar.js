@@ -23,6 +23,13 @@ const PROIBIDOS_CLIENTE = [
   [/\b(porto|tokio|allianz|zurich|mapfre|hdi|liberty|caixa|embracon|rodobens|servopa|cnp)\b/i, 'nome de seguradora ou administradora'],
 ];
 
+// Umbrella e Leme são o mesmo produto com marcas diferentes: uma nunca pode aparecer no post da outra.
+const OUTRA_MARCA = {
+  umbi: [[/\btimo\b|leme\s*crm/i, 'marca da Leme']],
+  timo: [[/\bumbi\b|\bumbrella\b/i, 'marca da Umbrella']],
+  cliente: PROIBIDOS_CLIENTE,
+};
+
 export function validarPost(post, etapa, persona = 'umbi') {
   const erros = [];
   for (const [campo, max] of Object.entries(LIMITES)) {
@@ -38,14 +45,14 @@ export function validarPost(post, etapa, persona = 'umbi') {
     }
   }
   if (etapa === 'story') {
-    if (persona === 'umbi' && SENSIVEIS_STORY.test(`${post.frase} ${post.detalhe}`)) erros.push('story não pode falar de morte, doença, acidente ou sinistro');
+    if (persona !== 'cliente' && SENSIVEIS_STORY.test(`${post.frase} ${post.detalhe}`)) erros.push('story não pode falar de morte, doença, acidente ou sinistro');
   } else if (!Array.isArray(post.hashtags) || post.hashtags.length === 0 || post.hashtags.length > 5) {
     erros.push('use de 1 a 5 hashtags');
   } else if (post.hashtags.some((h) => !/^#[\p{L}\p{N}_]+$/u.test(h))) {
     erros.push('hashtag inválida');
   }
   const texto = JSON.stringify(post);
-  for (const [regra, motivo] of persona === 'umbi' ? PROIBIDOS : [...PROIBIDOS, ...PROIBIDOS_CLIENTE]) {
+  for (const [regra, motivo] of [...PROIBIDOS, ...(OUTRA_MARCA[persona] ?? [])]) {
     if (regra.test(texto)) erros.push(`contém ${motivo}`);
   }
   return erros;

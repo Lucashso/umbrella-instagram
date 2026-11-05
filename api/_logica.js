@@ -3,7 +3,7 @@ const MARCA_EDICAO = /\[editar (\S+) v(\d+)\]/;
 const MAX_PEDIDO = 1000;
 const PERGUNTA_IDEIA = 'Viro isso em quê?';
 // A Vercel publica só api/, então os nomes dos botões ficam aqui; um teste confere com src/contas.js.
-export const NOMES_CONTAS = { umbrella: 'Umbrella', priscilla: 'Priscilla', arcana: 'Arcana' };
+export const NOMES_CONTAS = { umbrella: 'Umbrella', leme: 'Leme', priscilla: 'Priscilla', arcana: 'Arcana' };
 
 export const marcaEdicao = (id, versao) => `[editar ${id} v${versao}]`;
 export const textoIdeia = (ideia) => `💡 ${ideia}\n\n${PERGUNTA_IDEIA}\n🎬 = story · 🖼️ = post`;

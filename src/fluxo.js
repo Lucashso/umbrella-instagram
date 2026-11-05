@@ -17,7 +17,7 @@ export const fraseDe = (post, etapa) => (etapa === 'story' ? post.frase : `${pos
 // O @ abre a mensagem porque todas as contas são aprovadas no mesmo chat.
 export function textoAprovacao(post, etapa, legenda, conta) {
   if (etapa !== 'story') return `📸 ${rotulo(conta)}\n\n${legenda}`;
-  const titulo = conta.persona === 'umbi' ? 'Story do Umbi' : 'Story';
+  const titulo = conta.assistente ? `Story do ${conta.assistente}` : 'Story';
   return `🎬 ${titulo} · ${rotulo(conta)}\n\n${post.frase}\n${post.detalhe}`;
 }
 

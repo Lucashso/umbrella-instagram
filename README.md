@@ -1,14 +1,15 @@
 # umbrella-instagram
 
-Conteúdo diário para três perfis do Instagram, com aprovação de todos no mesmo chat do Telegram. Nada é publicado sem aprovação.
+Conteúdo diário para quatro perfis do Instagram, com aprovação de todos no mesmo chat do Telegram. Nada é publicado sem aprovação.
 
 | Conta | Perfil | Público | Sequência |
 |---|---|---|---|
 | `umbrella` | `@umbrella.crm` | Corretores | dor → CRM resolve → dica de venda, com o Umbi |
+| `leme` | `@leme.crm` | Corretores | a mesma da Umbrella, com o Timo e a marca Leme CRM |
 | `priscilla` | `@freitas.priscilla` | Clientes finais, em primeira pessoa | situação → caminho → dica |
 | `arcana` | a definir em `src/contas.js` | Clientes finais, como empresa | situação → caminho → dica |
 
-As configurações ficam em `src/contas.js`. As contas de cliente usam `conteudo/temas-cliente.json`, sem Umbi e com regras próprias para seguro e consórcio.
+As configurações ficam em `src/contas.js`. A Leme usa `conteudo/temas.json` com Umbi trocado por Timo e Umbrella CRM por Leme CRM; uma marca nunca passa na validação do post da outra. As contas de cliente usam `conteudo/temas-cliente.json`, sem Umbi e com regras próprias para seguro e consórcio.
 
 ## Ligar uma conta nova
 

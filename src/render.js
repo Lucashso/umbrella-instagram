@@ -4,6 +4,7 @@ import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { promisify } from 'node:util';
+import { CONTAS } from './contas.js';
 
 const run = promisify(execFile);
 const TEMPLATES = resolve(import.meta.dirname, '..', 'templates');
@@ -15,16 +16,7 @@ const X = '<svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>';
 const SETA = '<svg viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6"/></svg>';
 const ONDA = [14, 28, 40, 22, 34, 16, 42, 26, 36, 18, 30, 40, 20, 32, 14, 26, 38, 18].map((h) => `<i style="height:${h}px"></i>`).join('');
 
-const UMBI = {
-  pensando: 'umbi-pensando-parado.webp',
-  falando: 'umbi-falando-parado.webp',
-  comemorando: 'umbi-comemorando-parado.webp',
-  ok: 'umbi-ok-parado.webp',
-};
-const umbi = (pose) => `<img class="umbi" src="${UMBI[pose]}" alt="Umbi">`;
-
 const titulo = (p) => `<div class="eyebrow">${esc(p.eyebrow)}</div><h1>${esc(p.titulo)}<em>${esc(p.destaque)}</em></h1>`;
-const rodape = (logo, texto) => `<div class="foot"><img src="${logo}" alt="Umbrella CRM"><span>${esc(texto)}</span></div>`;
 
 function documento(classe, html, folhas = ['base.css']) {
   const base = pathToFileURL(TEMPLATES + '/').href;
@@ -32,35 +24,37 @@ function documento(classe, html, folhas = ['base.css']) {
   return `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><base href="${base}">${estilos}</head><body class="${classe}">${html}<script>${AJUSTE}</script></body></html>`;
 }
 
-function slideDor(post) {
-  return documento('', `${titulo(post)}<div class="stage"><p class="apoio">${esc(post.apoio)}</p>${umbi('pensando')}</div>${rodape('logo.png', 'Você também passa por isso?')}`);
-}
+// Contas de CRM (Umbrella e Leme): mesmo layout, com logo, mascote e cores de cada marca.
+function artesCrm(c) {
+  const mascote = (pose) => `<img class="umbi" src="${c.mascote[pose]}" alt="${c.assistente}">`;
+  const rodape = (logo, texto) => `<div class="foot"><img src="${logo}" alt="${c.produto}"><span>${esc(texto)}</span></div>`;
+  const doc = (classe, html) => documento(`${c.marca ? `m-${c.marca}` : ''} ${classe}`.trim(), html, c.css);
 
-function slideSolucao(post, tema) {
-  if (tema.visual === 'lista') {
-    const linhas = tema.itens.map(([nome, info]) => `<div class="row"><span class="ck">${CHECK}</span><b>${esc(nome)}</b><small>${esc(info)}</small></div>`).join('');
-    return documento('', `${titulo(post)}<div class="stage"><div class="card">${linhas}<div class="bar"><span>${tema.itens.length} selecionados</span><span class="btn pri">${esc(tema.botao)} ${SETA}</span></div></div>${umbi('ok')}</div>${rodape('logo.png', 'Exemplo ilustrativo')}`);
-  }
-  const acoes = tema.confirmar ? `<div class="acts"><span class="btn pri">${CHECK} Confirmar</span><span class="btn sec">${X} Cancelar</span></div>` : '';
-  return documento('', `${titulo(post)}<div class="stage"><div class="chat"><div class="b me"><div class="wave"><span class="play"></span>${ONDA}</div>“${esc(post.fala)}”</div><div class="b um"><div class="who"><img src="${UMBI.falando}" alt="">Umbi</div>${esc(post.resposta)}${acoes}</div></div></div>${rodape('logo.png', 'Exemplo ilustrativo')}`);
-}
+  return {
+    dor: (post) => doc('', `${titulo(post)}<div class="stage"><p class="apoio">${esc(post.apoio)}</p>${mascote('pensando')}</div>${rodape(c.logo, 'Você também passa por isso?')}`),
 
-// A dica é sempre um carrossel: capa, um slide por passo e encerramento.
-function slidesDica(post) {
-  const logo = 'logo_dark.png';
-  const capa = documento('light', `${titulo(post)}<div class="stage">${umbi('falando')}</div>${rodape(logo, 'Arraste para ver')}`);
-  const passos = post.passos.map((p, i) => documento('light', `<div class="eyebrow">Passo ${i + 1} de ${post.passos.length}</div><h1><em>${esc(p.titulo)}</em></h1><div class="stage"><p class="apoio">${esc(p.texto)}</p>${umbi(i === 1 ? 'ok' : 'falando')}</div>${rodape(logo, `${i + 2}/${post.passos.length + 2}`)}`));
-  const fim = documento('light', `<div class="eyebrow">${esc(post.eyebrow)}</div><h1><em>${esc(post.rodape)}</em></h1><div class="stage">${umbi('comemorando')}</div>${rodape(logo, 'Umbrella CRM')}`);
-  return [capa, ...passos, fim];
-}
+    solucao(post, tema) {
+      if (tema.visual === 'lista') {
+        const linhas = tema.itens.map(([nome, info]) => `<div class="row"><span class="ck">${CHECK}</span><b>${esc(nome)}</b><small>${esc(info)}</small></div>`).join('');
+        return doc('', `${titulo(post)}<div class="stage"><div class="card">${linhas}<div class="bar"><span>${tema.itens.length} selecionados</span><span class="btn pri">${esc(tema.botao)} ${SETA}</span></div></div>${mascote('ok')}</div>${rodape(c.logo, 'Exemplo ilustrativo')}`);
+      }
+      const acoes = tema.confirmar ? `<div class="acts"><span class="btn pri">${CHECK} Confirmar</span><span class="btn sec">${X} Cancelar</span></div>` : '';
+      return doc('', `${titulo(post)}<div class="stage"><div class="chat"><div class="b me"><div class="wave"><span class="play"></span>${ONDA}</div>“${esc(post.fala)}”</div><div class="b um"><div class="who"><img src="${c.mascote.falando}" alt="">${esc(c.assistente)}</div>${esc(post.resposta)}${acoes}</div></div></div>${rodape(c.logo, 'Exemplo ilustrativo')}`);
+    },
 
-// O story é o Umbi falando em primeira pessoa, em formato vertical.
-function slideStory(post) {
-  return documento('story', `<div class="eyebrow">Umbi na área</div><h1>${esc(post.frase)}</h1><div class="stage"><p class="apoio">${esc(post.detalhe)}</p>${umbi(post.pose in UMBI ? post.pose : 'falando')}</div><div class="assinatura">@umbrella.crm</div>`);
-}
+    // A dica é sempre um carrossel: capa, um slide por passo e encerramento.
+    dica(post) {
+      const capa = doc('light', `${titulo(post)}<div class="stage">${mascote('falando')}</div>${rodape(c.logoClaro, 'Arraste para ver')}`);
+      const passos = post.passos.map((p, i) => doc('light', `<div class="eyebrow">Passo ${i + 1} de ${post.passos.length}</div><h1><em>${esc(p.titulo)}</em></h1><div class="stage"><p class="apoio">${esc(p.texto)}</p>${mascote(i === 1 ? 'ok' : 'falando')}</div>${rodape(c.logoClaro, `${i + 2}/${post.passos.length + 2}`)}`));
+      const fim = doc('light', `<div class="eyebrow">${esc(post.eyebrow)}</div><h1><em>${esc(post.rodape)}</em></h1><div class="stage">${mascote('comemorando')}</div>${rodape(c.logoClaro, c.produto)}`);
+      return [capa, ...passos, fim];
+    },
 
-function slideIdeia(post) {
-  return documento('', `${titulo(post)}<div class="stage"><p class="apoio">${esc(post.apoio)}</p>${umbi('falando')}</div>${rodape('logo.png', 'Umbrella CRM')}`);
+    // O story é o mascote falando em primeira pessoa, em formato vertical.
+    story: (post) => doc('story', `<div class="eyebrow">${esc(c.tagStory)}</div><h1>${esc(post.frase)}</h1><div class="stage"><p class="apoio">${esc(post.detalhe)}</p>${mascote(post.pose in c.mascote ? post.pose : 'falando')}</div><div class="assinatura">@${esc(c.usuario)}</div>`),
+
+    ideia: (post) => doc('', `${titulo(post)}<div class="stage"><p class="apoio">${esc(post.apoio)}</p>${mascote('falando')}</div>${rodape(c.logo, c.produto)}`),
+  };
 }
 
 // Contas que falam com o cliente final: sem Umbi, com a identidade de cada marca.
@@ -86,13 +80,12 @@ function slidesCliente(post, etapa, conta) {
 }
 
 // Cada item é a página de uma imagem; mais de uma vira carrossel na publicação.
-export function montarSlides(post, etapa, tema, conta) {
-  if (conta && conta.persona !== 'umbi') return slidesCliente(post, etapa, conta);
-  if (etapa === 'story') return [slideStory(post)];
-  if (etapa === 'ideia') return [slideIdeia(post)];
-  if (etapa === 'dor') return [slideDor(post)];
-  if (etapa === 'dica') return slidesDica(post);
-  return [slideSolucao(post, tema)];
+export function montarSlides(post, etapa, tema, conta = CONTAS.umbrella) {
+  if (conta.persona === 'cliente') return slidesCliente(post, etapa, conta);
+  const artes = artesCrm(conta);
+  if (etapa === 'dica') return artes.dica(post);
+  if (etapa === 'solucao') return [artes.solucao(post, tema)];
+  return [artes[etapa](post)];
 }
 
 // Mede a arte no navegador: reduz o título até caber e marca o estouro se nem assim couber.
