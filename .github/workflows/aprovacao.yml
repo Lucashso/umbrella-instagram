@@ -23,7 +23,10 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
+      # A fila acima segura a execução, mas o commit do disparo fica velho: lê sempre o estado mais novo.
       - uses: actions/checkout@v4
+        with:
+          ref: main
       - uses: actions/setup-node@v4
         with:
           node-version: 22
