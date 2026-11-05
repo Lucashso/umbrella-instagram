@@ -41,9 +41,15 @@ async function passoStory(conta, doHistorico, temas) {
   }
   // O story conversa com o assunto do post da vez, sem precisar vender.
   const { tema: doDia } = proximoPost(doHistorico.filter((p) => p.status === 'publicado'), temas, conta.etapas, conta.inicio);
-  const assunto = conta.persona !== 'cliente'
-    ? `Story diário de bom humor sobre a rotina do corretor. Inspiração de hoje: ${doDia.assunto}.`
-    : `Story diário leve e próximo. Inspiração de hoje: ${doDia.assunto}.`;
+  // O primeiro story de uma conta é sempre de apresentação.
+  const estreia = !doHistorico.some((p) => p.tipo === 'story' && p.status === 'publicado');
+  const assunto = estreia
+    ? (conta.persona !== 'cliente'
+      ? 'Primeiro story do perfil: apresente-se aos corretores, diga quem você é e o que faz por eles, usando só o RECURSO.'
+      : 'Primeiro story do perfil: apresente o perfil, quem fala aqui e o que a pessoa vai encontrar nos próximos posts, sem vender nada.')
+    : conta.persona !== 'cliente'
+      ? `Story diário de bom humor sobre a rotina do corretor. Inspiração de hoje: ${doDia.assunto}.`
+      : `Story diário leve e próximo. Inspiração de hoje: ${doDia.assunto}.`;
   const tema = temaLivre(assunto, temas);
   const anteriores = doHistorico.filter((p) => p.tipo === 'story' && p.status === 'publicado').slice(-15).map((p) => ({ etapa: 'story', frase: p.frase }));
   const post = await escreverPost({ tema, etapa: 'story', anteriores, conta }, conferidor('story', tema, conta));
