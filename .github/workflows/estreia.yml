@@ -1,0 +1,42 @@
+name: Publicar estreia
+on:
+  workflow_dispatch:
+    inputs:
+      conta:
+        required: true
+permissions:
+  contents: write
+concurrency:
+  group: instagram
+  cancel-in-progress: false
+jobs:
+  publicar:
+    if: vars.ATIVO == 'sim'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq fonts-montserrat
+      - run: npm ci
+      - run: node src/estreia.js
+        env:
+          CONTA: ${{ inputs.conta }}
+          PUBLICAR_DE_VERDADE: ${{ vars.PUBLICAR_DE_VERDADE }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          BLOB_READ_WRITE_TOKEN: ${{ secrets.BLOB_READ_WRITE_TOKEN }}
+          IG_USER_ID_LEME: ${{ secrets.IG_USER_ID_LEME }}
+          IG_ACCESS_TOKEN_LEME: ${{ secrets.IG_ACCESS_TOKEN_LEME }}
+      - name: Salvar estado
+        if: always()
+        run: |
+          git config user.name "umbrella-instagram[bot]"
+          git config user.email "actions@users.noreply.github.com"
+          git add estado
+          git diff --cached --quiet || (git commit -m "estado: estreia ${{ inputs.conta }}" && git push)

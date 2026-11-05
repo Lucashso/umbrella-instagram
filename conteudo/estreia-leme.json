@@ -1,0 +1,68 @@
+[
+  {
+    "id": "leme-estreia-1-o-crm",
+    "etapa": "ideia",
+    "post": {
+      "eyebrow": "Muito prazer",
+      "titulo": "Chegou o Leme CRM.",
+      "destaque": "Feito para o corretor de vida.",
+      "apoio": "Leads, clientes, apólices e tarefas no mesmo lugar, com um assistente que trabalha junto com você pelo WhatsApp.",
+      "legenda": "Muito prazer, nós somos o Leme CRM.\n\nO Leme nasceu para o corretor de seguro de vida que vive entre reunião, proposta, retorno e indicação, e não quer perder nada pelo caminho.\n\nAqui ficam seus leads, clientes, apólices e tarefas, tudo no mesmo lugar. E você não precisa abrir o sistema para tudo: o Timo, nosso assistente, trabalha com você pelo WhatsApp.\n\nNos próximos posts você vai conhecer o Timo e ver o que dá para pedir a ele.\n\nSiga o @leme.crm para acompanhar.",
+      "hashtags": [
+        "#corretordeseguros",
+        "#segurodevida",
+        "#crm",
+        "#lemecrm"
+      ]
+    }
+  },
+  {
+    "id": "leme-estreia-2-o-timo",
+    "etapa": "solucao",
+    "post": {
+      "eyebrow": "Conheça o Timo",
+      "titulo": "Saiu da reunião?",
+      "destaque": "Conte para o Timo.",
+      "fala": "Cria um lead pra Marina, indicação do Paulo, e me lembra de ligar sexta.",
+      "resposta": "Prontinho! Preparei o lead da Marina e a tarefa de ligar na sexta. Posso confirmar?",
+      "legenda": "Este é o Timo, o assistente do Leme CRM.\n\nEle mora no seu WhatsApp. Saiu da reunião? Manda um áudio ou um texto contando o que foi combinado, do jeito que você falaria com um colega.\n\nO Timo prepara o lead e a tarefa e mostra tudo para você conferir. Está certo? Toca em Confirmar. Quer ajustar? Toca em Cancelar. Nada é gravado antes da sua confirmação.\n\nVocê segue para o próximo compromisso e o combinado fica registrado.\n\nConheça o Leme CRM: link na bio.",
+      "hashtags": [
+        "#corretordeseguros",
+        "#segurodevida",
+        "#crm",
+        "#lemecrm"
+      ]
+    }
+  },
+  {
+    "id": "leme-estreia-3-o-que-pedir",
+    "etapa": "dica",
+    "post": {
+      "eyebrow": "Peça ao Timo",
+      "titulo": "Pelo WhatsApp,",
+      "destaque": "o Timo cuida disto para você",
+      "passos": [
+        {
+          "titulo": "Indicações em lote",
+          "texto": "Mande várias indicações em uma mensagem. O Timo cria os leads, ligados a quem indicou, com um único Confirmar."
+        },
+        {
+          "titulo": "Apólice pelo PDF",
+          "texto": "Envie o PDF da apólice. O Timo extrai cliente, coberturas e beneficiários e pede confirmação antes de gravar."
+        },
+        {
+          "titulo": "Resumo do dia",
+          "texto": "Peça o resumo e receba suas tarefas, agenda, retornos e atrasos em uma só resposta."
+        }
+      ],
+      "rodape": "Conheça o Leme CRM: link na bio",
+      "legenda": "Além de registrar a reunião, o Timo faz muito do dia a dia do corretor pelo WhatsApp.\n\nIndicações: mande várias de uma vez e ele cria os leads ligados a quem indicou.\n\nApólices: envie o PDF e ele extrai os dados e pede sua confirmação antes de gravar.\n\nResumo do dia: tarefas, agenda, retornos e atrasos em uma só resposta.\n\nArraste para ver e salve para lembrar. Conheça o Leme CRM: link na bio.",
+      "hashtags": [
+        "#corretordeseguros",
+        "#segurodevida",
+        "#crm",
+        "#lemecrm"
+      ]
+    }
+  }
+]
