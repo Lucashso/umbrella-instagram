@@ -328,5 +328,166 @@
     "legenda": "",
     "status": "publicado",
     "media_id": "18024780476866406"
+  },
+  {
+    "id": "2026-11-06-registro-pos-reuniao-dica",
+    "data": "2026-11-06",
+    "tema": "registro-pos-reuniao",
+    "etapa": "dica",
+    "versao": 1,
+    "frase": "Saiu da reunião? Anote o combinado antes de dar a partida",
+    "post": {
+      "eyebrow": "Dica de venda",
+      "titulo": "Saiu da reunião?",
+      "destaque": "Anote o combinado antes de dar a partida",
+      "legenda": "Toda reunião boa termina com um combinado. O problema é que, depois de mais duas visitas e dez mensagens, ele começa a ficar vago.\n\nE quando você liga para o cliente sem lembrar o que prometeu, a confiança construída na conversa perde força.\n\nO hábito que resolve isso é simples: registrar logo depois, enquanto tudo ainda está fresco.\n\nAnote o que o cliente contou, o que você se comprometeu a fazer e qual é o próximo passo, com data. Depois, mande um resumo curto para ele confirmando o combinado.\n\nParece detalhe, mas é isso que faz o cliente perceber que foi ouvido de verdade.\n\nVocê já faz isso depois das suas reuniões? Conta aqui nos comentários.",
+      "hashtags": [
+        "#corretordeseguros",
+        "#segurodevida",
+        "#dicasdevendas",
+        "#followup",
+        "#relacionamentocomcliente"
+      ],
+      "passos": [
+        {
+          "titulo": "Anote ainda no estacionamento",
+          "texto": "Antes de ligar o carro ou abrir outra conversa. A memória da reunião some rápido quando o dia segue."
+        },
+        {
+          "titulo": "Registre o que importa",
+          "texto": "O que o cliente contou, o que você prometeu e qual é o próximo passo, com data. Detalhes mostram que você ouviu."
+        },
+        {
+          "titulo": "Mande o resumo ao cliente",
+          "texto": "Uma mensagem curta com o combinado e a data do retorno. Ele se sente cuidado e você evita mal-entendidos."
+        }
+      ],
+      "rodape": "Salve para usar na próxima reunião"
+    },
+    "imagens": [
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/2026-11-06-registro-pos-reuniao-dica-v1-1-VNukO2Ro3zUaaSgmIDMHioMiVyIId1.jpg",
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/2026-11-06-registro-pos-reuniao-dica-v1-2-IrvXPpJbKTLUrmbfF8i2PJBe1ogBrJ.jpg",
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/2026-11-06-registro-pos-reuniao-dica-v1-3-5SVggwrzygmX8h8RDpQVHip6g56Ane.jpg",
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/2026-11-06-registro-pos-reuniao-dica-v1-4-eJAoHcL6kxkk5YB35wppiM8iffimzV.jpg",
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/2026-11-06-registro-pos-reuniao-dica-v1-5-yktQOk1GWNzQ8AnR0i3yQlSQaYV8vD.jpg"
+    ],
+    "legenda": "Toda reunião boa termina com um combinado. O problema é que, depois de mais duas visitas e dez mensagens, ele começa a ficar vago.\n\nE quando você liga para o cliente sem lembrar o que prometeu, a confiança construída na conversa perde força.\n\nO hábito que resolve isso é simples: registrar logo depois, enquanto tudo ainda está fresco.\n\nAnote o que o cliente contou, o que você se comprometeu a fazer e qual é o próximo passo, com data. Depois, mande um resumo curto para ele confirmando o combinado.\n\nParece detalhe, mas é isso que faz o cliente perceber que foi ouvido de verdade.\n\nVocê já faz isso depois das suas reuniões? Conta aqui nos comentários.\n\n#corretordeseguros #segurodevida #dicasdevendas #followup #relacionamentocomcliente",
+    "status": "pendente"
+  },
+  {
+    "id": "2026-11-06-story-umbi",
+    "data": "2026-11-06",
+    "tipo": "story",
+    "diario": true,
+    "assunto": "Story diário de bom humor sobre a rotina do corretor. Inspiração de hoje: Registrar o que foi combinado logo depois da reunião.",
+    "etapa": "story",
+    "versao": 1,
+    "frase": "Fim da reunião: 'te mando a proposta até sexta'. Qual sexta? Nem você sabe mais.",
+    "post": {
+      "frase": "Fim da reunião: 'te mando a proposta até sexta'. Qual sexta? Nem você sabe mais.",
+      "detalhe": "Me manda um áudio saindo de lá. Eu preparo a tarefa e só gravo quando você der Confirmar.",
+      "pose": "pensando"
+    },
+    "imagens": [
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/2026-11-06-story-umbi-v1-1-IOpHuJFIjVMWGnOM7Ry8ORyjN47sAw.jpg"
+    ],
+    "legenda": "",
+    "status": "pendente"
+  },
+  {
+    "conta": "leme",
+    "id": "leme-2026-11-06-leads-parados-dor",
+    "data": "2026-11-06",
+    "tema": "leads-parados",
+    "etapa": "dor",
+    "versao": 1,
+    "frase": "O lead não sumiu de uma vez. Ele foi esfriando sem ninguém ver.",
+    "post": {
+      "eyebrow": "A rotina do corretor",
+      "titulo": "O lead não sumiu de uma vez.",
+      "destaque": "Ele foi esfriando sem ninguém ver.",
+      "legenda": "O Marcos pediu uma cotação na segunda. Você respondeu, ele disse que ia conversar com a esposa.\n\nDepois veio a renovação de outro cliente, uma reunião, um sinistro para acompanhar. A semana passou.\n\nQuando você lembrou do Marcos, ele já tinha resolvido com outra pessoa.\n\nNinguém esqueceu de propósito. O problema é que lead parado não avisa que parou. Ele só fica quieto, perdido entre conversas no WhatsApp e anotações soltas.\n\nE quanto mais tempo passa sem contato, mais difícil fica retomar sem parecer que você sumiu.\n\nSe isso já aconteceu com você, conta aqui nos comentários: quantos \"vou pensar\" ficaram sem retorno no último mês?",
+      "hashtags": [
+        "#corretordeseguros",
+        "#segurodevida",
+        "#vendasdeseguros",
+        "#corretordeseguro"
+      ],
+      "apoio": "Na segunda o Marcos pediu cotação. Na sexta você lembrou dele. Ele já tinha fechado com outra pessoa."
+    },
+    "imagens": [
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/leme-2026-11-06-leads-parados-dor-v1-1-6sE1O4bjsLh0pwP2hqSZyFwslcVvol.jpg"
+    ],
+    "legenda": "O Marcos pediu uma cotação na segunda. Você respondeu, ele disse que ia conversar com a esposa.\n\nDepois veio a renovação de outro cliente, uma reunião, um sinistro para acompanhar. A semana passou.\n\nQuando você lembrou do Marcos, ele já tinha resolvido com outra pessoa.\n\nNinguém esqueceu de propósito. O problema é que lead parado não avisa que parou. Ele só fica quieto, perdido entre conversas no WhatsApp e anotações soltas.\n\nE quanto mais tempo passa sem contato, mais difícil fica retomar sem parecer que você sumiu.\n\nSe isso já aconteceu com você, conta aqui nos comentários: quantos \"vou pensar\" ficaram sem retorno no último mês?\n\n#corretordeseguros #segurodevida #vendasdeseguros #corretordeseguro",
+    "status": "pendente"
+  },
+  {
+    "conta": "leme",
+    "id": "leme-2026-11-06-story",
+    "data": "2026-11-06",
+    "tipo": "story",
+    "diario": true,
+    "assunto": "Primeiro story do perfil: apresente-se aos corretores, diga quem você é e o que faz por eles, usando só o RECURSO.",
+    "etapa": "story",
+    "versao": 1,
+    "frase": "Prazer, sou o Timo! Fico no seu WhatsApp ajudando a segurar o leme do dia.",
+    "post": {
+      "frase": "Prazer, sou o Timo! Fico no seu WhatsApp ajudando a segurar o leme do dia.",
+      "detalhe": "Manda um áudio que eu preparo lead e tarefa. Só gravo depois que você apertar Confirmar.",
+      "pose": "falando"
+    },
+    "imagens": [
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/leme-2026-11-06-story-v1-1-Hxx3iX1k0fQHf5JxFzIw0fr5IMEwSu.jpg"
+    ],
+    "legenda": "",
+    "status": "pendente"
+  },
+  {
+    "conta": "lemehub",
+    "id": "lemehub-2026-11-06-planilhas-problema",
+    "data": "2026-11-06",
+    "tema": "planilhas",
+    "etapa": "problema",
+    "versao": 1,
+    "frase": "Quando ela tira férias, a empresa inteira fica sem resposta.",
+    "post": {
+      "eyebrow": "Cena comum na operação",
+      "titulo": "Quando ela tira férias,",
+      "destaque": "a empresa inteira fica sem resposta.",
+      "legenda": "Pedidos, estoque, cobranças, comissões. Tudo numa planilha com dezenas de abas, fórmulas escondidas e cores que só uma pessoa sabe o que significam.\n\nNo dia a dia, funciona. Até essa pessoa sair de férias, ficar doente ou pedir demissão.\n\nAí ninguém sabe qual aba atualizar, uma fórmula quebra sem ninguém perceber e o time passa a tarde tentando entender o que foi feito ali.\n\nMuita empresa cresce assim: a planilha começa simples e, aos poucos, vira o coração da operação. Só que um coração que depende de uma única pessoa para bater.\n\nE você? Na sua empresa, existe aquela planilha que só uma pessoa entende? Conta pra gente nos comentários.",
+      "hashtags": [
+        "#gestaoempresarial",
+        "#pequenasempresas",
+        "#planilha",
+        "#processos",
+        "#empreendedorismo"
+      ],
+      "apoio": "Pedidos, estoque e cobranças numa planilha cheia de abas, fórmulas e cores que só uma pessoa sabe ler."
+    },
+    "imagens": [
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/lemehub-2026-11-06-planilhas-problema-v1-1-gyPQZKw6sLg0t8C4kqYMmyuAI8q5r8.jpg"
+    ],
+    "legenda": "Pedidos, estoque, cobranças, comissões. Tudo numa planilha com dezenas de abas, fórmulas escondidas e cores que só uma pessoa sabe o que significam.\n\nNo dia a dia, funciona. Até essa pessoa sair de férias, ficar doente ou pedir demissão.\n\nAí ninguém sabe qual aba atualizar, uma fórmula quebra sem ninguém perceber e o time passa a tarde tentando entender o que foi feito ali.\n\nMuita empresa cresce assim: a planilha começa simples e, aos poucos, vira o coração da operação. Só que um coração que depende de uma única pessoa para bater.\n\nE você? Na sua empresa, existe aquela planilha que só uma pessoa entende? Conta pra gente nos comentários.\n\n#gestaoempresarial #pequenasempresas #planilha #processos #empreendedorismo",
+    "status": "pendente"
+  },
+  {
+    "conta": "lemehub",
+    "id": "lemehub-2026-11-06-story",
+    "data": "2026-11-06",
+    "tipo": "story",
+    "diario": true,
+    "assunto": "Story diário leve e próximo. Inspiração de hoje: A operação inteira presa em planilhas que só uma pessoa entende.",
+    "etapa": "story",
+    "versao": 1,
+    "frase": "Se só uma pessoa entende a planilha, a operação inteira tira férias junto com ela.",
+    "post": {
+      "frase": "Se só uma pessoa entende a planilha, a operação inteira tira férias junto com ela.",
+      "detalhe": "Quando o processo vira sistema, qualquer pessoa do time sabe onde clicar e o que vem depois."
+    },
+    "imagens": [
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/lemehub-2026-11-06-story-v1-1-rcIh3i6DbZ5BVDcA9Q79MMSPcplgSC.jpg"
+    ],
+    "legenda": "",
+    "status": "pendente"
   }
 ]
