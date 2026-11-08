@@ -19,12 +19,20 @@ export function exigir(nome) {
 
 // --- Telegram ---
 // Cada conta é aprovada no chat do seu bot. Sem `bot`, vale o bot de sempre (Umbrella, Leme, Priscilla, Arcana).
+// Tudo o que sai no bot de sempre também vai para o bot do Lucas (ESPELHO), com os mesmos botões:
+// o toque lá chega ao webhook dele, e a ação acha a conta pelo id do post no histórico.
+export const ESPELHO = '_LEMEHUB';
 let canal = '';
-export const usarCanal = (conta) => { canal = conta?.bot ?? ''; };
-const chatAtual = () => exigir(`TELEGRAM_CHAT_ID${canal}`);
+let usuarioAtual = '';
+export const usarCanal = (conta) => { canal = conta?.bot ?? ''; usuarioAtual = conta?.usuario ?? ''; };
 
-async function telegram(metodo, corpo) {
-  const r = await fetch(`https://api.telegram.org/bot${exigir(`TELEGRAM_BOT_TOKEN${canal}`)}/${metodo}`, {
+export function canaisAtuais(ambiente = process.env) {
+  const espelhar = canal !== ESPELHO && ambiente[`TELEGRAM_BOT_TOKEN${ESPELHO}`] && ambiente[`TELEGRAM_CHAT_ID${ESPELHO}`];
+  return espelhar ? [canal, ESPELHO] : [canal];
+}
+
+async function telegramEm(sufixo, metodo, corpo) {
+  const r = await fetch(`https://api.telegram.org/bot${exigir(`TELEGRAM_BOT_TOKEN${sufixo}`)}/${metodo}`, {
     method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(corpo),
   });
   const j = await r.json();
@@ -32,40 +40,52 @@ async function telegram(metodo, corpo) {
   return j.result;
 }
 
-export const avisar = (text) => telegram('sendMessage', { chat_id: chatAtual(), text });
+// Manda a mesma sequência de mensagens em cada canal. A cópia leva o @ da conta no topo, para o Lucas
+// saber de qual perfil é; se ela falhar, só registra: o chat de aprovação da conta é o que vale.
+async function emCadaCanal(montar) {
+  const [principal, ...copias] = canaisAtuais();
+  const resultado = await montar(principal, (t) => t);
+  for (const sufixo of copias) {
+    const marcar = (t) => (usuarioAtual ? `🔁 @${usuarioAtual}\n${t}` : t);
+    await montar(sufixo, marcar).catch((erro) => console.error(`Cópia para o bot ${sufixo}: ${erro.message}`));
+  }
+  return resultado;
+}
 
-export const enviarBotoes = (id, versao, text) => telegram('sendMessage', {
-  chat_id: chatAtual(),
-  text,
-  reply_markup: {
-    inline_keyboard: [
-      [{ text: '✅ Aprovar e publicar', callback_data: `aprovar:${versao}:${id}` }],
-      [{ text: '✏️ Editar', callback_data: `editar:${versao}:${id}` }, { text: '❌ Descartar', callback_data: `descartar:${versao}:${id}` }],
-    ],
-  },
+const botoes = (id, versao) => ({
+  inline_keyboard: [
+    [{ text: '✅ Aprovar e publicar', callback_data: `aprovar:${versao}:${id}` }],
+    [{ text: '✏️ Editar', callback_data: `editar:${versao}:${id}` }, { text: '❌ Descartar', callback_data: `descartar:${versao}:${id}` }],
+  ],
 });
 
-// Só mostra: imagens e texto, sem botões.
-export async function enviarPrevia(imagens, texto) {
-  const chat_id = chatAtual();
+async function enviarImagens(sufixo, imagens) {
+  const chat_id = exigir(`TELEGRAM_CHAT_ID${sufixo}`);
   if (imagens.length > 1) {
-    await telegram('sendMediaGroup', { chat_id, media: imagens.map((media) => ({ type: 'photo', media })) });
+    await telegramEm(sufixo, 'sendMediaGroup', { chat_id, media: imagens.map((media) => ({ type: 'photo', media })) });
   } else {
-    await telegram('sendPhoto', { chat_id, photo: imagens[0] });
+    await telegramEm(sufixo, 'sendPhoto', { chat_id, photo: imagens[0] });
   }
-  await telegram('sendMessage', { chat_id, text: texto });
 }
 
-export async function enviarParaAprovacao(id, versao, imagens, legenda) {
-  const chat_id = chatAtual();
-  if (imagens.length > 1) {
-    await telegram('sendMediaGroup', { chat_id, media: imagens.map((media) => ({ type: 'photo', media })) });
-  } else {
-    await telegram('sendPhoto', { chat_id, photo: imagens[0] });
-  }
+const enviarTexto = (sufixo, text, extra = {}) => telegramEm(sufixo, 'sendMessage', { chat_id: exigir(`TELEGRAM_CHAT_ID${sufixo}`), text, ...extra });
+
+export const avisar = (text) => emCadaCanal((s, marcar) => enviarTexto(s, marcar(text)));
+
+export const enviarBotoes = (id, versao, text) =>
+  emCadaCanal((s, marcar) => enviarTexto(s, marcar(text), { reply_markup: botoes(id, versao) }));
+
+// Só mostra: imagens e texto, sem botões.
+export const enviarPrevia = (imagens, texto) => emCadaCanal(async (s, marcar) => {
+  await enviarImagens(s, imagens);
+  await enviarTexto(s, marcar(texto));
+});
+
+export const enviarParaAprovacao = (id, versao, imagens, legenda) => emCadaCanal(async (s, marcar) => {
+  await enviarImagens(s, imagens);
   const rotulo = versao > 1 ? `Versão ${versao}. ` : '';
-  await enviarBotoes(id, versao, `${legenda}\n\n———\n${rotulo}Só publico depois que você aprovar.`);
-}
+  await enviarTexto(s, marcar(`${legenda}\n\n———\n${rotulo}Só publico depois que você aprovar.`), { reply_markup: botoes(id, versao) });
+});
 
 // --- Hospedagem: o Instagram baixa a imagem de uma URL pública ---
 export async function hospedar(buffer, nome) {
