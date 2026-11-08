@@ -508,7 +508,7 @@
       "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/2026-11-07-story-umbi-v1-1-7DeuxKXAQFUAuE8zVnQsV2Zo0f45nf.jpg"
     ],
     "legenda": "",
-    "status": "pendente"
+    "status": "expirado"
   },
   {
     "conta": "leme",
@@ -529,7 +529,7 @@
       "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/leme-2026-11-07-story-v1-1-qd1SW0SAaZ6njRff4TewOR17YidkLL.jpg"
     ],
     "legenda": "",
-    "status": "pendente"
+    "status": "expirado"
   },
   {
     "conta": "lemehub",
@@ -547,6 +547,67 @@
     },
     "imagens": [
       "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/lemehub-2026-11-07-story-v1-1-NrHv4cbzSdFWrrBoNYFnQjNrVLk9i2.jpg"
+    ],
+    "legenda": "",
+    "status": "expirado"
+  },
+  {
+    "id": "2026-11-08-story-umbi",
+    "data": "2026-11-08",
+    "tipo": "story",
+    "diario": true,
+    "assunto": "Story diário de bom humor sobre a rotina do corretor. Inspiração de hoje: Registrar o que foi combinado logo depois da reunião.",
+    "etapa": "story",
+    "versao": 1,
+    "frase": "Combinou tudo e anotou onde? \"Na cabeça.\" Sei. A mesma que esqueceu a senha do Wi-Fi.",
+    "post": {
+      "frase": "Combinou tudo e anotou onde? \"Na cabeça.\" Sei. A mesma que esqueceu a senha do Wi-Fi.",
+      "detalhe": "Manda um áudio pra mim ainda no elevador. Eu preparo a tarefa e só gravo quando você confirmar.",
+      "pose": "pensando"
+    },
+    "imagens": [
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/2026-11-08-story-umbi-v1-1-BwdKcwGMAqGZJlaJyF3Cxt7APok2t3.jpg"
+    ],
+    "legenda": "",
+    "status": "pendente"
+  },
+  {
+    "conta": "leme",
+    "id": "leme-2026-11-08-story",
+    "data": "2026-11-08",
+    "tipo": "story",
+    "diario": true,
+    "assunto": "Primeiro story do perfil: apresente-se aos corretores, diga quem você é e o que faz por eles, usando só o RECURSO.",
+    "etapa": "story",
+    "versao": 1,
+    "frase": "Prazer, sou o Timo! Robô timoneiro que mora no seu WhatsApp e segura o leme da rotina.",
+    "post": {
+      "frase": "Prazer, sou o Timo! Robô timoneiro que mora no seu WhatsApp e segura o leme da rotina.",
+      "detalhe": "Manda um áudio que eu preparo lead e tarefa. Só gravo depois que você tocar em Confirmar.",
+      "pose": "falando"
+    },
+    "imagens": [
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/leme-2026-11-08-story-v1-1-QcVzjoCTcub4Hbn01Ub8RwMbGXKvSr.jpg"
+    ],
+    "legenda": "",
+    "status": "pendente"
+  },
+  {
+    "conta": "lemehub",
+    "id": "lemehub-2026-11-08-story",
+    "data": "2026-11-08",
+    "tipo": "story",
+    "diario": true,
+    "assunto": "Story diário leve e próximo. Inspiração de hoje: A operação inteira presa em planilhas que só uma pessoa entende.",
+    "etapa": "story",
+    "versao": 1,
+    "frase": "Se a pessoa que entende a planilha sair de férias, a sua operação continua andando?",
+    "post": {
+      "frase": "Se a pessoa que entende a planilha sair de férias, a sua operação continua andando?",
+      "detalhe": "Quando o processo vive na cabeça de uma pessoa só, a empresa inteira fica esperando ela voltar."
+    },
+    "imagens": [
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/lemehub-2026-11-08-story-v1-1-PzaW9mNp8qIpOrWCEykS2VGgkFhNpf.jpg"
     ],
     "legenda": "",
     "status": "pendente"
