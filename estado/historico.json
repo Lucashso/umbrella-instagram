@@ -570,7 +570,7 @@
       "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/2026-11-08-story-umbi-v1-1-BwdKcwGMAqGZJlaJyF3Cxt7APok2t3.jpg"
     ],
     "legenda": "",
-    "status": "pendente"
+    "status": "expirado"
   },
   {
     "conta": "leme",
@@ -591,7 +591,7 @@
       "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/leme-2026-11-08-story-v1-1-QcVzjoCTcub4Hbn01Ub8RwMbGXKvSr.jpg"
     ],
     "legenda": "",
-    "status": "pendente"
+    "status": "expirado"
   },
   {
     "conta": "lemehub",
@@ -613,5 +613,94 @@
     "legenda": "",
     "status": "publicado",
     "media_id": "18093998957204076"
+  },
+  {
+    "id": "2026-11-09-story-umbi",
+    "data": "2026-11-09",
+    "tipo": "story",
+    "diario": true,
+    "assunto": "Story diário de bom humor sobre a rotina do corretor. Inspiração de hoje: Registrar o que foi combinado logo depois da reunião.",
+    "etapa": "story",
+    "versao": 1,
+    "frase": "Combinou tudo na reunião e anotou onde? No 'depois eu passo a limpo'. Clássico.",
+    "post": {
+      "frase": "Combinou tudo na reunião e anotou onde? No 'depois eu passo a limpo'. Clássico.",
+      "detalhe": "Manda um áudio pra mim ainda no elevador. Eu preparo a tarefa, você só aperta Confirmar.",
+      "pose": "falando"
+    },
+    "imagens": [
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/2026-11-09-story-umbi-v1-1-V97hPLfY2ygmQAiRgbm40lm4G80zjN.jpg"
+    ],
+    "legenda": "",
+    "status": "pendente"
+  },
+  {
+    "conta": "leme",
+    "id": "leme-2026-11-09-story",
+    "data": "2026-11-09",
+    "tipo": "story",
+    "diario": true,
+    "assunto": "Primeiro story do perfil: apresente-se aos corretores, diga quem você é e o que faz por eles, usando só o RECURSO.",
+    "etapa": "story",
+    "versao": 1,
+    "frase": "Prazer, sou o Timo! Seu imediato de bordo aqui no WhatsApp, de quepe e tudo.",
+    "post": {
+      "frase": "Prazer, sou o Timo! Seu imediato de bordo aqui no WhatsApp, de quepe e tudo.",
+      "detalhe": "Manda um áudio que eu preparo lead e tarefa. Só gravo depois que você apertar Confirmar.",
+      "pose": "falando"
+    },
+    "imagens": [
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/leme-2026-11-09-story-v1-1-KWrECZecBMP2vc0qKjQan3h5ZyTQIX.jpg"
+    ],
+    "legenda": "",
+    "status": "pendente"
+  },
+  {
+    "conta": "lemehub",
+    "id": "lemehub-2026-11-09-planilhas-solucao",
+    "data": "2026-11-09",
+    "tema": "planilhas",
+    "etapa": "solucao",
+    "versao": 1,
+    "frase": "Seu processo vira sistema e não fica mais na cabeça de uma pessoa",
+    "post": {
+      "eyebrow": "Software sob medida",
+      "titulo": "Seu processo vira sistema",
+      "destaque": "e não fica mais na cabeça de uma pessoa",
+      "legenda": "Quando a operação inteira depende de uma planilha que só uma pessoa entende, qualquer ausência vira problema.\n\nCom os Softwares sob medida da Leme Hub, criamos um sistema a partir do jeito que a sua empresa já trabalha. A ideia é tirar a operação das planilhas e automatizar o que hoje é feito na mão, todo dia, do mesmo jeito.\n\nComo funciona:\n\n1. Primeiro vem a conversa. Fazemos o levantamento do seu processo para entender cada etapa.\n2. Antes de começar, você navega por um protótipo das telas e vê como o sistema vai ficar.\n3. Você recebe uma proposta com prazo e valor fechados.\n\nAssim, o conhecimento sai da cabeça de uma pessoa e passa a fazer parte da empresa.\n\nFale com a gente: link na bio.",
+      "hashtags": [
+        "#softwaresobmedida",
+        "#gestaoempresarial",
+        "#pequenasempresas",
+        "#automacao",
+        "#lemehub"
+      ],
+      "apoio": "Partimos de como a sua empresa já trabalha para tirar a operação das planilhas e automatizar o que é repetitivo."
+    },
+    "imagens": [
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/lemehub-2026-11-09-planilhas-solucao-v1-1-XBVsTIFxquavOVFFPOhUpGYHFyufNe.jpg"
+    ],
+    "legenda": "Quando a operação inteira depende de uma planilha que só uma pessoa entende, qualquer ausência vira problema.\n\nCom os Softwares sob medida da Leme Hub, criamos um sistema a partir do jeito que a sua empresa já trabalha. A ideia é tirar a operação das planilhas e automatizar o que hoje é feito na mão, todo dia, do mesmo jeito.\n\nComo funciona:\n\n1. Primeiro vem a conversa. Fazemos o levantamento do seu processo para entender cada etapa.\n2. Antes de começar, você navega por um protótipo das telas e vê como o sistema vai ficar.\n3. Você recebe uma proposta com prazo e valor fechados.\n\nAssim, o conhecimento sai da cabeça de uma pessoa e passa a fazer parte da empresa.\n\nFale com a gente: link na bio.\n\n#softwaresobmedida #gestaoempresarial #pequenasempresas #automacao #lemehub",
+    "status": "pendente"
+  },
+  {
+    "conta": "lemehub",
+    "id": "lemehub-2026-11-09-story",
+    "data": "2026-11-09",
+    "tipo": "story",
+    "diario": true,
+    "assunto": "Story diário leve e próximo. Inspiração de hoje: A operação inteira presa em planilhas que só uma pessoa entende.",
+    "etapa": "story",
+    "versao": 1,
+    "frase": "Aquela planilha cheia de abas e cores que só uma pessoa da equipe sabe mexer. Conhece?",
+    "post": {
+      "frase": "Aquela planilha cheia de abas e cores que só uma pessoa da equipe sabe mexer. Conhece?",
+      "detalhe": "Quando a operação mora ali, cada dúvida vira fila na mesa de alguém. Dá para ter um jeito mais leve."
+    },
+    "imagens": [
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/lemehub-2026-11-09-story-v1-1-NApkC18bS8cqPL8awCX64XiKSuq2XT.jpg"
+    ],
+    "legenda": "",
+    "status": "pendente"
   }
 ]
