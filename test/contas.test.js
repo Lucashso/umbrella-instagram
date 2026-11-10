@@ -146,7 +146,9 @@ test('artes da Leme têm Timo, logo e cores da Leme; as da Umbrella não mudam',
   ];
   const artesLeme = todas(leme);
   assert.equal(artesLeme.length, 9);
-  assert.ok(artesLeme.every((h) => h.includes('m-leme') && h.includes('leme.css') && /timo-/.test(h) && !/umbi-|logo\.png|logo_dark|Umbrella|Umbi/.test(h)));
+  // Solução e carrossel usam o estilo neon (neon.css, classe n-leme); o resto, o layout da marca (leme.css).
+  const marcaLeme = (h) => (h.includes('m-leme') && h.includes('leme.css')) || (h.includes('n-leme') && h.includes('neon.css'));
+  assert.ok(artesLeme.every((h) => marcaLeme(h) && /timo-/.test(h) && !/umbi-|logo\.png|logo_dark|Umbrella|Umbi/.test(h)));
   assert.ok(artesLeme.find((h) => h.includes('class="m-leme story"')).includes('@leme.crm'));
   const artesUmbrella = todas(umbrella);
   assert.ok(artesUmbrella.every((h) => /umbi-/.test(h) && !/leme|timo/i.test(h)));
@@ -191,7 +193,8 @@ test('artes da Leme Hub: só texto, logo e cores dela, com a sequência problema
     ...montarSlides({ frase: 'F', detalhe: 'D' }, 'story', {}, lemehub),
   ];
   assert.equal(artes.length, 8);
-  assert.ok(artes.every((h) => h.includes('m-lemehub') && h.includes('lemehub.css') && !h.includes('cliente.css') && !/umbi-|timo-/.test(h)));
+  const marcaHub = (h) => (h.includes('m-lemehub') && h.includes('lemehub.css')) || (h.includes('n-lemehub') && h.includes('neon.css'));
+  assert.ok(artes.every((h) => marcaHub(h) && !h.includes('cliente.css') && !/umbi-|timo-/.test(h)));
   assert.ok(artes[0].includes('Isso acontece aí?') && artes[1].includes('link na bio'));
   assert.ok(temasDe(lemehub).length >= 10);
 });

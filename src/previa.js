@@ -58,8 +58,23 @@ Object.assign(casos, {
   limite_leme_dica: ['dica', chatLeme, casos.limite_dica[2], L],
 });
 
+// Leme Hub: solução no painel em vidro (na cor do produto) e o carrossel de dica.
+const H = CONTAS.lemehub;
+const temasHub = temasDe(H);
+const iaHub = temasHub.find((t) => t.id === 'whatsapp-de-madrugada');
+const gestaoHub = temasHub.find((t) => t.id === 'cobranca-manual');
+Object.assign(casos, {
+  lemehub_solucao: ['solucao', iaHub, { eyebrow: 'IA de atendimento', titulo: 'Cliente chamou às 23h?', destaque: 'A resposta sai na hora.', apoio: 'A IA da Leme Hub responde as dúvidas frequentes no WhatsApp da empresa e passa para alguém do time quando precisa.' }, H],
+  lemehub_solucao_gestao: ['solucao', gestaoHub, { eyebrow: 'Gestão', titulo: 'Cobrança todo mês', destaque: 'sem correr atrás de ninguém.', apoio: 'Pix, boleto ou cartão, com lembrete automático antes e depois do vencimento e a nota fiscal junto.' }, H],
+  lemehub_dica: ['dica', iaHub, { eyebrow: 'Dica prática', titulo: 'Antes de automatizar,', destaque: 'organize estas 3 coisas', rodape: 'Salve para a próxima reunião', passos: [{ titulo: 'As perguntas que mais chegam', texto: 'Liste as dez dúvidas que o time responde toda semana e a resposta certa de cada uma.' }, { titulo: 'Quando passar para alguém', texto: 'Defina que assuntos precisam de uma pessoa: reclamação, negociação, caso fora do padrão.' }, { titulo: 'Quem responde e em quanto tempo', texto: 'Combine com o time o responsável por cada assunto e o prazo para o retorno ao cliente.' }] }, H],
+  limite_lemehub_solucao: ['solucao', iaHub, { eyebrow: m(28), titulo: m(34), destaque: m(44), apoio: m(150) }, H],
+  limite_lemehub_dica: ['dica', iaHub, casos.limite_dica[2], H],
+});
+
 mkdirSync('saida', { recursive: true });
+const so = process.argv[2] ? new RegExp(process.argv[2]) : null;
 for (const [nome, [etapa, tema, post, conta]] of Object.entries(casos)) {
+  if (so && !so.test(nome)) continue;
   for (const [i, html] of montarSlides(post, etapa, tema, conta).entries()) {
     const estoura = await arteEstoura(html);
     const arquivo = `saida/${nome}-${i + 1}.jpg`;

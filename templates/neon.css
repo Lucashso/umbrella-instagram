@@ -1,0 +1,116 @@
+/* Estilo neon (Lucas, 10/11/2026, a partir do carrossel "Funções do Umbi" de set/2026): fundo escuro com brilho,
+   telas de sistema em vidro inclinadas, título enorme com degradê, pílula no topo e "Arraste para o lado".
+   Usado na solução e no carrossel de dica das contas Umbrella (violeta), Leme CRM (azul) e Leme Hub (cor do produto). */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=block');
+
+body.neon{--a1:#D27BFF;--a2:#8B5CFF;--a3:#4B74FD;--bg:#05031A;--bg2:#140C42;--txt:#F6F4FF;--mut:#C0B8E0;
+  --grad:linear-gradient(100deg,var(--a1),var(--a2) 55%,var(--a3));
+  padding:58px 72px 54px;color:var(--txt);
+  background:radial-gradient(ellipse 75% 48% at 90% 56%,color-mix(in srgb,var(--a2) 40%,transparent),transparent 70%),
+    radial-gradient(ellipse 55% 35% at 4% 0%,color-mix(in srgb,var(--a3) 24%,transparent),transparent 70%),
+    linear-gradient(165deg,var(--bg2),var(--bg) 58%)}
+body.neon.n-leme{--a1:#6FE3FF;--a2:#0A8BFF;--a3:#3157FF;--bg:#020A1F;--bg2:#062457;--mut:#ADC0E3}
+body.neon.n-lemehub{--bg:#03060E;--bg2:#0B1C36;--mut:#A3B3C8;font-family:Inter,sans-serif}
+body.neon.n-lemehub h1{font-family:'Space Grotesk',sans-serif}
+body.neon>*{position:relative;z-index:2}
+body.neon>.fx{position:absolute;inset:0;width:100%;height:100%;z-index:0}
+
+/* Marca: só o símbolo, recortado do logo de cada conta (1em = altura do símbolo). */
+.mk{display:inline-block;height:1em;flex:none;background-repeat:no-repeat}
+.n-umbrella .mk{width:2.32em;background-image:url(logo.png);background-size:4.52em auto;background-position:-1.06em -.4em}
+.n-leme .mk{width:1.46em;background-image:url(logo-leme.png);background-size:4.54em auto;background-position:0 0}
+.n-lemehub .mk{width:.6em;background-image:url(vela-lemehub.png);background-size:1.113em auto;background-position:-.268em -.052em;filter:brightness(0) invert(1) drop-shadow(0 0 .1em var(--a2))}
+
+.topo{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:60px}
+.marca{display:flex;align-items:center;gap:16px;font-size:32px;font-weight:500;color:#fff}
+.marca b{font-weight:700;margin-right:-8px}
+.marca .mk{font-size:46px}
+.tags{display:flex;flex-direction:column;align-items:flex-end;gap:5px;padding-right:16px;border-right:2px solid color-mix(in srgb,var(--a2) 70%,transparent);font-size:14px;font-weight:600;letter-spacing:.32em;color:var(--mut);opacity:.55}
+.tags i{font-style:normal}
+
+.pill{align-self:flex-start;display:inline-flex;align-items:center;gap:12px;padding:12px 28px 12px 20px;border-radius:999px;border:2px solid color-mix(in srgb,var(--a1) 55%,transparent);background:color-mix(in srgb,var(--a2) 16%,transparent);font-size:26px;font-weight:600;color:#fff;margin-bottom:28px}
+.pill svg{width:26px;height:26px;fill:var(--a1)}
+.pill b{color:var(--a1);font-weight:800}
+body.neon h1{font-size:96px;line-height:1.02;letter-spacing:-.035em;font-weight:800}
+body.neon h1 em{padding-bottom:.08em}
+body.neon .apoio{border:0;padding:0;font-size:36px;line-height:1.4;color:var(--mut)}
+
+/* Vidro: o cartão translúcido com borda clara e brilho na cor da marca. */
+.vidro{border-radius:36px;border:2px solid rgba(255,255,255,.16);
+  background:linear-gradient(150deg,rgba(255,255,255,.14),rgba(255,255,255,.04) 42%,color-mix(in srgb,var(--a2) 14%,transparent)),color-mix(in srgb,var(--bg) 78%,transparent);
+  box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--a1) 22%,transparent),0 50px 110px rgba(0,0,0,.6),0 0 110px color-mix(in srgb,var(--a2) 38%,transparent)}
+.tilt{transform:perspective(1800px) rotateY(-14deg) rotateX(5deg) rotateZ(-2deg)}
+
+/* Palco em duas colunas; a variante v1 espelha (tela à esquerda) para o feed não ficar igual. */
+body.neon .stage.duo{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;align-content:center}
+body.neon.solucao .stage.duo{grid-template-columns:270px 1fr;gap:0}
+body.neon.v1 .stage.duo{direction:rtl}
+body.neon.v1 .stage.duo>*{direction:ltr}
+body.neon.v1 .tilt{transform:perspective(1800px) rotateY(14deg) rotateX(5deg) rotateZ(2deg)}
+.masc{height:430px;width:auto;max-width:none;align-self:end;justify-self:start;margin-right:-90px;z-index:3;filter:drop-shadow(0 20px 40px rgba(0,0,0,.5)) drop-shadow(0 0 40px color-mix(in srgb,var(--a2) 55%,transparent))}
+body.neon.v1 .masc{justify-self:end;margin:0 0 0 -90px}
+
+/* Tela de conversa (solução das contas de CRM). */
+.fone{padding:26px 26px 30px;display:flex;flex-direction:column;gap:18px;font-size:25px;line-height:1.38;font-weight:500}
+.f-topo{display:flex;align-items:center;gap:14px;padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,.12)}
+.f-topo img{width:64px;height:64px;object-fit:contain;border-radius:50%;background:color-mix(in srgb,var(--a2) 30%,transparent)}
+.f-topo b{display:block;font-size:26px}.f-topo small{font-size:19px;color:#6EE7A0}
+.msg{max-width:92%;padding:18px 22px;border-radius:24px}
+.msg.eu{align-self:flex-end;background:var(--grad);color:#fff;border-bottom-right-radius:6px}
+.msg.ele{align-self:flex-start;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-bottom-left-radius:6px}
+.acoes{display:flex;gap:12px;margin-top:16px}
+.bt{display:inline-flex;align-items:center;gap:10px;padding:12px 20px;border-radius:14px;font-size:22px;font-weight:700;border:1px solid rgba(255,255,255,.22)}
+.bt.pri{background:var(--grad);border-color:transparent;color:#fff}
+.bt svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:3.5;stroke-linecap:round;stroke-linejoin:round}
+
+/* Painel de lista (Atrasos) e painel genérico da Leme Hub. */
+.painel{padding:28px 30px 32px;font-size:26px}
+.p-topo{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-bottom:18px;border-bottom:1px solid rgba(255,255,255,.12);margin-bottom:6px}
+.p-topo b{font-size:28px}.p-topo span{font-size:20px;color:var(--mut);white-space:nowrap}
+.lin{display:flex;align-items:center;gap:16px;padding:18px 0;border-bottom:1px solid rgba(255,255,255,.08);font-weight:600}
+.lin b{flex:1;font-weight:600}
+.lin small{font-size:20px;font-weight:700;color:#FF9DB5;background:rgba(255,157,181,.12);padding:6px 12px;border-radius:999px}
+.av{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;flex:none;background:color-mix(in srgb,var(--a2) 35%,transparent);font-size:20px;font-weight:700}
+.bt.largo{display:flex;justify-content:center;margin-top:24px;padding:18px}
+.barra{display:flex;align-items:center;gap:10px;padding-bottom:18px;border-bottom:1px solid rgba(255,255,255,.12)}
+.barra i{width:14px;height:14px;border-radius:50%;background:rgba(255,255,255,.2)}
+.barra i:first-child{background:var(--a1)}
+.barra span{margin-left:10px;font-size:20px;color:var(--mut);font-family:ui-monospace,monospace}
+.graf{display:flex;align-items:flex-end;gap:14px;height:170px;margin:26px 0 14px}
+.graf i{flex:1;border-radius:10px 10px 4px 4px;background:linear-gradient(180deg,var(--a1),color-mix(in srgb,var(--a3) 35%,transparent))}
+.esq{display:flex;align-items:center;gap:16px;padding:12px 0}
+.esq>i{width:48px;height:48px;border-radius:14px;flex:none;background:color-mix(in srgb,var(--a2) 30%,transparent)}
+.esq>span{flex:1}
+.esq s,.cartao s{display:block;height:13px;border-radius:7px;background:rgba(255,255,255,.17);margin:7px 0}
+.cta{display:inline-flex;align-items:center;gap:16px;margin-top:34px;padding:14px 28px 14px 14px;border-radius:22px;border:2px solid rgba(255,255,255,.16);background:rgba(255,255,255,.05);font-size:26px;font-weight:600;color:#fff}
+.cta i{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;flex:none;background:color-mix(in srgb,var(--a2) 28%,transparent)}
+.cta svg{width:26px;height:26px;fill:var(--a1)}
+
+/* Carrossel: capa com o mascote grande e os passos em cartões; um slide por passo; final com o mascote em órbita. */
+body.capa h1{max-width:540px}
+body.capa .stage{justify-content:flex-end}
+body.neon>.heroi{position:absolute;right:24px;top:150px;width:420px;height:540px;object-fit:contain;object-position:right top;z-index:1;filter:drop-shadow(0 0 50px color-mix(in srgb,var(--a2) 60%,transparent))}
+body.neon.n-lemehub>.heroi{font-size:560px;height:1em;width:.6em;right:80px;filter:brightness(0) invert(1) drop-shadow(0 0 60px var(--a2));opacity:.9}
+.mini{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;transform:perspective(1600px) rotateX(14deg) rotateY(-6deg);transform-origin:50% 100%;margin-bottom:18px}
+.mc{padding:24px 24px 28px;border-radius:26px;font-size:24px;font-weight:600;line-height:1.3;min-height:190px}
+.mc b{display:grid;place-items:center;width:52px;height:52px;border-radius:14px;margin-bottom:16px;background:color-mix(in srgb,var(--a2) 30%,transparent);color:var(--a1);font-size:22px;font-weight:800}
+.lado{position:relative;padding:0 12px 70px}
+.cartao{padding:40px 40px 46px}
+.cartao s:nth-of-type(2){width:72%}.cartao s:nth-of-type(3){width:46%}
+.big{display:block;font-size:200px;line-height:.9;font-weight:800;letter-spacing:-.05em;margin-bottom:26px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.mini-masc{position:absolute;right:0;bottom:0;height:250px;width:auto;z-index:3;filter:drop-shadow(0 0 30px color-mix(in srgb,var(--a2) 55%,transparent))}
+body.final{text-align:center}
+body.final .pill{align-self:center}
+body.final .stage{align-items:center}
+.orbita{position:relative;display:grid;place-items:center;width:620px;height:520px}
+.orbita::before{content:'';position:absolute;left:14px;right:14px;bottom:24px;height:150px;border-radius:50%;border:3px solid color-mix(in srgb,var(--a1) 70%,transparent);box-shadow:0 0 40px var(--a2),inset 0 0 40px color-mix(in srgb,var(--a2) 50%,transparent);transform:rotate(-6deg)}
+.orbita>img{position:relative;height:480px;width:auto;filter:drop-shadow(0 0 50px color-mix(in srgb,var(--a2) 60%,transparent))}
+.orbita>.mk{position:relative;font-size:420px}
+
+.rodape{display:flex;align-items:flex-end;justify-content:space-between;padding-top:26px}
+.arraste{position:relative;display:flex;align-items:center;gap:22px;font-size:24px;font-weight:500;letter-spacing:.16em;color:var(--mut);padding-top:22px}
+.arraste::before{content:'';position:absolute;top:0;left:0;width:70px;height:3px;border-radius:2px;background:var(--grad)}
+.arraste b{width:64px;height:64px;border-radius:50%;border:2px solid var(--a1);display:grid;place-items:center;color:#fff;box-shadow:0 0 24px color-mix(in srgb,var(--a2) 60%,transparent)}
+.arraste svg{width:28px;height:28px;fill:none;stroke:currentColor;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+.rodape .mk{font-size:78px;filter:drop-shadow(0 0 22px var(--a2))}
+.n-lemehub .rodape .mk{filter:brightness(0) invert(1) drop-shadow(0 0 22px var(--a2))}
