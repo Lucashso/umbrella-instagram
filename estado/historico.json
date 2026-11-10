@@ -633,7 +633,7 @@
       "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/2026-11-09-story-umbi-v1-1-V97hPLfY2ygmQAiRgbm40lm4G80zjN.jpg"
     ],
     "legenda": "",
-    "status": "pendente"
+    "status": "expirado"
   },
   {
     "conta": "leme",
@@ -654,7 +654,7 @@
       "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/leme-2026-11-09-story-v1-1-KWrECZecBMP2vc0qKjQan3h5ZyTQIX.jpg"
     ],
     "legenda": "",
-    "status": "pendente"
+    "status": "expirado"
   },
   {
     "conta": "lemehub",
@@ -705,5 +705,138 @@
     "legenda": "",
     "status": "publicado",
     "media_id": "18024908402949877"
+  },
+  {
+    "id": "2026-11-10-atrasos-dor",
+    "data": "2026-11-10",
+    "tema": "atrasos",
+    "etapa": "dor",
+    "versao": 1,
+    "frase": "A parcela atrasou em março. Você só soube quando a apólice caiu.",
+    "post": {
+      "eyebrow": "Parcela em atraso",
+      "titulo": "A parcela atrasou em março.",
+      "destaque": "Você só soube quando a apólice caiu.",
+      "legenda": "Todo mês aparece aquela lista de clientes com parcela em atraso.\n\nVocê olha, pensa \"depois eu ligo\" e volta para a correria das propostas, das renovações e do WhatsApp que não para.\n\nSó que o depois não chega. O cliente nem percebeu que o débito não passou. Ou percebeu e ficou esperando alguém avisar.\n\nQuando você volta ao assunto, a apólice já foi cancelada. E junto com ela vai a proteção da família dele e a sua comissão.\n\nAtraso não é só um número numa planilha. É um cliente pedindo atenção sem saber que está pedindo.\n\nE aí, quantos nomes estão parados na sua lista de atrasos agora?",
+      "hashtags": [
+        "#corretordeseguros",
+        "#segurodevida",
+        "#rotinadocorretor",
+        "#carteiradeclientes"
+      ],
+      "apoio": "A lista de atrasos estava lá, mas ninguém ligou. O cliente achou que estava tudo certo, e você descobriu tarde demais."
+    },
+    "imagens": [
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/2026-11-10-atrasos-dor-v1-1-bZKDykIjxQeu906pFtmQy3A0vkht5v.jpg"
+    ],
+    "legenda": "Todo mês aparece aquela lista de clientes com parcela em atraso.\n\nVocê olha, pensa \"depois eu ligo\" e volta para a correria das propostas, das renovações e do WhatsApp que não para.\n\nSó que o depois não chega. O cliente nem percebeu que o débito não passou. Ou percebeu e ficou esperando alguém avisar.\n\nQuando você volta ao assunto, a apólice já foi cancelada. E junto com ela vai a proteção da família dele e a sua comissão.\n\nAtraso não é só um número numa planilha. É um cliente pedindo atenção sem saber que está pedindo.\n\nE aí, quantos nomes estão parados na sua lista de atrasos agora?\n\n#corretordeseguros #segurodevida #rotinadocorretor #carteiradeclientes",
+    "status": "pendente"
+  },
+  {
+    "id": "2026-11-10-story-umbi",
+    "data": "2026-11-10",
+    "tipo": "story",
+    "diario": true,
+    "assunto": "Story diário de bom humor sobre a rotina do corretor. Inspiração de hoje: Clientes com parcela em atraso que ninguém acompanha de perto.",
+    "etapa": "story",
+    "versao": 1,
+    "frase": "Parcela atrasada é tipo mensagem no visto: todo mundo viu, ninguém responde.",
+    "post": {
+      "frase": "Parcela atrasada é tipo mensagem no visto: todo mundo viu, ninguém responde.",
+      "detalhe": "Na tela de Atrasos você seleciona a turma e manda tudo pro funil de uma vez. E sem card duplicado.",
+      "pose": "falando"
+    },
+    "imagens": [
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/2026-11-10-story-umbi-v1-1-GNZP3SyrYQZIaZzokPYlZDJiYC9vZn.jpg"
+    ],
+    "legenda": "",
+    "status": "pendente"
+  },
+  {
+    "conta": "leme",
+    "id": "leme-2026-11-10-story",
+    "data": "2026-11-10",
+    "tipo": "story",
+    "diario": true,
+    "assunto": "Primeiro story do perfil: apresente-se aos corretores, diga quem você é e o que faz por eles, usando só o RECURSO.",
+    "etapa": "story",
+    "versao": 1,
+    "frase": "Prazer, sou o Timo! Fico no seu WhatsApp e ajudo a manter o rumo do dia.",
+    "post": {
+      "frase": "Prazer, sou o Timo! Fico no seu WhatsApp e ajudo a manter o rumo do dia.",
+      "detalhe": "Manda um áudio que eu preparo lead e tarefa. Só gravo depois que você tocar em Confirmar.",
+      "pose": "falando"
+    },
+    "imagens": [
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/leme-2026-11-10-story-v1-1-t5CH6jNxmAfpKxdXmCWsHYXUEdIkSJ.jpg"
+    ],
+    "legenda": "",
+    "status": "pendente"
+  },
+  {
+    "conta": "lemehub",
+    "id": "lemehub-2026-11-10-planilhas-dica",
+    "data": "2026-11-10",
+    "tema": "planilhas",
+    "etapa": "dica",
+    "versao": 1,
+    "frase": "3 passos para tirar a planilha da cabeça de uma pessoa só",
+    "post": {
+      "eyebrow": "Dica prática",
+      "titulo": "3 passos para tirar a planilha",
+      "destaque": "da cabeça de uma pessoa só",
+      "legenda": "Quando só uma pessoa entende a planilha, ela vira a única ponte entre a empresa e a informação. E toda ponte única é um risco.\n\nA boa notícia: dá para começar a mudar isso hoje, sem contratar nada.\n\nPrimeiro, coloque o processo no papel. Depois, deixe a planilha autoexplicativa. Por fim, garanta que mais alguém saiba tocar a rotina.\n\nO bônus: com o processo escrito e entendido por mais gente, fica muito mais fácil decidir os próximos passos, seja organizar melhor a planilha, seja transformar tudo em um sistema feito para o seu jeito de trabalhar.\n\nArraste para o lado e veja como fazer cada etapa.",
+      "hashtags": [
+        "#gestaoempresarial",
+        "#pequenasempresas",
+        "#processos",
+        "#organizacao",
+        "#lemehub"
+      ],
+      "passos": [
+        {
+          "titulo": "Escreva o passo a passo",
+          "texto": "Peça para quem cuida da planilha anotar, em tópicos, o que faz todo dia, toda semana e todo mês."
+        },
+        {
+          "titulo": "Explique cada coluna",
+          "texto": "Crie uma aba de legenda dizendo o que cada coluna significa, de onde vem o dado e quem atualiza."
+        },
+        {
+          "titulo": "Treine uma segunda pessoa",
+          "texto": "Escolha alguém para acompanhar a rotina e depois fazer sozinho por uma semana, com o passo a passo em mãos."
+        }
+      ],
+      "rodape": "Salve e mande para o seu time"
+    },
+    "imagens": [
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/lemehub-2026-11-10-planilhas-dica-v1-1-ENmuNF5GgFjSVFrdau4L7iBbaJpXLM.jpg",
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/lemehub-2026-11-10-planilhas-dica-v1-2-YfEM0QVDvi9ZXkNanSZVCS4CZEBJay.jpg",
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/lemehub-2026-11-10-planilhas-dica-v1-3-r65PYyc6IxEaVIRiZxzO91gxiyTojd.jpg",
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/lemehub-2026-11-10-planilhas-dica-v1-4-PwVbIicuHPNnF22ZauUz9LoecWyHDN.jpg",
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/lemehub-2026-11-10-planilhas-dica-v1-5-4hjVuXLGuxXAhWcvjjcpqX8hSWulaj.jpg"
+    ],
+    "legenda": "Quando só uma pessoa entende a planilha, ela vira a única ponte entre a empresa e a informação. E toda ponte única é um risco.\n\nA boa notícia: dá para começar a mudar isso hoje, sem contratar nada.\n\nPrimeiro, coloque o processo no papel. Depois, deixe a planilha autoexplicativa. Por fim, garanta que mais alguém saiba tocar a rotina.\n\nO bônus: com o processo escrito e entendido por mais gente, fica muito mais fácil decidir os próximos passos, seja organizar melhor a planilha, seja transformar tudo em um sistema feito para o seu jeito de trabalhar.\n\nArraste para o lado e veja como fazer cada etapa.\n\n#gestaoempresarial #pequenasempresas #processos #organizacao #lemehub",
+    "status": "pendente"
+  },
+  {
+    "conta": "lemehub",
+    "id": "lemehub-2026-11-10-story",
+    "data": "2026-11-10",
+    "tipo": "story",
+    "diario": true,
+    "assunto": "Story diário leve e próximo. Inspiração de hoje: A operação inteira presa em planilhas que só uma pessoa entende.",
+    "etapa": "story",
+    "versao": 1,
+    "frase": "Uma fórmula apagada sem querer e pronto: lá se vai a tarde caçando o erro na planilha.",
+    "post": {
+      "frase": "Uma fórmula apagada sem querer e pronto: lá se vai a tarde caçando o erro na planilha.",
+      "detalhe": "Quando a operação inteira mora ali, qualquer clique errado pesa. Já passou por isso?"
+    },
+    "imagens": [
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/lemehub-2026-11-10-story-v1-1-UZXTSmeySLl6WRG2jXoDS3K2ZcIt9f.jpg"
+    ],
+    "legenda": "",
+    "status": "pendente"
   }
 ]
