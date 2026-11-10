@@ -82,11 +82,32 @@ function artesCrm(c) {
   const doc = (classe, html) => documento(`${c.marca ? `m-${c.marca}` : ''} ${classe}`.trim(), html, c.css);
   const n = neon(c, (pose, classe) => `<img class="${classe}" src="${c.mascote[pose]}" alt="${c.assistente}">`);
 
-  return {
+  const artes = {
     dor: (post) => doc('', `${titulo(post)}<div class="stage"><p class="apoio">${esc(post.apoio)}</p>${mascote('pensando')}</div>${rodape(c.logo, 'Você também passa por isso?')}`),
 
-    // Solução: o mascote ao lado da tela do recurso (conversa no WhatsApp ou lista), em vidro inclinado.
-    solucao(post, tema) {
+    // Solução e dica sorteiam o estilo: o clássico (escuro na solução, branco na dica) ou o neon.
+    solucao: (post, tema) => (sorteio(post, 'solucao') ? artes.solucaoNeon(post, tema) : artes.solucaoClassica(post, tema)),
+    dica: (post) => (sorteio(post, 'dica') ? n.carrossel(post) : artes.dicaClara(post)),
+
+    solucaoClassica(post, tema) {
+      if (tema.visual === 'lista') {
+        const linhas = tema.itens.map(([nome, info]) => `<div class="row"><span class="ck">${CHECK}</span><b>${esc(nome)}</b><small>${esc(info)}</small></div>`).join('');
+        return doc('', `${titulo(post)}<div class="stage"><div class="card">${linhas}<div class="bar"><span>${tema.itens.length} selecionados</span><span class="btn pri">${esc(tema.botao)} ${SETA}</span></div></div>${mascote('ok')}</div>${rodape(c.logo, 'Exemplo ilustrativo')}`);
+      }
+      const acoes = tema.confirmar ? `<div class="acts"><span class="btn pri">${CHECK} Confirmar</span><span class="btn sec">${X} Cancelar</span></div>` : '';
+      return doc('', `${titulo(post)}<div class="stage"><div class="chat"><div class="b me"><div class="wave"><span class="play"></span>${ONDA}</div>“${esc(post.fala)}”</div><div class="b um"><div class="who"><img src="${c.mascote.falando}" alt="">${esc(c.assistente)}</div>${esc(post.resposta)}${acoes}</div></div></div>${rodape(c.logo, 'Exemplo ilustrativo')}`);
+    },
+
+    // Carrossel branco: capa, um slide por passo e encerramento.
+    dicaClara(post) {
+      const capa = doc('light', `${titulo(post)}<div class="stage">${mascote('falando')}</div>${rodape(c.logoClaro, 'Arraste para ver')}`);
+      const passos = post.passos.map((p, i) => doc('light', `<div class="eyebrow">Passo ${i + 1} de ${post.passos.length}</div><h1><em>${esc(p.titulo)}</em></h1><div class="stage"><p class="apoio">${esc(p.texto)}</p>${mascote(i === 1 ? 'ok' : 'falando')}</div>${rodape(c.logoClaro, `${i + 2}/${post.passos.length + 2}`)}`));
+      const fim = doc('light', `<div class="eyebrow">${esc(post.eyebrow)}</div><h1><em>${esc(post.rodape)}</em></h1><div class="stage">${mascote('comemorando')}</div>${rodape(c.logoClaro, c.produto)}`);
+      return [capa, ...passos, fim];
+    },
+
+    // Neon: o mascote ao lado da tela do recurso (conversa no WhatsApp ou lista), em vidro inclinado.
+    solucaoNeon(post, tema) {
       let tela;
       if (tema.visual === 'lista') {
         const linhas = tema.itens.map(([nome, info]) => `<div class="lin"><span class="ck">${CHECK}</span><span class="av">${esc(nome.at(-1))}</span><b>${esc(nome)}</b><small>${esc(info)}</small></div>`).join('');
@@ -98,14 +119,12 @@ function artesCrm(c) {
       return n.pagina(`solucao v${variante(post.titulo, 2)}`, `${n.pill(esc(post.eyebrow))}${manchete(post.titulo, post.destaque)}<div class="stage duo"><img class="masc" src="${c.mascote.ok}" alt="${c.assistente}">${tela}</div>`, n.pe('Exemplo ilustrativo'));
     },
 
-    // A dica é sempre um carrossel: capa, um slide por passo e encerramento.
-    dica: (post) => n.carrossel(post),
-
     // O story é o mascote falando em primeira pessoa, em formato vertical.
     story: (post) => doc('story', `<div class="eyebrow">${esc(c.tagStory)}</div><h1>${esc(post.frase)}</h1><div class="stage"><p class="apoio">${esc(post.detalhe)}</p>${mascote(post.pose in c.mascote ? post.pose : 'falando')}</div><div class="assinatura">@${esc(c.usuario)}</div>`),
 
     ideia: (post) => doc('', `${titulo(post)}<div class="stage"><p class="apoio">${esc(post.apoio)}</p>${mascote('falando')}</div>${rodape(c.logo, c.produto)}`),
   };
+  return artes;
 }
 
 // Contas sem mascote (cliente final e Leme Hub): arte só de texto, com a identidade de cada marca.
@@ -148,14 +167,27 @@ const produtoHub = (texto = '') => {
   const achados = PRODUTOS_HUB.filter((p) => p.re.test(texto));
   return achados.length === 1 ? achados[0] : AZUL_HUB;
 };
-const corHub = (p) => `<style>body.m-lemehub.m-lemehub{--ac:${p.cor};--ac-lt:${p.claro};--grad:linear-gradient(100deg,${p.claro},${p.cor})}</style>`;
+// No fundo claro a cor do produto escurece para continuar legível.
+const corHub = (p, claro) => (claro
+  ? `<style>body.m-lemehub.m-lemehub{--ac:${p.escuro};--ac-lt:${p.escuro};--grad:linear-gradient(100deg,${p.escuro},${p.escuro} 40%,${p.cor} 140%)}</style>`
+  : `<style>body.m-lemehub.m-lemehub{--ac:${p.cor};--ac-lt:${p.claro};--grad:linear-gradient(100deg,${p.claro},${p.cor})}</style>`);
 // Variação estável por post: o mesmo texto sempre dá o mesmo desenho, mas posts diferentes variam.
 function variante(s, n) {
   return [...String(s)].reduce((h, c) => (h * 31 + c.charCodeAt(0)) >>> 0, 7) % n;
 }
+// Sorteio do estilo (Lucas, 10/11: "pode randomizar"): sai do texto do post, então é aleatório entre posts,
+// mas a arte medida, a enviada para aprovação e a publicada são sempre a mesma. Verdadeiro = neon.
+// ESTILO_ARTE=neon|classico força um dos dois (prévia e testes).
+export function sorteio(post, etapa) {
+  const forcado = process.env.ESTILO_ARTE;
+  if (forcado) return forcado === 'neon';
+  return variante(`${etapa}|${JSON.stringify(post)}`, 2) === 1;
+}
 
 function slidesLemehub(post, etapa, tema, conta) {
-  const doc = (classe, cor, html) => documento(`m-lemehub ${classe}`, corHub(cor) + html, conta.css);
+  // O carrossel de dica no estilo clássico sai claro (o branco do feed).
+  const claro = etapa === 'dica';
+  const doc = (classe, cor, html) => documento(`m-lemehub ${claro ? 'claro ' : ''}${classe}`, corHub(cor, claro) + html, conta.css);
   const pe = (texto) => `<div class="foot"><img src="${conta.logo}" alt="${esc(conta.nome)}"><span>${esc(texto)}</span></div>`;
   const cor = produtoHub(tema?.recurso ?? JSON.stringify(post));
   const v = variante(post.titulo ?? post.frase, 2);
@@ -165,7 +197,15 @@ function slidesLemehub(post, etapa, tema, conta) {
   if (etapa === 'story') {
     return [doc('story l-story', cor, `<img class="vela" src="vela-lemehub.png" alt=""><div class="eyebrow">${esc(conta.nome)}</div><h1>${esc(post.frase)}</h1><div class="stage"><p class="apoio">${esc(post.detalhe)}</p></div><div class="assinatura">@${esc(conta.usuario)}</div>`)];
   }
-  if (etapa === 'dica') return n.carrossel(post);
+  if (etapa === 'dica') {
+    if (sorteio(post, etapa)) return n.carrossel(post);
+    const total = post.passos.length + 2;
+    const capa = doc(`l-capa v${v}`, cor, `${titulo(post)}<div class="stage"><div class="seta">Arraste <b>→</b></div></div>${pe(`1/${total}`)}`);
+    const passos = post.passos.map((p, i) => doc('l-passo', produtoHub(`${p.titulo} ${p.texto}`) === AZUL_HUB ? cor : produtoHub(`${p.titulo} ${p.texto}`),
+      `<div class="num">${String(i + 1).padStart(2, '0')}</div><div class="eyebrow">Passo ${i + 1} de ${post.passos.length}</div><h1><em>${esc(p.titulo)}</em></h1><div class="stage"><p class="apoio">${esc(p.texto)}</p></div>${pe(`${i + 2}/${total}`)}`));
+    const fim = doc('l-fim', cor, `<div class="eyebrow">${esc(post.eyebrow)}</div><h1>${esc(post.rodape)}</h1><div class="stage"><img class="vela" src="vela-lemehub.png" alt=""></div>${pe('lemehub.com.br')}`);
+    return [capa, ...passos, fim];
+  }
   if (etapa === conta.etapas[0]) {
     // Problema: manchete grande, sem cartão, e a pergunta que puxa o comentário.
     return [doc(`l-hero v${v}`, cor, `${titulo(post)}<div class="stage"><p class="apoio"><span class="aspas">“</span>${esc(post.apoio)}</p></div><div class="pergunta">${esc(conta.perguntaFim)}</div>${pe('lemehub.com.br')}`)];
@@ -175,7 +215,11 @@ function slidesLemehub(post, etapa, tema, conta) {
     const chips = PRODUTOS_HUB.map((p) => `<span class="chip" style="--c:${p.cor}"><i></i>${p.nome}</span>`).join('');
     return [doc(`l-vitrine v${v}`, cor, `${titulo(post)}<div class="stage"><p class="apoio">${esc(post.apoio)}</p><div class="chips">${chips}</div></div>${pe(conta.cta)}`)];
   }
-  // Solução e ideias de um produto: o texto ao lado de um painel de sistema em vidro, na cor do produto.
+  // Solução e ideias de um produto, no sorteio: o texto numa janela de sistema (clássico)
+  if (!sorteio(post, etapa)) {
+    return [doc(`l-janela v${v}`, cor, `${titulo(post)}<div class="stage"><div class="janela"><div class="barra"><i></i><i></i><i></i><span>lemehub · ${esc(cor.nome)}</span></div><p class="apoio">${esc(post.apoio)}</p><div class="ok">✓ ${esc(conta.cta)}</div></div></div>${pe('lemehub.com.br')}`)];
+  }
+  // ou ao lado de um painel de sistema em vidro (neon), na cor do produto.
   const barras = [46, 70, 54, 88, 62, 100, 78].map((h) => `<i style="height:${h}%"></i>`).join('');
   const esqueleto = '<div class="esq"><i></i><span><s></s><s style="width:60%"></s></span></div>'.repeat(2);
   const painel = `<div class="painel vidro tilt"><div class="barra"><i></i><i></i><i></i><span>lemehub · ${esc(cor.nome)}</span></div><div class="graf">${barras}</div>${esqueleto}</div>`;

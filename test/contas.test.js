@@ -4,7 +4,7 @@ import { botoesIdeia, interpretarUpdate, NOMES_CONTAS, textoIdeia } from '../api
 import { CONTAS, contaDe, contasAtivas, temasDe } from '../src/contas.js';
 import { textoAprovacao } from '../src/fluxo.js';
 import { proximoPost } from '../src/plano.js';
-import { montarSlides } from '../src/render.js';
+import { montarSlides, sorteio } from '../src/render.js';
 import { conferirConta, credenciais } from '../src/servicos.js';
 import { validarPost } from '../src/validar.js';
 
@@ -197,6 +197,18 @@ test('artes da Leme Hub: só texto, logo e cores dela, com a sequência problema
   assert.ok(artes.every((h) => marcaHub(h) && !h.includes('cliente.css') && !/umbi-|timo-/.test(h)));
   assert.ok(artes[0].includes('Isso acontece aí?') && artes[1].includes('link na bio'));
   assert.ok(temasDe(lemehub).length >= 10);
+});
+
+test('solução e dica sorteiam entre o estilo clássico e o neon, sempre igual para o mesmo post', () => {
+  const posts = Array.from({ length: 40 }, (_, i) => ({ ...base, titulo: `Título ${i}` }));
+  const neon = posts.map((p) => sorteio(p, 'dica'));
+  assert.ok(neon.includes(true) && neon.includes(false));
+  assert.deepEqual(posts.map((p) => sorteio(p, 'dica')), neon);
+  const dica = { ...base, rodape: 'R', passos: [1, 2, 3].map((n) => ({ titulo: `P${n}`, texto: `X${n}` })) };
+  const clara = posts.map((p) => ({ ...dica, titulo: p.titulo })).find((p) => !sorteio(p, 'dica'));
+  assert.ok(montarSlides(clara, 'dica', {}, CONTAS.umbrella).every((h) => h.includes('class="light"')));
+  const escura = posts.map((p) => ({ ...dica, titulo: p.titulo })).find((p) => sorteio(p, 'dica'));
+  assert.ok(montarSlides(escura, 'dica', {}, CONTAS.umbrella).every((h) => h.includes('neon.css')));
 });
 
 test('aprovação de story da Leme diz que é do Timo', () => {

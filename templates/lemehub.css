@@ -27,6 +27,15 @@ body.l-hero.v1 .apoio{padding:0 30px}
 body.l-hero.v1 .aspas{position:static;display:block;height:110px;font-size:200px}
 body.l-hero.v1 .pergunta{align-self:center}
 
+/* Solução: o texto dentro de uma janela de sistema. */
+body.l-janela .janela{border:1px solid color-mix(in srgb,var(--ac) 35%,transparent);border-radius:30px;background:linear-gradient(160deg,rgba(255,255,255,.08),rgba(255,255,255,.02));box-shadow:0 40px 90px rgba(0,0,0,.45),0 0 70px color-mix(in srgb,var(--ac) 16%,transparent);overflow:hidden}
+body.l-janela .barra{display:flex;align-items:center;gap:12px;padding:22px 30px;border-bottom:1px solid var(--line);background:rgba(255,255,255,.04)}
+body.l-janela .barra i{width:16px;height:16px;border-radius:50%;background:rgba(255,255,255,.18)}
+body.l-janela .barra i:first-child{background:var(--ac)}
+body.l-janela .barra span{margin-left:14px;font-family:'JetBrains Mono',monospace;font-size:24px;color:var(--mut)}
+body.l-janela .apoio{padding:40px 44px 26px;font-size:44px}
+body.l-janela .ok{margin:0 44px 40px;font-family:'JetBrains Mono',monospace;font-size:26px;color:var(--ac-lt)}
+body.l-janela.v1 .janela{transform:rotate(-2deg);margin:0 10px}
 
 /* Vitrine: a Leme Hub em geral, com os cinco produtos em pílulas coloridas. */
 body.l-vitrine .apoio{color:#c7d0dc;margin-bottom:46px}
@@ -35,7 +44,33 @@ body.l-vitrine .chip{display:inline-flex;align-items:center;gap:14px;padding:18p
 body.l-vitrine .chip i{width:14px;height:14px;border-radius:50%;background:var(--c);box-shadow:0 0 14px var(--c)}
 body.l-vitrine.v1 h1{font-size:100px}
 
+/* Carrossel: capa com seta, número gigante em cada passo e encerramento com a vela. */
+body.l-capa h1{font-size:108px}
+body.l-capa .stage{justify-content:flex-end}
+body.l-capa .seta{font-family:'JetBrains Mono',monospace;font-size:34px;color:var(--mut);display:flex;align-items:center;gap:20px}
+body.l-capa .seta b{display:inline-flex;align-items:center;justify-content:center;width:96px;height:96px;border-radius:50%;background:var(--ac);color:var(--ink);font-size:46px}
+body.l-capa.v1{background:radial-gradient(circle at 12% 18%,color-mix(in srgb,var(--ac) 22%,transparent) 0,transparent 44%),radial-gradient(circle at 100% 100%,#12355c 0,transparent 55%),var(--ink)}
+body.l-passo .num{position:absolute;right:56px;bottom:150px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:330px;line-height:1;color:transparent;-webkit-text-stroke:3px color-mix(in srgb,var(--ac) 55%,transparent);z-index:0}
+body.l-passo h1{font-size:84px;max-width:780px}
+body.l-passo .apoio{padding:40px 44px;border-radius:28px;border:1px solid color-mix(in srgb,var(--ac) 30%,transparent);background:linear-gradient(160deg,rgba(255,255,255,.07),rgba(255,255,255,.02))}
+body.l-fim{text-align:center;justify-content:center}
+body.l-fim .eyebrow{justify-content:center}
+body.l-fim h1{font-size:92px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;padding-bottom:6px}
+body.l-fim .stage{align-items:center}
+body.l-fim .vela{width:330px;filter:brightness(0) invert(1) drop-shadow(0 0 40px var(--ac))}
 
+/* Versão clara (carrossel de dica): papel claro, texto escuro e o logo com as cores invertidas. */
+body.m-lemehub.claro{--txt:#0b1220;--mut:#475569;--line:rgba(15,23,42,.12);color:var(--txt);
+  background:radial-gradient(circle at 88% 10%,color-mix(in srgb,var(--ac) 14%,transparent) 0,transparent 42%),radial-gradient(circle at 0% 100%,#dbe7f5 0,transparent 55%),#f5f8fc}
+body.m-lemehub.claro::before{background-image:linear-gradient(rgba(15,23,42,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(15,23,42,.045) 1px,transparent 1px)}
+body.m-lemehub.claro .eyebrow::before{box-shadow:none}
+body.m-lemehub.claro .foot img{filter:invert(1) hue-rotate(180deg)}
+body.m-lemehub.claro .apoio{color:#1e293b}
+body.l-passo.claro .apoio{background:#ffffff;border-color:color-mix(in srgb,var(--ac) 25%,transparent);box-shadow:0 24px 60px rgba(15,23,42,.08)}
+body.l-passo.claro .num{-webkit-text-stroke-color:color-mix(in srgb,var(--ac) 45%,transparent)}
+body.l-capa.claro .seta b{color:#ffffff}
+body.l-capa.claro.v1{background:radial-gradient(circle at 12% 18%,color-mix(in srgb,var(--ac) 14%,transparent) 0,transparent 44%),radial-gradient(circle at 100% 100%,#dbe7f5 0,transparent 55%),#f5f8fc}
+body.l-fim.claro .vela{filter:drop-shadow(0 20px 40px rgba(3,105,161,.25))}
 
 /* Story: a vela no topo e o texto direto no fundo, sem balão. */
 body.m-lemehub.story{text-align:center;background:radial-gradient(circle at 50% 22%,color-mix(in srgb,var(--ac) 24%,transparent) 0,transparent 45%),radial-gradient(circle at 50% 100%,#12355c 0,transparent 60%),var(--ink)}

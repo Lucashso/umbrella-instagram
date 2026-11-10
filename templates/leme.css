@@ -4,5 +4,13 @@ body.m-leme .eyebrow{color:#5CC8FF}
 body.m-leme .apoio{border-left-color:#0A8BFF}
 /* Logo horizontal (817x180), sem a margem que o logo da Umbrella tem em volta. */
 body.m-leme .foot img{height:58px;margin:0}
+body.m-leme .me{background:linear-gradient(120deg,#0A5BD8,#0A8BFF)}
+body.m-leme .who img{width:96px;height:96px;margin:-12px -4px -12px -10px}
 body.m-leme.story{background:radial-gradient(circle at 50% 72%,#123A85 0,var(--ink) 62%)}
 body.m-leme.story h1{color:#0B1F4B}
+body.m-leme.light{background:#F3F7FF;color:#0B1F4B}
+body.m-leme.light .apoio{color:#42557D}
+body.m-leme.light .eyebrow{color:#0A5BD8}
+body.m-leme.light .foot{border-top-color:#D3DFF5}
+body.m-leme.light .foot span{color:#42557D}
+body.m-leme.light .foot img{height:54px;margin:0}
