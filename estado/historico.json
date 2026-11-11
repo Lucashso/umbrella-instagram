@@ -751,7 +751,7 @@
       "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/2026-11-10-story-umbi-v1-1-GNZP3SyrYQZIaZzokPYlZDJiYC9vZn.jpg"
     ],
     "legenda": "",
-    "status": "pendente"
+    "status": "expirado"
   },
   {
     "conta": "leme",
@@ -842,5 +842,119 @@
     "legenda": "",
     "status": "publicado",
     "media_id": "18118223801467778"
+  },
+  {
+    "id": "2026-11-11-atrasos-solucao",
+    "data": "2026-11-11",
+    "tema": "atrasos",
+    "etapa": "solucao",
+    "versao": 1,
+    "frase": "Atrasou? Vira oportunidade. Todos no funil, de uma vez, sem duplicar.",
+    "post": {
+      "eyebrow": "Tela de Atrasos",
+      "titulo": "Atrasou? Vira oportunidade.",
+      "destaque": "Todos no funil, de uma vez, sem duplicar.",
+      "legenda": "Cliente com parcela em atraso não pode ficar só numa lista esperando alguém lembrar dele.\n\nNo Umbrella CRM, você abre a tela de Atrasos, seleciona os clientes e envia todos de uma vez para um funil de oportunidades. Você ainda escolhe em qual etapa cada leva entra.\n\nE se algum desses clientes já tem um card ativo no funil? Ele fica de fora automaticamente. Nada de card duplicado bagunçando o seu acompanhamento.\n\nAssim, o atraso deixa de ser um susto lá na frente e vira uma tarefa clara no seu dia: quem precisa de contato, em que etapa está e o que falta fazer.\n\nConheça o Umbrella CRM: link na bio.",
+      "hashtags": [
+        "#corretordeseguros",
+        "#segurodevida",
+        "#umbrellacrm",
+        "#funildevendas"
+      ]
+    },
+    "imagens": [
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/2026-11-11-atrasos-solucao-v1-1-QXQWOyeJ1YLtTtPnJIaO4syjZSuZyr.jpg"
+    ],
+    "legenda": "Cliente com parcela em atraso não pode ficar só numa lista esperando alguém lembrar dele.\n\nNo Umbrella CRM, você abre a tela de Atrasos, seleciona os clientes e envia todos de uma vez para um funil de oportunidades. Você ainda escolhe em qual etapa cada leva entra.\n\nE se algum desses clientes já tem um card ativo no funil? Ele fica de fora automaticamente. Nada de card duplicado bagunçando o seu acompanhamento.\n\nAssim, o atraso deixa de ser um susto lá na frente e vira uma tarefa clara no seu dia: quem precisa de contato, em que etapa está e o que falta fazer.\n\nConheça o Umbrella CRM: link na bio.\n\n#corretordeseguros #segurodevida #umbrellacrm #funildevendas",
+    "status": "pendente"
+  },
+  {
+    "id": "2026-11-11-story-umbi",
+    "data": "2026-11-11",
+    "tipo": "story",
+    "diario": true,
+    "assunto": "Story diário de bom humor sobre a rotina do corretor. Inspiração de hoje: Clientes com parcela em atraso que ninguém acompanha de perto.",
+    "etapa": "story",
+    "versao": 1,
+    "frase": "Tem cliente com parcela atrasada esperando teu 'depois eu vejo' desde o mês passado.",
+    "post": {
+      "frase": "Tem cliente com parcela atrasada esperando teu 'depois eu vejo' desde o mês passado.",
+      "detalhe": "Na tela de Atrasos você seleciona todo mundo e manda pro funil de uma vez. Sem card repetido.",
+      "pose": "falando"
+    },
+    "imagens": [
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/2026-11-11-story-umbi-v1-1-l27gpbULxn6nXlbP10s4J0WGWGzOcI.jpg"
+    ],
+    "legenda": "",
+    "status": "pendente"
+  },
+  {
+    "conta": "leme",
+    "id": "leme-2026-11-11-story",
+    "data": "2026-11-11",
+    "tipo": "story",
+    "diario": true,
+    "assunto": "Story diário de bom humor sobre a rotina do corretor. Inspiração de hoje: Leads que esfriam porque ninguém viu que pararam.",
+    "etapa": "story",
+    "versao": 1,
+    "frase": "Lead parado é igual barco sem vento: ninguém percebe até ele virar enfeite do porto.",
+    "post": {
+      "frase": "Lead parado é igual barco sem vento: ninguém percebe até ele virar enfeite do porto.",
+      "detalhe": "Me pergunta quais leads estão parados que eu te passo a lista na hora. Aí é só soprar a vela de novo.",
+      "pose": "falando"
+    },
+    "imagens": [
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/leme-2026-11-11-story-v1-1-NZ51eczEIDmqegbD0xBkSKC9jpoy3y.jpg"
+    ],
+    "legenda": "",
+    "status": "pendente"
+  },
+  {
+    "conta": "lemehub",
+    "id": "lemehub-2026-11-11-whatsapp-de-madrugada-problema",
+    "data": "2026-11-11",
+    "tema": "whatsapp-de-madrugada",
+    "etapa": "problema",
+    "versao": 1,
+    "frase": "Mensagem às 22h, resposta às 9h. Até lá, o cliente já fechou com outro.",
+    "post": {
+      "eyebrow": "Atendimento fora do horário",
+      "titulo": "Mensagem às 22h, resposta às 9h.",
+      "destaque": "Até lá, o cliente já fechou com outro.",
+      "legenda": "São 22h. Alguém manda no WhatsApp da empresa: \"Vocês têm horário amanhã?\" ou \"Quanto custa?\".\n\nA loja já fechou, a equipe foi para casa e o celular está na gaveta. A mensagem fica ali, sem resposta.\n\nNa manhã seguinte, alguém do time abre o WhatsApp e encontra várias conversas paradas. Responde uma por uma, mas parte desses clientes nem volta. Muitos procuraram outra empresa que respondeu antes.\n\nIsso acontece em muita empresa pequena e média. Não é falta de vontade. O dono não consegue ficar de plantão no celular, e o cliente não escolhe horário comercial para ter dúvida.\n\nE você? Quantas mensagens costumam chegar depois que a sua empresa fecha? Conta pra gente nos comentários.",
+      "hashtags": [
+        "#atendimento",
+        "#whatsapp",
+        "#pequenasempresas",
+        "#gestao",
+        "#empreendedorismo"
+      ],
+      "apoio": "Quem pergunta à noite quer resolver logo. Quando a resposta só chega no dia seguinte, a vontade de comprar muitas vezes já passou."
+    },
+    "imagens": [
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/lemehub-2026-11-11-whatsapp-de-madrugada-problema-v1-1-CCvCuqzHROGn2tXJ4poS5h8z5T34ex.jpg"
+    ],
+    "legenda": "São 22h. Alguém manda no WhatsApp da empresa: \"Vocês têm horário amanhã?\" ou \"Quanto custa?\".\n\nA loja já fechou, a equipe foi para casa e o celular está na gaveta. A mensagem fica ali, sem resposta.\n\nNa manhã seguinte, alguém do time abre o WhatsApp e encontra várias conversas paradas. Responde uma por uma, mas parte desses clientes nem volta. Muitos procuraram outra empresa que respondeu antes.\n\nIsso acontece em muita empresa pequena e média. Não é falta de vontade. O dono não consegue ficar de plantão no celular, e o cliente não escolhe horário comercial para ter dúvida.\n\nE você? Quantas mensagens costumam chegar depois que a sua empresa fecha? Conta pra gente nos comentários.\n\n#atendimento #whatsapp #pequenasempresas #gestao #empreendedorismo",
+    "status": "pendente"
+  },
+  {
+    "conta": "lemehub",
+    "id": "lemehub-2026-11-11-story",
+    "data": "2026-11-11",
+    "tipo": "story",
+    "diario": true,
+    "assunto": "Story diário leve e próximo. Inspiração de hoje: Cliente que manda mensagem fora do horário e fica sem resposta.",
+    "etapa": "story",
+    "versao": 1,
+    "frase": "Cliente que manda mensagem às 23h e só recebe resposta no dia seguinte. Acontece aí?",
+    "post": {
+      "frase": "Cliente que manda mensagem às 23h e só recebe resposta no dia seguinte. Acontece aí?",
+      "detalhe": "Nossa IA de atendimento responde as dúvidas frequentes no WhatsApp na hora, até de madrugada."
+    },
+    "imagens": [
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/lemehub-2026-11-11-story-v1-1-q8uwdoRv6E332F9RGYWjwQusjqjX38.jpg"
+    ],
+    "legenda": "",
+    "status": "pendente"
   }
 ]
