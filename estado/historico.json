@@ -887,7 +887,7 @@
       "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/2026-11-11-story-umbi-v1-1-l27gpbULxn6nXlbP10s4J0WGWGzOcI.jpg"
     ],
     "legenda": "",
-    "status": "pendente"
+    "status": "expirado"
   },
   {
     "conta": "leme",
@@ -960,5 +960,138 @@
     "legenda": "",
     "status": "publicado",
     "media_id": "18116888627163215"
+  },
+  {
+    "id": "2026-11-12-atrasos-dica",
+    "data": "2026-11-12",
+    "tema": "atrasos",
+    "etapa": "dica",
+    "versao": 1,
+    "frase": "A parcela atrasou? Ligue como quem cuida, não como quem cobra",
+    "post": {
+      "eyebrow": "Dica de relacionamento",
+      "titulo": "A parcela atrasou?",
+      "destaque": "Ligue como quem cuida, não como quem cobra",
+      "legenda": "Parcela em atraso nem sempre é desistência.\n\nMuitas vezes é um cartão que venceu, uma conta que mudou ou um mês mais apertado. O cliente nem percebeu, ou ficou sem graça de avisar.\n\nO problema é quando ninguém liga. O silêncio vira cancelamento, e a proteção que você ajudou a construir se perde.\n\nPor isso, trate o atraso como um momento de relacionamento. Ligue cedo, comece perguntando se está tudo bem e lembre o cliente do motivo que o levou a contratar.\n\nUm contato atencioso agora costuma valer mais do que muita prospecção depois.\n\nE você, como costuma abordar quem está com a parcela atrasada? Conta aqui nos comentários.",
+      "hashtags": [
+        "#corretordeseguros",
+        "#segurodevida",
+        "#dicasdevenda",
+        "#relacionamentocomcliente"
+      ],
+      "passos": [
+        {
+          "titulo": "Fale nos primeiros dias",
+          "texto": "Quanto antes você souber do atraso, mais fácil resolver. Reserve um momento fixo na semana para ver quem atrasou."
+        },
+        {
+          "titulo": "Pergunte, não cobre",
+          "texto": "Comece com \"Está tudo bem?\". Muitas vezes foi um cartão vencido ou uma mudança de conta, não falta de interesse."
+        },
+        {
+          "titulo": "Lembre o porquê",
+          "texto": "Retome o que levou o cliente a contratar: a família, os planos. Depois, ofereça ajuda para regularizar."
+        }
+      ],
+      "rodape": "Salve e use na próxima ligação"
+    },
+    "imagens": [
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/2026-11-12-atrasos-dica-v1-1-2npSWaGpUqGKY2rNyKbrTjuM6pm8PY.jpg",
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/2026-11-12-atrasos-dica-v1-2-5MrDyPW69Tcmz3wxOEp3TDMsTCStpr.jpg",
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/2026-11-12-atrasos-dica-v1-3-RuUBc018O0cvIfB1NmlbHebDrNLX0R.jpg",
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/2026-11-12-atrasos-dica-v1-4-jSkvAbAmnaK6MfR6DkZfGZvEFZkDQJ.jpg",
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/2026-11-12-atrasos-dica-v1-5-AB4C1odmVCXFnIJIfFZeKLlPuGew4E.jpg"
+    ],
+    "legenda": "Parcela em atraso nem sempre é desistência.\n\nMuitas vezes é um cartão que venceu, uma conta que mudou ou um mês mais apertado. O cliente nem percebeu, ou ficou sem graça de avisar.\n\nO problema é quando ninguém liga. O silêncio vira cancelamento, e a proteção que você ajudou a construir se perde.\n\nPor isso, trate o atraso como um momento de relacionamento. Ligue cedo, comece perguntando se está tudo bem e lembre o cliente do motivo que o levou a contratar.\n\nUm contato atencioso agora costuma valer mais do que muita prospecção depois.\n\nE você, como costuma abordar quem está com a parcela atrasada? Conta aqui nos comentários.\n\n#corretordeseguros #segurodevida #dicasdevenda #relacionamentocomcliente",
+    "status": "pendente"
+  },
+  {
+    "id": "2026-11-12-story-umbi",
+    "data": "2026-11-12",
+    "tipo": "story",
+    "diario": true,
+    "assunto": "Story diário de bom humor sobre a rotina do corretor. Inspiração de hoje: Clientes com parcela em atraso que ninguém acompanha de perto.",
+    "etapa": "story",
+    "versao": 1,
+    "frase": "Parcela atrasada é igual planta de escritório: todo mundo vê, ninguém rega.",
+    "post": {
+      "frase": "Parcela atrasada é igual planta de escritório: todo mundo vê, ninguém rega.",
+      "detalhe": "Na tela de Atrasos você seleciona a turma e manda tudo pro funil de uma vez. Regador eu já trouxe.",
+      "pose": "falando"
+    },
+    "imagens": [
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/2026-11-12-story-umbi-v1-1-a5kPc7qNTUELynjwx0NsNfQQkJaGfo.jpg"
+    ],
+    "legenda": "",
+    "status": "pendente"
+  },
+  {
+    "conta": "leme",
+    "id": "leme-2026-11-12-story",
+    "data": "2026-11-12",
+    "tipo": "story",
+    "diario": true,
+    "assunto": "Story diário de bom humor sobre a rotina do corretor. Inspiração de hoje: Leads que esfriam porque ninguém viu que pararam.",
+    "etapa": "story",
+    "versao": 1,
+    "frase": "Aquele “te chamo amanhã” já tá completando três semanas de viagem.",
+    "post": {
+      "frase": "Aquele “te chamo amanhã” já tá completando três semanas de viagem.",
+      "detalhe": "Me pergunta quais leads estão parados que eu te mostro a lista na hora. Sem bronca, só bússola.",
+      "pose": "falando"
+    },
+    "imagens": [
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/leme-2026-11-12-story-v1-1-gWpeynjPcc4fIdLYvbbOAll1wu59x3.jpg"
+    ],
+    "legenda": "",
+    "status": "pendente"
+  },
+  {
+    "conta": "lemehub",
+    "id": "lemehub-2026-11-12-whatsapp-de-madrugada-solucao",
+    "data": "2026-11-12",
+    "tema": "whatsapp-de-madrugada",
+    "etapa": "solucao",
+    "versao": 1,
+    "frase": "Mensagem às 22h? Resposta às 22h, no WhatsApp da empresa.",
+    "post": {
+      "eyebrow": "IA de atendimento Leme Hub",
+      "titulo": "Mensagem às 22h?",
+      "destaque": "Resposta às 22h, no WhatsApp da empresa.",
+      "legenda": "O cliente não escolhe horário para ter dúvida. Às vezes ela aparece depois do jantar, às vezes de madrugada.\n\nCom a IA de atendimento da Leme Hub, o WhatsApp da sua empresa continua respondendo quando o time já foi para casa.\n\nEla é treinada com as respostas do seu negócio. Assim, as perguntas frequentes são respondidas na hora, de dia ou de madrugada.\n\nSe o cliente quer marcar um horário, a IA já agenda ali mesmo, na conversa.\n\nE quando o assunto pede uma pessoa, ela passa para o responsável. Ninguém fica preso num atendimento que não resolve.\n\nDe manhã, sua equipe começa o dia com as conversas encaminhadas, e não com uma fila de mensagens esperando desde ontem.\n\nFale com a gente: link na bio.",
+      "hashtags": [
+        "#atendimentoaocliente",
+        "#whatsappbusiness",
+        "#inteligenciaartificial",
+        "#pequenasempresas",
+        "#lemehub"
+      ],
+      "apoio": "A IA aprende as respostas do seu negócio, atende na hora, agenda horários e chama o responsável quando o assunto pede uma pessoa."
+    },
+    "imagens": [
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/lemehub-2026-11-12-whatsapp-de-madrugada-solucao-v1-1-H1SlONncczIsajyV74LjosOWKIdS0C.jpg"
+    ],
+    "legenda": "O cliente não escolhe horário para ter dúvida. Às vezes ela aparece depois do jantar, às vezes de madrugada.\n\nCom a IA de atendimento da Leme Hub, o WhatsApp da sua empresa continua respondendo quando o time já foi para casa.\n\nEla é treinada com as respostas do seu negócio. Assim, as perguntas frequentes são respondidas na hora, de dia ou de madrugada.\n\nSe o cliente quer marcar um horário, a IA já agenda ali mesmo, na conversa.\n\nE quando o assunto pede uma pessoa, ela passa para o responsável. Ninguém fica preso num atendimento que não resolve.\n\nDe manhã, sua equipe começa o dia com as conversas encaminhadas, e não com uma fila de mensagens esperando desde ontem.\n\nFale com a gente: link na bio.\n\n#atendimentoaocliente #whatsappbusiness #inteligenciaartificial #pequenasempresas #lemehub",
+    "status": "pendente"
+  },
+  {
+    "conta": "lemehub",
+    "id": "lemehub-2026-11-12-story",
+    "data": "2026-11-12",
+    "tipo": "story",
+    "diario": true,
+    "assunto": "Story diário leve e próximo. Inspiração de hoje: Cliente que manda mensagem fora do horário e fica sem resposta.",
+    "etapa": "story",
+    "versao": 1,
+    "frase": "Muita gente só pesquisa à noite ou no fim de semana. E o seu WhatsApp, responde?",
+    "post": {
+      "frase": "Muita gente só pesquisa à noite ou no fim de semana. E o seu WhatsApp, responde?",
+      "detalhe": "Nossa IA responde as dúvidas frequentes na hora e passa para você o que pede uma pessoa."
+    },
+    "imagens": [
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/lemehub-2026-11-12-story-v1-1-oFmGXYH1oyqoKc6GML7MJL7kB8873F.jpg"
+    ],
+    "legenda": "",
+    "status": "pendente"
   }
 ]
