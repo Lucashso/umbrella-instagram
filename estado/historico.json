@@ -1023,7 +1023,7 @@
       "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/2026-11-12-story-umbi-v1-1-a5kPc7qNTUELynjwx0NsNfQQkJaGfo.jpg"
     ],
     "legenda": "",
-    "status": "pendente"
+    "status": "expirado"
   },
   {
     "conta": "leme",
@@ -1044,7 +1044,7 @@
       "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/leme-2026-11-12-story-v1-1-gWpeynjPcc4fIdLYvbbOAll1wu59x3.jpg"
     ],
     "legenda": "",
-    "status": "pendente"
+    "status": "expirado"
   },
   {
     "conta": "lemehub",
@@ -1095,5 +1095,112 @@
     "legenda": "",
     "status": "publicado",
     "media_id": "18465540655187660"
+  },
+  {
+    "id": "2026-11-13-story-umbi",
+    "data": "2026-11-13",
+    "tipo": "story",
+    "diario": true,
+    "assunto": "Story diário de bom humor sobre a rotina do corretor. Inspiração de hoje: Clientes com parcela em atraso que ninguém acompanha de perto.",
+    "etapa": "story",
+    "versao": 1,
+    "frase": "Tem parcela atrasada na sua lista que já te chama pelo apelido de tanto esperar.",
+    "post": {
+      "frase": "Tem parcela atrasada na sua lista que já te chama pelo apelido de tanto esperar.",
+      "detalhe": "Na tela de Atrasos você manda todo mundo pro funil de uma vez. Quem já tem card nem duplica.",
+      "pose": "falando"
+    },
+    "imagens": [
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/2026-11-13-story-umbi-v1-1-3pVg4YuJ6vq0noa3BQi7xhXmQivVEh.jpg"
+    ],
+    "legenda": "",
+    "status": "pendente"
+  },
+  {
+    "conta": "leme",
+    "id": "leme-2026-11-13-story",
+    "data": "2026-11-13",
+    "tipo": "story",
+    "diario": true,
+    "assunto": "Story diário de bom humor sobre a rotina do corretor. Inspiração de hoje: Leads que esfriam porque ninguém viu que pararam.",
+    "etapa": "story",
+    "versao": 1,
+    "frase": "Lead esquecido é igual café na mesa do corretor: quando você lembra, já esfriou.",
+    "post": {
+      "frase": "Lead esquecido é igual café na mesa do corretor: quando você lembra, já esfriou.",
+      "detalhe": "Me pergunta quais leads estão parados que eu te passo a lista na hora, antes de virar café gelado.",
+      "pose": "falando"
+    },
+    "imagens": [
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/leme-2026-11-13-story-v1-1-5iClPrZYABxPQ3rG3ayp1HR2OjlVh3.jpg"
+    ],
+    "legenda": "",
+    "status": "pendente"
+  },
+  {
+    "conta": "lemehub",
+    "id": "lemehub-2026-11-13-whatsapp-de-madrugada-dica",
+    "data": "2026-11-13",
+    "tema": "whatsapp-de-madrugada",
+    "etapa": "dica",
+    "versao": 1,
+    "frase": "Cliente chamou à noite? Não deixe a mensagem cair no silêncio",
+    "post": {
+      "eyebrow": "Dica para fora do horário",
+      "titulo": "Cliente chamou à noite?",
+      "destaque": "Não deixe a mensagem cair no silêncio",
+      "legenda": "Muita empresa perde cliente sem perceber: a mensagem chega depois do expediente e fica lá, sem nenhum sinal até a manhã seguinte.\n\nNem sempre dá para responder na hora. Mas dá para o cliente não se sentir ignorado.\n\nSeparamos três ajustes simples que você pode fazer hoje mesmo no WhatsApp da sua empresa, sem contratar nada.\n\nO segredo é combinar duas coisas: avisar quando a resposta vai chegar e já entregar o que o cliente mais pergunta.\n\nSalve este post para configurar com calma e mande para quem cuida do atendimento aí.",
+      "hashtags": [
+        "#atendimento",
+        "#whatsappbusiness",
+        "#pequenasempresas",
+        "#dicasdegestao",
+        "#empreendedorismo"
+      ],
+      "passos": [
+        {
+          "titulo": "Ative a mensagem de ausência",
+          "texto": "No WhatsApp Business, configure um aviso automático com seu horário e quando o cliente vai receber resposta."
+        },
+        {
+          "titulo": "Deixe as respostas prontas",
+          "texto": "Preço, endereço, horário e formas de pagamento. Escreva essas respostas e coloque as principais já no aviso."
+        },
+        {
+          "titulo": "Comece o dia pela noite",
+          "texto": "Ao abrir o WhatsApp de manhã, responda primeiro quem chamou fora do horário, antes das outras conversas."
+        }
+      ],
+      "rodape": "Salve e mostre para o seu time"
+    },
+    "imagens": [
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/lemehub-2026-11-13-whatsapp-de-madrugada-dica-v1-1-sRb6pYYZoHcO6IgxOrkdaHv5s6Ds9W.jpg",
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/lemehub-2026-11-13-whatsapp-de-madrugada-dica-v1-2-FSB33SQVCzbskklEDumuETcFSYbW6P.jpg",
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/lemehub-2026-11-13-whatsapp-de-madrugada-dica-v1-3-vMI1AfYDPnvlYtZDHq6Xa6Tx8rnwtq.jpg",
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/lemehub-2026-11-13-whatsapp-de-madrugada-dica-v1-4-BXC06aG87hjgetAVJFk8d8Hl7t7ZfH.jpg",
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/lemehub-2026-11-13-whatsapp-de-madrugada-dica-v1-5-trimfd2U00wWGyfrqKGth4lmgaDurQ.jpg"
+    ],
+    "legenda": "Muita empresa perde cliente sem perceber: a mensagem chega depois do expediente e fica lá, sem nenhum sinal até a manhã seguinte.\n\nNem sempre dá para responder na hora. Mas dá para o cliente não se sentir ignorado.\n\nSeparamos três ajustes simples que você pode fazer hoje mesmo no WhatsApp da sua empresa, sem contratar nada.\n\nO segredo é combinar duas coisas: avisar quando a resposta vai chegar e já entregar o que o cliente mais pergunta.\n\nSalve este post para configurar com calma e mande para quem cuida do atendimento aí.\n\n#atendimento #whatsappbusiness #pequenasempresas #dicasdegestao #empreendedorismo",
+    "status": "pendente"
+  },
+  {
+    "conta": "lemehub",
+    "id": "lemehub-2026-11-13-story",
+    "data": "2026-11-13",
+    "tipo": "story",
+    "diario": true,
+    "assunto": "Story diário leve e próximo. Inspiração de hoje: Cliente que manda mensagem fora do horário e fica sem resposta.",
+    "etapa": "story",
+    "versao": 1,
+    "frase": "A dúvida do cliente era simples, só que chegou quando todo mundo já tinha ido para casa.",
+    "post": {
+      "frase": "A dúvida do cliente era simples, só que chegou quando todo mundo já tinha ido para casa.",
+      "detalhe": "Pergunta frequente não precisa esperar o dia seguinte. A IA da Leme Hub responde no WhatsApp na hora."
+    },
+    "imagens": [
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/lemehub-2026-11-13-story-v1-1-qm3raESX6VZUV0ttHLa52DMXSKyWIl.jpg"
+    ],
+    "legenda": "",
+    "status": "pendente"
   }
 ]
