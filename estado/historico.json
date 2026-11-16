@@ -1312,7 +1312,7 @@
       "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/2026-11-15-story-umbi-v1-1-Ygttmr0TAfRUPx4Hbi3Ho7kulPjB7o.jpg"
     ],
     "legenda": "",
-    "status": "pendente"
+    "status": "expirado"
   },
   {
     "conta": "leme",
@@ -1333,7 +1333,7 @@
       "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/leme-2026-11-15-story-v1-1-DP5BkKOqV9b0Sb1vFLe1p4BnYR7n0k.jpg"
     ],
     "legenda": "",
-    "status": "pendente"
+    "status": "expirado"
   },
   {
     "conta": "lemehub",
@@ -1355,5 +1355,93 @@
     "legenda": "",
     "status": "publicado",
     "media_id": "17912561781593785"
+  },
+  {
+    "id": "2026-11-16-indicacoes-solucao",
+    "data": "2026-11-16",
+    "tema": "indicacoes",
+    "etapa": "solucao",
+    "versao": 1,
+    "frase": "Recebeu três indicações? Manda tudo numa mensagem só pro Umbi",
+    "post": {
+      "eyebrow": "Indicação no Umbrella CRM",
+      "titulo": "Recebeu três indicações?",
+      "destaque": "Manda tudo numa mensagem só pro Umbi",
+      "legenda": "Indicação boa é aquela que vira conversa. Mas, entre uma visita e outra, os nomes ficam no bloco de notas, no print ou na memória.\n\nNo Umbrella CRM, você resolve isso no próprio WhatsApp. Manda para o Umbi todas as indicações de uma vez, em texto ou áudio, do jeito que você falaria com um colega.\n\nO Umbi organiza os nomes, cria os leads em lote e liga cada um a quem indicou. Você confere e dá um único Confirmar.\n\nPronto: as indicações saem da sua cabeça e entram no seu CRM, com a origem registrada. Fica mais fácil lembrar de onde veio cada contato na hora de chamar.\n\nConheça o Umbrella CRM: link na bio.",
+      "hashtags": [
+        "#corretordeseguros",
+        "#segurodevida",
+        "#indicacoes",
+        "#umbrellacrm"
+      ],
+      "fala": "Umbi, a Carla me indicou três amigos: Rafael, 11 99999-1234, Juliana e o Marcos, do trabalho dela.",
+      "resposta": "Entendi! Vou criar 3 leads ligados à Carla como indicação: Rafael, Juliana e Marcos. Confere os dados e toca em Confirmar para eu salvar todos."
+    },
+    "imagens": [
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/2026-11-16-indicacoes-solucao-v1-1-VaJ8HIq34J5n9lWZCA8efxYBf08CdP.jpg"
+    ],
+    "legenda": "Indicação boa é aquela que vira conversa. Mas, entre uma visita e outra, os nomes ficam no bloco de notas, no print ou na memória.\n\nNo Umbrella CRM, você resolve isso no próprio WhatsApp. Manda para o Umbi todas as indicações de uma vez, em texto ou áudio, do jeito que você falaria com um colega.\n\nO Umbi organiza os nomes, cria os leads em lote e liga cada um a quem indicou. Você confere e dá um único Confirmar.\n\nPronto: as indicações saem da sua cabeça e entram no seu CRM, com a origem registrada. Fica mais fácil lembrar de onde veio cada contato na hora de chamar.\n\nConheça o Umbrella CRM: link na bio.\n\n#corretordeseguros #segurodevida #indicacoes #umbrellacrm",
+    "status": "pendente"
+  },
+  {
+    "id": "2026-11-16-story-umbi",
+    "data": "2026-11-16",
+    "tipo": "story",
+    "diario": true,
+    "assunto": "Story diário de bom humor sobre a rotina do corretor. Inspiração de hoje: Indicações recebidas que se perdem antes do primeiro contato.",
+    "etapa": "story",
+    "versao": 1,
+    "frase": "Indicação anotada no verso do cartão do estacionamento. Pagou na saída, foi junto.",
+    "post": {
+      "frase": "Indicação anotada no verso do cartão do estacionamento. Pagou na saída, foi junto.",
+      "detalhe": "Me manda o áudio com os nomes de uma vez. Eu crio os leads ligados a quem indicou, você só confirma.",
+      "pose": "falando"
+    },
+    "imagens": [
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/2026-11-16-story-umbi-v1-1-288pqhZIB9c32WUcsFybGXMo2GYsUF.jpg"
+    ],
+    "legenda": "",
+    "status": "pendente"
+  },
+  {
+    "conta": "leme",
+    "id": "leme-2026-11-16-story",
+    "data": "2026-11-16",
+    "tipo": "story",
+    "diario": true,
+    "assunto": "Story diário de bom humor sobre a rotina do corretor. Inspiração de hoje: Leads que esfriam porque ninguém viu que pararam.",
+    "etapa": "story",
+    "versao": 1,
+    "frase": "Aquele 'te retorno amanhã' de três semanas atrás também tá com saudade de você.",
+    "post": {
+      "frase": "Aquele 'te retorno amanhã' de três semanas atrás também tá com saudade de você.",
+      "detalhe": "Me pergunta quais leads estão parados que eu te passo a lista antes da maré virar.",
+      "pose": "falando"
+    },
+    "imagens": [
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/leme-2026-11-16-story-v1-1-XXlDF3x9pYy0gmpI2c06ql3rJFtOPx.jpg"
+    ],
+    "legenda": "",
+    "status": "pendente"
+  },
+  {
+    "conta": "lemehub",
+    "id": "lemehub-2026-11-16-story",
+    "data": "2026-11-16",
+    "tipo": "story",
+    "diario": true,
+    "assunto": "Story diário leve e próximo. Inspiração de hoje: Cliente que manda mensagem fora do horário e fica sem resposta.",
+    "etapa": "story",
+    "versao": 1,
+    "frase": "Responder cliente pelo celular no meio do jantar também não dá, né?",
+    "post": {
+      "frase": "Responder cliente pelo celular no meio do jantar também não dá, né?",
+      "detalhe": "A IA da Leme Hub tira as dúvidas frequentes a qualquer hora e passa para você o que pede uma pessoa."
+    },
+    "imagens": [
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/lemehub-2026-11-16-story-v1-1-0ObI51HlHFnsNMz7Dyugxr22BIBASe.jpg"
+    ],
+    "legenda": "",
+    "status": "pendente"
   }
 ]
