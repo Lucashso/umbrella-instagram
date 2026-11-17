@@ -1401,7 +1401,7 @@
       "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/2026-11-16-story-umbi-v1-1-288pqhZIB9c32WUcsFybGXMo2GYsUF.jpg"
     ],
     "legenda": "",
-    "status": "pendente"
+    "status": "expirado"
   },
   {
     "conta": "leme",
@@ -1422,7 +1422,7 @@
       "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/leme-2026-11-16-story-v1-1-XXlDF3x9pYy0gmpI2c06ql3rJFtOPx.jpg"
     ],
     "legenda": "",
-    "status": "pendente"
+    "status": "expirado"
   },
   {
     "conta": "lemehub",
@@ -1440,6 +1440,67 @@
     },
     "imagens": [
       "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/lemehub-2026-11-16-story-v1-1-0ObI51HlHFnsNMz7Dyugxr22BIBASe.jpg"
+    ],
+    "legenda": "",
+    "status": "expirado"
+  },
+  {
+    "id": "2026-11-17-story-umbi",
+    "data": "2026-11-17",
+    "tipo": "story",
+    "diario": true,
+    "assunto": "Story diário de bom humor sobre a rotina do corretor. Inspiração de hoje: Indicações recebidas que se perdem antes do primeiro contato.",
+    "etapa": "story",
+    "versao": 1,
+    "frase": "Ganhou três indicações no almoço. Anotou no guardanapo. O guardanapo foi pro lixo.",
+    "post": {
+      "frase": "Ganhou três indicações no almoço. Anotou no guardanapo. O guardanapo foi pro lixo.",
+      "detalhe": "Da próxima, manda um áudio com todas pra mim. Eu crio os leads de uma vez e ainda lembro quem indicou.",
+      "pose": "falando"
+    },
+    "imagens": [
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/2026-11-17-story-umbi-v1-1-jbe5VCJWzbBXNNKH15uEmqzXjlD5fG.jpg"
+    ],
+    "legenda": "",
+    "status": "pendente"
+  },
+  {
+    "conta": "leme",
+    "id": "leme-2026-11-17-story",
+    "data": "2026-11-17",
+    "tipo": "story",
+    "diario": true,
+    "assunto": "Story diário de bom humor sobre a rotina do corretor. Inspiração de hoje: Leads que esfriam porque ninguém viu que pararam.",
+    "etapa": "story",
+    "versao": 1,
+    "frase": "Aquele “te ligo semana que vem” já tá na terceira semana que vem.",
+    "post": {
+      "frase": "Aquele “te ligo semana que vem” já tá na terceira semana que vem.",
+      "detalhe": "Me pergunta quais leads estão parados que eu te passo a lista na hora. Sem bronca, só bússola.",
+      "pose": "pensando"
+    },
+    "imagens": [
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/leme-2026-11-17-story-v1-1-2AL2sCHfnqIQsCZxJXVH4J7X0HrlMX.jpg"
+    ],
+    "legenda": "",
+    "status": "pendente"
+  },
+  {
+    "conta": "lemehub",
+    "id": "lemehub-2026-11-17-story",
+    "data": "2026-11-17",
+    "tipo": "story",
+    "diario": true,
+    "assunto": "Story diário leve e próximo. Inspiração de hoje: Cliente que manda mensagem fora do horário e fica sem resposta.",
+    "etapa": "story",
+    "versao": 1,
+    "frase": "Sua empresa fecha às 18h. A dúvida do cliente nem sempre espera até amanhã.",
+    "post": {
+      "frase": "Sua empresa fecha às 18h. A dúvida do cliente nem sempre espera até amanhã.",
+      "detalhe": "Dá para responder as perguntas frequentes na hora, mesmo com a equipe descansando."
+    },
+    "imagens": [
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/lemehub-2026-11-17-story-v1-1-0qLBxbTxc3LetSNMngeb218LSKpV0c.jpg"
     ],
     "legenda": "",
     "status": "pendente"
