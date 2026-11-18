@@ -1463,7 +1463,7 @@
       "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/2026-11-17-story-umbi-v1-1-jbe5VCJWzbBXNNKH15uEmqzXjlD5fG.jpg"
     ],
     "legenda": "",
-    "status": "pendente"
+    "status": "expirado"
   },
   {
     "conta": "leme",
@@ -1484,7 +1484,7 @@
       "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/leme-2026-11-17-story-v1-1-2AL2sCHfnqIQsCZxJXVH4J7X0HrlMX.jpg"
     ],
     "legenda": "",
-    "status": "pendente"
+    "status": "expirado"
   },
   {
     "conta": "lemehub",
@@ -1506,5 +1506,66 @@
     "legenda": "",
     "status": "publicado",
     "media_id": "17914382409484442"
+  },
+  {
+    "id": "2026-11-18-story-umbi",
+    "data": "2026-11-18",
+    "tipo": "story",
+    "diario": true,
+    "assunto": "Story diário de bom humor sobre a rotina do corretor. Inspiração de hoje: Indicações recebidas que se perdem antes do primeiro contato.",
+    "etapa": "story",
+    "versao": 1,
+    "frase": "Ganhou três indicações no almoço e anotou tudo na memória. A memória pediu demissão.",
+    "post": {
+      "frase": "Ganhou três indicações no almoço e anotou tudo na memória. A memória pediu demissão.",
+      "detalhe": "Manda tudo num áudio só que eu crio os leads de uma vez, ligados a quem indicou. Você só aperta Confirmar.",
+      "pose": "falando"
+    },
+    "imagens": [
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/2026-11-18-story-umbi-v1-1-T4U2MVHSrjiKJf8VHtQjbCY7SvuHd8.jpg"
+    ],
+    "legenda": "",
+    "status": "pendente"
+  },
+  {
+    "conta": "leme",
+    "id": "leme-2026-11-18-story",
+    "data": "2026-11-18",
+    "tipo": "story",
+    "diario": true,
+    "assunto": "Story diário de bom humor sobre a rotina do corretor. Inspiração de hoje: Leads que esfriam porque ninguém viu que pararam.",
+    "etapa": "story",
+    "versao": 1,
+    "frase": "Aquele 'amanhã eu chamo ele' já tá navegando há tanto tempo que virou rota fixa.",
+    "post": {
+      "frase": "Aquele 'amanhã eu chamo ele' já tá navegando há tanto tempo que virou rota fixa.",
+      "detalhe": "Me pergunta quais leads estão parados que eu te passo a lista na hora. Sem julgamento, prometo.",
+      "pose": "falando"
+    },
+    "imagens": [
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/leme-2026-11-18-story-v1-1-OpM7b7X1A3GRmAxJNfktELptWcAmAI.jpg"
+    ],
+    "legenda": "",
+    "status": "pendente"
+  },
+  {
+    "conta": "lemehub",
+    "id": "lemehub-2026-11-18-story",
+    "data": "2026-11-18",
+    "tipo": "story",
+    "diario": true,
+    "assunto": "Story diário leve e próximo. Inspiração de hoje: Cliente que manda mensagem fora do horário e fica sem resposta.",
+    "etapa": "story",
+    "versao": 1,
+    "frase": "Tem cliente que resolve agendar às 22h. Até a manhã seguinte, a vontade pode passar.",
+    "post": {
+      "frase": "Tem cliente que resolve agendar às 22h. Até a manhã seguinte, a vontade pode passar.",
+      "detalhe": "Nossa IA de atendimento responde no WhatsApp e já agenda o horário, de dia ou de madrugada."
+    },
+    "imagens": [
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/lemehub-2026-11-18-story-v1-1-tk5zLI9xQk4E1d0bCOy11Lzv6vHSR2.jpg"
+    ],
+    "legenda": "",
+    "status": "pendente"
   }
 ]
