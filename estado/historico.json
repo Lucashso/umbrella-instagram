@@ -1547,7 +1547,7 @@
       "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/leme-2026-11-18-story-v1-1-OpM7b7X1A3GRmAxJNfktELptWcAmAI.jpg"
     ],
     "legenda": "",
-    "status": "pendente"
+    "status": "expirado"
   },
   {
     "conta": "lemehub",
@@ -1569,5 +1569,111 @@
     "legenda": "",
     "status": "publicado",
     "media_id": "18103383608392298"
+  },
+  {
+    "id": "2026-11-19-indicacoes-dica",
+    "data": "2026-11-19",
+    "tema": "indicacoes",
+    "etapa": "dica",
+    "versao": 1,
+    "frase": "Indicação boa esfria rápido. Três passos para chamar antes disso",
+    "post": {
+      "eyebrow": "Dica de venda",
+      "titulo": "Indicação boa esfria rápido.",
+      "destaque": "Três passos para chamar antes disso",
+      "legenda": "Indicação é confiança emprestada. O cliente colocou o nome dele em jogo quando te passou aquele contato.\n\nSó que essa confiança tem prazo. Quanto mais tempo passa, mais a pessoa indicada esquece a conversa e mais a sua mensagem chega como a de um estranho.\n\nO que ajuda é ter um ritual simples: anotar tudo na hora, pedir para o cliente avisar o amigo e abrir a primeira mensagem citando quem indicou.\n\nParece pouco, mas é o que separa uma indicação que vira conversa de uma que fica esquecida no histórico do celular.\n\nQual desses passos você já faz? Conta aqui nos comentários.",
+      "hashtags": [
+        "#corretordeseguros",
+        "#segurodevida",
+        "#indicacao",
+        "#dicasdevenda",
+        "#vendaconsultiva"
+      ],
+      "passos": [
+        {
+          "titulo": "Anote e chame no mesmo dia",
+          "texto": "Registre nome, contato e quem indicou ainda na conversa e mande a primeira mensagem antes do dia acabar."
+        },
+        {
+          "titulo": "Peça um aviso antes",
+          "texto": "Pergunte se o cliente pode avisar o amigo que você vai entrar em contato. Assim sua mensagem não chega fria."
+        },
+        {
+          "titulo": "Cite quem indicou",
+          "texto": "Abra a conversa dizendo de onde veio o contato: \"Oi, Carla, o Rafael me passou seu número e falou bem de você.\""
+        }
+      ],
+      "rodape": "Salve para a próxima indicação"
+    },
+    "imagens": [
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/2026-11-19-indicacoes-dica-v1-1-O90HyjcH4TPAJERCrVyVIu03iDQZhc.jpg",
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/2026-11-19-indicacoes-dica-v1-2-ConCnsyHDiitePnZfPvm3cH4h0Ct63.jpg",
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/2026-11-19-indicacoes-dica-v1-3-6FKvqHvpxvMyTRyKOBgqGy5MFHHDvY.jpg",
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/2026-11-19-indicacoes-dica-v1-4-KCA9p3n6LHwWDgmGsNkV2szkW2PZDb.jpg",
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/2026-11-19-indicacoes-dica-v1-5-tInG74vl84PauyLE39AFpShmTesLSW.jpg"
+    ],
+    "legenda": "Indicação é confiança emprestada. O cliente colocou o nome dele em jogo quando te passou aquele contato.\n\nSó que essa confiança tem prazo. Quanto mais tempo passa, mais a pessoa indicada esquece a conversa e mais a sua mensagem chega como a de um estranho.\n\nO que ajuda é ter um ritual simples: anotar tudo na hora, pedir para o cliente avisar o amigo e abrir a primeira mensagem citando quem indicou.\n\nParece pouco, mas é o que separa uma indicação que vira conversa de uma que fica esquecida no histórico do celular.\n\nQual desses passos você já faz? Conta aqui nos comentários.\n\n#corretordeseguros #segurodevida #indicacao #dicasdevenda #vendaconsultiva",
+    "status": "pendente"
+  },
+  {
+    "id": "2026-11-19-story-umbi",
+    "data": "2026-11-19",
+    "tipo": "story",
+    "diario": true,
+    "assunto": "Story diário de bom humor sobre a rotina do corretor. Inspiração de hoje: Indicações recebidas que se perdem antes do primeiro contato.",
+    "etapa": "story",
+    "versao": 1,
+    "frase": "Indicação boa é aquela que chega. Pena que a sua ainda tá no print do grupo da família.",
+    "post": {
+      "frase": "Indicação boa é aquela que chega. Pena que a sua ainda tá no print do grupo da família.",
+      "detalhe": "Manda tudo num áudio só que eu crio os leads ligados a quem indicou. Você só aperta Confirmar.",
+      "pose": "falando"
+    },
+    "imagens": [
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/2026-11-19-story-umbi-v1-1-ur8DiJz1N5NnN6uMIwXRltgBt9OgbY.jpg"
+    ],
+    "legenda": "",
+    "status": "pendente"
+  },
+  {
+    "conta": "leme",
+    "id": "leme-2026-11-19-story",
+    "data": "2026-11-19",
+    "tipo": "story",
+    "diario": true,
+    "assunto": "Story diário de bom humor sobre a rotina do corretor. Inspiração de hoje: Leads que esfriam porque ninguém viu que pararam.",
+    "etapa": "story",
+    "versao": 1,
+    "frase": "O 'amanhã eu retorno' tem uma mania danada de virar três semanas sem ninguém ver.",
+    "post": {
+      "frase": "O 'amanhã eu retorno' tem uma mania danada de virar três semanas sem ninguém ver.",
+      "detalhe": "Antes que a maré leve, me pergunta quais leads estão parados. Te passo a lista na hora, sem bronca.",
+      "pose": "falando"
+    },
+    "imagens": [
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/leme-2026-11-19-story-v1-1-8jPjDyvAa6XKdSVjoor5rZnokWqPnQ.jpg"
+    ],
+    "legenda": "",
+    "status": "pendente"
+  },
+  {
+    "conta": "lemehub",
+    "id": "lemehub-2026-11-19-story",
+    "data": "2026-11-19",
+    "tipo": "story",
+    "diario": true,
+    "assunto": "Story diário leve e próximo. Inspiração de hoje: Cliente que manda mensagem fora do horário e fica sem resposta.",
+    "etapa": "story",
+    "versao": 1,
+    "frase": "Responder cliente do sofá às 23h para ninguém ficar esperando. Você também?",
+    "post": {
+      "frase": "Responder cliente do sofá às 23h para ninguém ficar esperando. Você também?",
+      "detalhe": "Uma IA treinada com as respostas do seu negócio pode cuidar das dúvidas comuns, e a sua noite fica livre."
+    },
+    "imagens": [
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/lemehub-2026-11-19-story-v1-1-TYb7doWcSHRQj8Kcut3is2jjVR5SyN.jpg"
+    ],
+    "legenda": "",
+    "status": "pendente"
   }
 ]
