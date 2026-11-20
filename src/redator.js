@@ -176,10 +176,21 @@ async function redigir(pedidoInicial, { tema, etapa, conta }, conferirArte, clie
   throw new Error(`Texto reprovado na validação: ${ultimoErro}`);
 }
 
-export function escreverPost({ tema, etapa, anteriores, conta }, conferirArte, client = new Anthropic()) {
-  const repetidos = anteriores.map((p) => `- ${p.etapa}: ${p.frase}`).join('\n') || 'nenhum';
-  const pedido = `ETAPA: ${etapa}\nASSUNTO: ${tema.assunto}\nRECURSO: ${tema.recurso}\nJÁ PUBLICADO SOBRE ISTO (não repita a ideia):\n${repetidos}`;
-  return redigir(pedido, { tema, etapa, conta }, conferirArte, client);
+const listar = (posts) => posts.map((p) => `- ${p.etapa}: ${p.frase}`).join('\n');
+
+// O pedido leva o que já saiu no perfil: sem isso o redator cai sempre na mesma abertura e na mesma piada.
+export function montarPedido({ tema, etapa, anteriores = [], recentes = [], gancho }) {
+  const partes = [`ETAPA: ${etapa}`, `ASSUNTO: ${tema.assunto}`, `RECURSO: ${tema.recurso}`];
+  if (gancho) partes.push(`GANCHO DE ABERTURA (titulo + destaque devem seguir este jeito): ${gancho}`);
+  if (etapa !== 'story') partes.push(`JÁ PUBLICADO SOBRE ISTO (não repita a ideia):\n${listar(anteriores) || 'nenhum'}`);
+  if (recentes.length) {
+    partes.push(`ÚLTIMAS FRASES DO PERFIL:\n${listar(recentes)}\n\nO texto novo precisa soar diferente de todas elas: não comece com as mesmas palavras, não use a mesma construção de frase (por exemplo "Aconteceu X? Faça Y." ou "Aquele ... já tá ..."), não reaproveite a mesma imagem, piada ou bordão, e use um eyebrow novo. Se a primeira ideia parecer com alguma da lista, descarte e escreva outra.`);
+  }
+  return partes.join('\n');
+}
+
+export function escreverPost({ tema, etapa, anteriores, recentes, gancho, conta }, conferirArte, client = new Anthropic()) {
+  return redigir(montarPedido({ tema, etapa, anteriores, recentes, gancho }), { tema, etapa, conta }, conferirArte, client);
 }
 
 export function reescreverPost({ tema, etapa, post, pedido, conta }, conferirArte, client = new Anthropic()) {

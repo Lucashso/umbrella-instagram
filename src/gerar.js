@@ -1,6 +1,6 @@
 import { conferidor, fraseDe, prepararEEnviar } from './fluxo.js';
 import { contaDe, contasAtivas, rotulo, temasDe } from './contas.js';
-import { hojeBrasilia, proximoPost, temaLivre } from './plano.js';
+import { ganchoDe, hojeBrasilia, pautaStory, postsRecentes, proximoPost, storiesRecentes, temaLivre } from './plano.js';
 import { escreverPost } from './redator.js';
 import { avisar, enviarBotoes, lerHistorico, salvarHistorico, usarCanal } from './servicos.js';
 
@@ -22,7 +22,7 @@ async function passoPost(conta, doHistorico, temas) {
     return;
   }
   const { tema, etapa, anteriores } = proximoPost(doHistorico, temas, conta.etapas, conta.inicio);
-  const post = await escreverPost({ tema, etapa, anteriores, conta }, conferidor(etapa, tema, conta));
+  const post = await escreverPost({ tema, etapa, anteriores, recentes: postsRecentes(doHistorico), gancho: ganchoDe(doHistorico), conta }, conferidor(etapa, tema, conta));
   const id = `${conta.prefixo}${data}-${tema.id}-${etapa}`;
   const { imagens, legenda } = await prepararEEnviar({ id, versao: 1, post, etapa, tema, conta });
   registrar(conta, { id, data, tema: tema.id, etapa, versao: 1, frase: fraseDe(post, etapa), post, imagens, legenda, status: 'pendente' });
@@ -39,8 +39,9 @@ async function passoStory(conta, doHistorico, temas) {
   for (const p of doHistorico) {
     if (p.tipo === 'story' && p.status === 'pendente' && p.diario && p.data < data) p.status = 'expirado';
   }
-  // O story conversa com o assunto do post da vez, sem precisar vender.
-  const { tema: doDia } = proximoPost(doHistorico.filter((p) => p.status === 'publicado'), temas, conta.etapas, conta.inicio);
+  // O story foge do assunto do post da vez: outro assunto e outro formato a cada dia.
+  const { tema: doPost } = proximoPost(doHistorico.filter((p) => p.status === 'publicado'), temas, conta.etapas, conta.inicio);
+  const pauta = pautaStory(data, temas, doPost, conta);
   // O primeiro story de uma conta é sempre de apresentação.
   const estreia = !doHistorico.some((p) => p.tipo === 'story' && p.status === 'publicado');
   const assunto = estreia
@@ -48,11 +49,10 @@ async function passoStory(conta, doHistorico, temas) {
       ? 'Primeiro story do perfil: apresente-se aos corretores, diga quem você é e o que faz por eles, usando só o RECURSO.'
       : 'Primeiro story do perfil: apresente o perfil, quem fala aqui e o que a pessoa vai encontrar nos próximos posts, sem vender nada.')
     : conta.mascote
-      ? `Story diário de bom humor sobre a rotina do corretor. Inspiração de hoje: ${doDia.assunto}.`
-      : `Story diário leve e próximo. Inspiração de hoje: ${doDia.assunto}.`;
+      ? `Story diário de bom humor sobre a rotina do corretor. Assunto de hoje: ${pauta.assunto}. Formato de hoje: ${pauta.formato}.`
+      : `Story diário leve e próximo. Assunto de hoje: ${pauta.assunto}. Formato de hoje: ${pauta.formato}.`;
   const tema = temaLivre(assunto, temas);
-  const anteriores = doHistorico.filter((p) => p.tipo === 'story' && p.status === 'publicado').slice(-15).map((p) => ({ etapa: 'story', frase: p.frase }));
-  const post = await escreverPost({ tema, etapa: 'story', anteriores, conta }, conferidor('story', tema, conta));
+  const post = await escreverPost({ tema, etapa: 'story', anteriores: [], recentes: storiesRecentes(doHistorico), conta }, conferidor('story', tema, conta));
   const { imagens, legenda } = await prepararEEnviar({ id, versao: 1, post, etapa: 'story', tema, conta });
   registrar(conta, { id, data, tipo: 'story', diario: true, assunto, etapa: 'story', versao: 1, frase: fraseDe(post, 'story'), post, imagens, legenda, status: 'pendente' });
   console.log(`Story ${id} enviado para aprovação.`);
