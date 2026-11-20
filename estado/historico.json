@@ -1736,5 +1736,183 @@
     ],
     "legenda": "",
     "status": "descartado"
+  },
+  {
+    "id": "2026-11-20-indicacoes-dica",
+    "data": "2026-11-20",
+    "tema": "indicacoes",
+    "etapa": "dica",
+    "versao": 1,
+    "frase": "Quem te indicou já avisou o amigo? Um aviso antes muda a primeira conversa",
+    "post": {
+      "eyebrow": "Dica de abordagem",
+      "titulo": "Quem te indicou já avisou o amigo?",
+      "destaque": "Um aviso antes muda a primeira conversa",
+      "legenda": "Mensagem de número desconhecido, oferecendo seguro, sem contexto nenhum. A chance de ficar sem resposta é grande.\n\nCom indicação dá para fazer diferente. A confiança que o seu cliente tem em você pode chegar antes da sua primeira mensagem.\n\nPeça que quem indicou dê um toque no amigo. Pergunte um pouco sobre o momento da pessoa. E abra a conversa citando o nome de quem lembrou dela.\n\nAssim você não chega como um estranho. Chega como alguém recomendado.\n\nComo você costuma começar a conversa com uma pessoa indicada? Conta aqui nos comentários.",
+      "hashtags": [
+        "#corretordeseguros",
+        "#segurodevida",
+        "#indicacoes",
+        "#dicasdevenda"
+      ],
+      "passos": [
+        {
+          "titulo": "Peça um aviso prévio",
+          "texto": "Peça a quem indicou para mandar uma mensagem curta ao amigo dizendo que você vai entrar em contato."
+        },
+        {
+          "titulo": "Pergunte o contexto",
+          "texto": "Antes de chamar, descubra com o cliente o momento da pessoa: família, trabalho e por que ele lembrou dela."
+        },
+        {
+          "titulo": "Cite quem indicou",
+          "texto": "Abra a primeira mensagem com o nome de quem indicou. Ex.: \"Oi, Carla! A Júlia me falou de você.\""
+        }
+      ],
+      "rodape": "Salve para a próxima indicação"
+    },
+    "imagens": [
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/2026-11-20-indicacoes-dica-v1-1-TvDV6lfKFaPkTfSpYrwdCrm6QY2lG1.jpg",
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/2026-11-20-indicacoes-dica-v1-2-gX78mpwjomVc3p7SkimgBCi8CgqU3v.jpg",
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/2026-11-20-indicacoes-dica-v1-3-pE9GzPeDZYDOygrt4AYYGVHbvljURI.jpg",
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/2026-11-20-indicacoes-dica-v1-4-gv1IJ6qlnW3jGYay1G9UgSN4eKDC1B.jpg",
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/2026-11-20-indicacoes-dica-v1-5-D9eFIkUBU8wjuWGfSYbiz2WBXMmHxd.jpg"
+    ],
+    "legenda": "Mensagem de número desconhecido, oferecendo seguro, sem contexto nenhum. A chance de ficar sem resposta é grande.\n\nCom indicação dá para fazer diferente. A confiança que o seu cliente tem em você pode chegar antes da sua primeira mensagem.\n\nPeça que quem indicou dê um toque no amigo. Pergunte um pouco sobre o momento da pessoa. E abra a conversa citando o nome de quem lembrou dela.\n\nAssim você não chega como um estranho. Chega como alguém recomendado.\n\nComo você costuma começar a conversa com uma pessoa indicada? Conta aqui nos comentários.\n\n#corretordeseguros #segurodevida #indicacoes #dicasdevenda",
+    "status": "pendente"
+  },
+  {
+    "id": "2026-11-20-story-umbi",
+    "data": "2026-11-20",
+    "tipo": "story",
+    "diario": true,
+    "assunto": "Story diário de bom humor sobre a rotina do corretor. Assunto de hoje: Clientes com parcela em atraso que ninguém acompanha de perto. Formato de hoje: uma pergunta para o seguidor responder de cabeça.",
+    "etapa": "story",
+    "versao": 1,
+    "frase": "Pergunta rápida: quantas parcelas atrasadas você sabe de cabeça agora? Vale chutar.",
+    "post": {
+      "frase": "Pergunta rápida: quantas parcelas atrasadas você sabe de cabeça agora? Vale chutar.",
+      "detalhe": "Se saiu um 'umas três, acho', relaxa. Eu sei certinho. Guarda-chuva bom não esquece nem nuvem.",
+      "pose": "pensando"
+    },
+    "imagens": [
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/2026-11-20-story-umbi-v1-1-Nchv5HBHjKCMhPteWDtEtoupbjjT5l.jpg"
+    ],
+    "legenda": "",
+    "status": "pendente"
+  },
+  {
+    "conta": "leme",
+    "id": "leme-2026-11-20-leads-parados-dor",
+    "data": "2026-11-20",
+    "tema": "leads-parados",
+    "etapa": "dor",
+    "versao": 1,
+    "frase": "Sexta, 18h, você rola o WhatsApp. A Carla pediu cotação há duas semanas.",
+    "post": {
+      "eyebrow": "Cena de toda semana",
+      "titulo": "Sexta, 18h, você rola o WhatsApp.",
+      "destaque": "A Carla pediu cotação há duas semanas.",
+      "legenda": "Você estava procurando outra conversa e, de repente, encontra a dela lá embaixo.\n\nNo começo ela respondia rápido. Perguntou sobre cobertura, mandou a idade, disse que queria proteger a família.\n\nAí veio a semana corrida. Renovação, cliente ligando, reunião que atrasou. E a Carla ficou sem retorno.\n\nNinguém esqueceu dela de propósito. Só que, no meio de tantas conversas, não tinha nada avisando que aquele contato tinha parado.\n\nAgora você manda mensagem e fica naquela dúvida: será que ela ainda lembra de você?\n\nSe essa cena já aconteceu na sua rotina, conta aqui nos comentários.",
+      "hashtags": [
+        "#corretordeseguros",
+        "#segurodevida",
+        "#vendas",
+        "#rotinadocorretor"
+      ],
+      "apoio": "No começo ela respondia rápido. Depois veio a semana corrida, outros clientes, e a conversa dela ficou lá embaixo, sem retorno."
+    },
+    "imagens": [
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/leme-2026-11-20-leads-parados-dor-v1-1-nWvNBc0Qfa05cQnZXLtnmrLMdYvf23.jpg"
+    ],
+    "legenda": "Você estava procurando outra conversa e, de repente, encontra a dela lá embaixo.\n\nNo começo ela respondia rápido. Perguntou sobre cobertura, mandou a idade, disse que queria proteger a família.\n\nAí veio a semana corrida. Renovação, cliente ligando, reunião que atrasou. E a Carla ficou sem retorno.\n\nNinguém esqueceu dela de propósito. Só que, no meio de tantas conversas, não tinha nada avisando que aquele contato tinha parado.\n\nAgora você manda mensagem e fica naquela dúvida: será que ela ainda lembra de você?\n\nSe essa cena já aconteceu na sua rotina, conta aqui nos comentários.\n\n#corretordeseguros #segurodevida #vendas #rotinadocorretor",
+    "status": "pendente"
+  },
+  {
+    "conta": "leme",
+    "id": "leme-2026-11-20-story",
+    "data": "2026-11-20",
+    "tipo": "story",
+    "diario": true,
+    "assunto": "Story diário de bom humor sobre a rotina do corretor. Assunto de hoje: Reunião que podia ter sido uma mensagem. Formato de hoje: um \"quem nunca?\".",
+    "etapa": "story",
+    "versao": 1,
+    "frase": "Quem nunca saiu de uma reunião de uma hora que cabia num áudio de trinta segundos?",
+    "post": {
+      "frase": "Quem nunca saiu de uma reunião de uma hora que cabia num áudio de trinta segundos?",
+      "detalhe": "E ainda saiu com a frase clássica: \"vamos marcar outra pra alinhar\". Navegar em círculo também cansa.",
+      "pose": "pensando"
+    },
+    "imagens": [
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/leme-2026-11-20-story-v1-1-LrSrm8aMIe4LZGKBnIvsWLbcDTpPOT.jpg"
+    ],
+    "legenda": "",
+    "status": "pendente"
+  },
+  {
+    "conta": "lemehub",
+    "id": "lemehub-2026-11-20-whatsapp-de-madrugada-dica",
+    "data": "2026-11-20",
+    "tema": "whatsapp-de-madrugada",
+    "etapa": "dica",
+    "versao": 1,
+    "frase": "O celular da loja vai pra gaveta e as perguntas dos clientes vão junto",
+    "post": {
+      "eyebrow": "Dica pro fim do expediente",
+      "titulo": "O celular da loja vai pra gaveta",
+      "destaque": "e as perguntas dos clientes vão junto",
+      "legenda": "O expediente acaba, o celular vai pra gaveta e o WhatsApp continua recebendo mensagens.\n\nPreço, horário, endereço, se ainda tem vaga amanhã. Quase sempre são as mesmas perguntas, e o cliente fica esperando até alguém abrir a conversa no dia seguinte.\n\nDá para melhorar isso hoje, sem contratar nada. Separamos 3 passos simples no carrossel.\n\nE quando o volume crescer, a IA de atendimento da Leme Hub pode responder essas perguntas na hora, de dia ou de madrugada, agendar horários e passar para o responsável quando o assunto pede uma pessoa.\n\nSalve este post e mostre para quem cuida do WhatsApp da sua empresa.",
+      "hashtags": [
+        "#atendimentoaocliente",
+        "#whatsappbusiness",
+        "#pequenasempresas",
+        "#gestaodenegocios",
+        "#lemehub"
+      ],
+      "passos": [
+        {
+          "titulo": "Veja o que chega à noite",
+          "texto": "Separe as mensagens que chegam fora do horário e anote quais perguntas se repetem. Normalmente são poucas."
+        },
+        {
+          "titulo": "Deixe respostas prontas",
+          "texto": "Escreva respostas curtas para preço, horário, endereço e como agendar. Salve como respostas rápidas no WhatsApp."
+        },
+        {
+          "titulo": "Avise quando vai voltar",
+          "texto": "Ative a mensagem de ausência com o horário de retorno. O cliente espera com mais calma quando sabe até quando."
+        }
+      ],
+      "rodape": "Salve para ajustar ainda hoje"
+    },
+    "imagens": [
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/lemehub-2026-11-20-whatsapp-de-madrugada-dica-v1-1-OWkuGQV6fPgdc7d8xppmLlP9XAs2K6.jpg",
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/lemehub-2026-11-20-whatsapp-de-madrugada-dica-v1-2-OE9ljXmBFpGBWUXMVMnM25uddUeVe0.jpg",
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/lemehub-2026-11-20-whatsapp-de-madrugada-dica-v1-3-I5lfpWSaRfFShhBiPyd7DI2EjkNeu3.jpg",
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/lemehub-2026-11-20-whatsapp-de-madrugada-dica-v1-4-rIavUhdMG6gPaE1d10lZThG3HSYqvG.jpg",
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/lemehub-2026-11-20-whatsapp-de-madrugada-dica-v1-5-ZI3jbww9aUjQwtgDMGVTY5NrOiUn0R.jpg"
+    ],
+    "legenda": "O expediente acaba, o celular vai pra gaveta e o WhatsApp continua recebendo mensagens.\n\nPreço, horário, endereço, se ainda tem vaga amanhã. Quase sempre são as mesmas perguntas, e o cliente fica esperando até alguém abrir a conversa no dia seguinte.\n\nDá para melhorar isso hoje, sem contratar nada. Separamos 3 passos simples no carrossel.\n\nE quando o volume crescer, a IA de atendimento da Leme Hub pode responder essas perguntas na hora, de dia ou de madrugada, agendar horários e passar para o responsável quando o assunto pede uma pessoa.\n\nSalve este post e mostre para quem cuida do WhatsApp da sua empresa.\n\n#atendimentoaocliente #whatsappbusiness #pequenasempresas #gestaodenegocios #lemehub",
+    "status": "pendente"
+  },
+  {
+    "conta": "lemehub",
+    "id": "lemehub-2026-11-20-story",
+    "data": "2026-11-20",
+    "tipo": "story",
+    "diario": true,
+    "assunto": "Story diário leve e próximo. Assunto de hoje: Correr atrás de cliente para cobrar mensalidade todo mês. Formato de hoje: uma pergunta para o seguidor responder de cabeça.",
+    "etapa": "story",
+    "versao": 1,
+    "frase": "Quantas mensagens você manda por mês só para lembrar cliente de pagar a mensalidade?",
+    "post": {
+      "frase": "Quantas mensagens você manda por mês só para lembrar cliente de pagar a mensalidade?",
+      "detalhe": "Vale contar de cabeça: o 'oi, tudo bem? passando para lembrar...' rouba mais tempo do que parece."
+    },
+    "imagens": [
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/lemehub-2026-11-20-story-v1-1-r16LS5oAACl8HwunVNRCB46EQx4T8A.jpg"
+    ],
+    "legenda": "",
+    "status": "pendente"
   }
 ]
