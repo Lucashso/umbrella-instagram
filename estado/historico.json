@@ -420,7 +420,7 @@
       "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/leme-2026-11-06-leads-parados-dor-v1-1-6sE1O4bjsLh0pwP2hqSZyFwslcVvol.jpg"
     ],
     "legenda": "O Marcos pediu uma cotação na segunda. Você respondeu, ele disse que ia conversar com a esposa.\n\nDepois veio a renovação de outro cliente, uma reunião, um sinistro para acompanhar. A semana passou.\n\nQuando você lembrou do Marcos, ele já tinha resolvido com outra pessoa.\n\nNinguém esqueceu de propósito. O problema é que lead parado não avisa que parou. Ele só fica quieto, perdido entre conversas no WhatsApp e anotações soltas.\n\nE quanto mais tempo passa sem contato, mais difícil fica retomar sem parecer que você sumiu.\n\nSe isso já aconteceu com você, conta aqui nos comentários: quantos \"vou pensar\" ficaram sem retorno no último mês?\n\n#corretordeseguros #segurodevida #vendasdeseguros #corretordeseguro",
-    "status": "pendente"
+    "status": "descartado"
   },
   {
     "conta": "leme",
@@ -1182,7 +1182,7 @@
       "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/lemehub-2026-11-13-whatsapp-de-madrugada-dica-v1-5-trimfd2U00wWGyfrqKGth4lmgaDurQ.jpg"
     ],
     "legenda": "Muita empresa perde cliente sem perceber: a mensagem chega depois do expediente e fica lá, sem nenhum sinal até a manhã seguinte.\n\nNem sempre dá para responder na hora. Mas dá para o cliente não se sentir ignorado.\n\nSeparamos três ajustes simples que você pode fazer hoje mesmo no WhatsApp da sua empresa, sem contratar nada.\n\nO segredo é combinar duas coisas: avisar quando a resposta vai chegar e já entregar o que o cliente mais pergunta.\n\nSalve este post para configurar com calma e mande para quem cuida do atendimento aí.\n\n#atendimento #whatsappbusiness #pequenasempresas #dicasdegestao #empreendedorismo",
-    "status": "pendente"
+    "status": "descartado"
   },
   {
     "conta": "lemehub",
@@ -1613,7 +1613,7 @@
       "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/2026-11-19-indicacoes-dica-v1-5-tInG74vl84PauyLE39AFpShmTesLSW.jpg"
     ],
     "legenda": "Indicação é confiança emprestada. O cliente colocou o nome dele em jogo quando te passou aquele contato.\n\nSó que essa confiança tem prazo. Quanto mais tempo passa, mais a pessoa indicada esquece a conversa e mais a sua mensagem chega como a de um estranho.\n\nO que ajuda é ter um ritual simples: anotar tudo na hora, pedir para o cliente avisar o amigo e abrir a primeira mensagem citando quem indicou.\n\nParece pouco, mas é o que separa uma indicação que vira conversa de uma que fica esquecida no histórico do celular.\n\nQual desses passos você já faz? Conta aqui nos comentários.\n\n#corretordeseguros #segurodevida #indicacao #dicasdevenda #vendaconsultiva",
-    "status": "pendente"
+    "status": "descartado"
   },
   {
     "id": "2026-11-19-story-umbi",
@@ -1677,7 +1677,7 @@
     "status": "expirado"
   },
   {
-    "id": "2026-11-20-story-umbi",
+    "id": "2026-11-20-story-umbi-antigo",
     "data": "2026-11-20",
     "tipo": "story",
     "diario": true,
@@ -1694,11 +1694,11 @@
       "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/2026-11-20-story-umbi-v1-1-0PL8UrFDIowTGcGD3aTWyQGgZja1gF.jpg"
     ],
     "legenda": "",
-    "status": "pendente"
+    "status": "descartado"
   },
   {
     "conta": "leme",
-    "id": "leme-2026-11-20-story",
+    "id": "leme-2026-11-20-story-antigo",
     "data": "2026-11-20",
     "tipo": "story",
     "diario": true,
@@ -1715,11 +1715,11 @@
       "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/leme-2026-11-20-story-v1-1-RXE27wdMpM9yDDrORf0PnC5GFE5YUk.jpg"
     ],
     "legenda": "",
-    "status": "pendente"
+    "status": "descartado"
   },
   {
     "conta": "lemehub",
-    "id": "lemehub-2026-11-20-story",
+    "id": "lemehub-2026-11-20-story-antigo",
     "data": "2026-11-20",
     "tipo": "story",
     "diario": true,
@@ -1735,6 +1735,6 @@
       "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/lemehub-2026-11-20-story-v1-1-kAMGGH6s71bQzfh4ErKnpxIXJHzT8L.jpg"
     ],
     "legenda": "",
-    "status": "pendente"
+    "status": "descartado"
   }
 ]
