@@ -1633,7 +1633,7 @@
       "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/2026-11-19-story-umbi-v1-1-ur8DiJz1N5NnN6uMIwXRltgBt9OgbY.jpg"
     ],
     "legenda": "",
-    "status": "pendente"
+    "status": "expirado"
   },
   {
     "conta": "leme",
@@ -1654,7 +1654,7 @@
       "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/leme-2026-11-19-story-v1-1-8jPjDyvAa6XKdSVjoor5rZnokWqPnQ.jpg"
     ],
     "legenda": "",
-    "status": "pendente"
+    "status": "expirado"
   },
   {
     "conta": "lemehub",
@@ -1672,6 +1672,67 @@
     },
     "imagens": [
       "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/lemehub-2026-11-19-story-v1-1-TYb7doWcSHRQj8Kcut3is2jjVR5SyN.jpg"
+    ],
+    "legenda": "",
+    "status": "expirado"
+  },
+  {
+    "id": "2026-11-20-story-umbi",
+    "data": "2026-11-20",
+    "tipo": "story",
+    "diario": true,
+    "assunto": "Story diário de bom humor sobre a rotina do corretor. Inspiração de hoje: Indicações recebidas que se perdem antes do primeiro contato.",
+    "etapa": "story",
+    "versao": 1,
+    "frase": "Salvou o contato como 'indicação do Marcão'. Agora são cinco no celular.",
+    "post": {
+      "frase": "Salvou o contato como 'indicação do Marcão'. Agora são cinco no celular.",
+      "detalhe": "Manda tudo numa mensagem só que eu crio os leads já ligados a quem indicou. O Marcão agradece.",
+      "pose": "falando"
+    },
+    "imagens": [
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/2026-11-20-story-umbi-v1-1-0PL8UrFDIowTGcGD3aTWyQGgZja1gF.jpg"
+    ],
+    "legenda": "",
+    "status": "pendente"
+  },
+  {
+    "conta": "leme",
+    "id": "leme-2026-11-20-story",
+    "data": "2026-11-20",
+    "tipo": "story",
+    "diario": true,
+    "assunto": "Story diário de bom humor sobre a rotina do corretor. Inspiração de hoje: Leads que esfriam porque ninguém viu que pararam.",
+    "etapa": "story",
+    "versao": 1,
+    "frase": "Aquele 'te chamo semana que vem' já tá completando a terceira semana que vem.",
+    "post": {
+      "frase": "Aquele 'te chamo semana que vem' já tá completando a terceira semana que vem.",
+      "detalhe": "Sem julgamento a bordo: me pergunta quais leads estão parados e eu te mostro a lista na hora.",
+      "pose": "falando"
+    },
+    "imagens": [
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/leme-2026-11-20-story-v1-1-RXE27wdMpM9yDDrORf0PnC5GFE5YUk.jpg"
+    ],
+    "legenda": "",
+    "status": "pendente"
+  },
+  {
+    "conta": "lemehub",
+    "id": "lemehub-2026-11-20-story",
+    "data": "2026-11-20",
+    "tipo": "story",
+    "diario": true,
+    "assunto": "Story diário leve e próximo. Inspiração de hoje: Cliente que manda mensagem fora do horário e fica sem resposta.",
+    "etapa": "story",
+    "versao": 1,
+    "frase": "Responder cliente do sofá, às 22h, virou parte da sua noite?",
+    "post": {
+      "frase": "Responder cliente do sofá, às 22h, virou parte da sua noite?",
+      "detalhe": "Nossa IA responde as perguntas frequentes no seu WhatsApp, até de madrugada, e chama você quando precisa."
+    },
+    "imagens": [
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/lemehub-2026-11-20-story-v1-1-kAMGGH6s71bQzfh4ErKnpxIXJHzT8L.jpg"
     ],
     "legenda": "",
     "status": "pendente"
