@@ -22,6 +22,14 @@ test('a pauta do story é a mesma se o workflow rodar duas vezes no dia', () => 
   assert.deepEqual(pautaStory('2026-11-21', temas, temas[0], CONTAS.umbrella), pautaStory('2026-11-21', temas, temas[0], CONTAS.umbrella));
 });
 
+test('Umbrella e Leme não fazem story do mesmo assunto no mesmo dia', () => {
+  const { umbrella, leme } = CONTAS;
+  for (const d of dias(14)) {
+    const [u, l] = [umbrella, leme].map((c) => pautaStory(d, temasDe(c), temasDe(c)[2], c));
+    assert.notEqual(u.assunto.replace(/Umbi/g, 'Timo'), l.assunto, d);
+  }
+});
+
 test('os três posts de um tema abrem com ganchos diferentes', () => {
   const publicados = (n) => Array.from({ length: n }, () => ({ status: 'publicado' }));
   const ganchos = [0, 1, 2].map((n) => ganchoDe(publicados(n)));

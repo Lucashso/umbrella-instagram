@@ -49,7 +49,8 @@ const PAUTAS_LIVRES = {
 // O story não acompanha o post: gira por outro assunto e outro formato a cada dia,
 // para o perfil não passar a semana inteira falando da mesma coisa.
 export function pautaStory(data, temas, temaDoPost, conta) {
-  const dia = Math.floor(Date.parse(data) / 86400000);
+  // O `inicio` desloca a conta: Umbrella e Leme não caem no mesmo assunto no mesmo dia.
+  const dia = Math.floor(Date.parse(data) / 86400000) + (conta.inicio ?? 0);
   const livres = PAUTAS_LIVRES[conta.mascote ? 'crm' : conta.persona === 'empresa' ? 'empresa' : 'cliente'];
   const doProduto = temas.filter((t) => t.id !== temaDoPost.id).map((t) => t.assunto);
   // Intercala assunto do produto e assunto solto da rotina.
