@@ -1935,7 +1935,7 @@
       "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/2026-11-21-story-umbi-v1-1-ru1ghHTaa3hmf481BQ9rlDGJ6r2OUq.jpg"
     ],
     "legenda": "",
-    "status": "pendente"
+    "status": "expirado"
   },
   {
     "conta": "leme",
@@ -1956,7 +1956,7 @@
       "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/leme-2026-11-21-story-v1-1-CiZroQQLOExjTHyEPGRd9xJorKAdV2.jpg"
     ],
     "legenda": "",
-    "status": "pendente"
+    "status": "expirado"
   },
   {
     "conta": "lemehub",
@@ -1974,6 +1974,67 @@
     },
     "imagens": [
       "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/lemehub-2026-11-21-story-v1-1-hbJqo2NnidnGws1sCLHcGaIdMI6R8W.jpg"
+    ],
+    "legenda": "",
+    "status": "expirado"
+  },
+  {
+    "id": "2026-11-22-story-umbi",
+    "data": "2026-11-22",
+    "tipo": "story",
+    "diario": true,
+    "assunto": "Story diário de bom humor sobre a rotina do corretor. Assunto de hoje: Começar o dia sem saber o que é prioridade. Formato de hoje: uma confissão em primeira pessoa de quem está postando.",
+    "etapa": "story",
+    "versao": 1,
+    "frase": "Confissão: já vi corretor escolher a prioridade do dia no uni-duni-tê. Deu ruim.",
+    "post": {
+      "frase": "Confissão: já vi corretor escolher a prioridade do dia no uni-duni-tê. Deu ruim.",
+      "detalhe": "Me pede o resumo do dia que eu mando tarefas, agenda, retornos e atrasos numa resposta só.",
+      "pose": "falando"
+    },
+    "imagens": [
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/2026-11-22-story-umbi-v1-1-qGapTCHL6jQy55dwDmOjGx4plwvuzO.jpg"
+    ],
+    "legenda": "",
+    "status": "pendente"
+  },
+  {
+    "conta": "leme",
+    "id": "leme-2026-11-22-story",
+    "data": "2026-11-22",
+    "tipo": "story",
+    "diario": true,
+    "assunto": "Story diário de bom humor sobre a rotina do corretor. Assunto de hoje: Fim de mês correndo atrás de proposta. Formato de hoje: uma pergunta para o seguidor responder de cabeça.",
+    "etapa": "story",
+    "versao": 1,
+    "frase": "Sinceridade de convés: quantas abas de proposta tão abertas aí no seu computador agora?",
+    "post": {
+      "frase": "Sinceridade de convés: quantas abas de proposta tão abertas aí no seu computador agora?",
+      "detalhe": "Responde de cabeça, sem contar. Fim de mês é maré alta, e até o navegador tá pedindo água.",
+      "pose": "pensando"
+    },
+    "imagens": [
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/leme-2026-11-22-story-v1-1-vLoyXF3SmIY0FQ7A7oxBIv5BdFi6p5.jpg"
+    ],
+    "legenda": "",
+    "status": "pendente"
+  },
+  {
+    "conta": "lemehub",
+    "id": "lemehub-2026-11-22-story",
+    "data": "2026-11-22",
+    "tipo": "story",
+    "diario": true,
+    "assunto": "Story diário leve e próximo. Assunto de hoje: Cada pessoa da equipe atendendo clientes num celular diferente. Formato de hoje: uma confissão em primeira pessoa de quem está postando.",
+    "etapa": "story",
+    "versao": 1,
+    "frase": "Confissão: nos dá frio na barriga ver cada um da equipe atendendo num celular diferente.",
+    "post": {
+      "frase": "Confissão: nos dá frio na barriga ver cada um da equipe atendendo num celular diferente.",
+      "detalhe": "Se alguém sai ou troca de aparelho, a conversa com o cliente vai junto. E aí, quem continua?"
+    },
+    "imagens": [
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/lemehub-2026-11-22-story-v1-1-fQXl4YSN0zWwchAOPbdvY1gxuiR1eq.jpg"
     ],
     "legenda": "",
     "status": "pendente"
