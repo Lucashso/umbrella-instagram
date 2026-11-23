@@ -1996,7 +1996,7 @@
       "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/2026-11-22-story-umbi-v1-1-qGapTCHL6jQy55dwDmOjGx4plwvuzO.jpg"
     ],
     "legenda": "",
-    "status": "pendente"
+    "status": "expirado"
   },
   {
     "conta": "leme",
@@ -2017,7 +2017,7 @@
       "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/leme-2026-11-22-story-v1-1-vLoyXF3SmIY0FQ7A7oxBIv5BdFi6p5.jpg"
     ],
     "legenda": "",
-    "status": "pendente"
+    "status": "expirado"
   },
   {
     "conta": "lemehub",
@@ -2039,5 +2039,66 @@
     "legenda": "",
     "status": "publicado",
     "media_id": "17871799647662235"
+  },
+  {
+    "id": "2026-11-23-story-umbi",
+    "data": "2026-11-23",
+    "tipo": "story",
+    "diario": true,
+    "assunto": "Story diário de bom humor sobre a rotina do corretor. Assunto de hoje: Áudio de cinco minutos do cliente. Formato de hoje: um conselho rápido de uma linha.",
+    "etapa": "story",
+    "versao": 1,
+    "frase": "Dica de hoje: áudio de cinco minutos do cliente se ouve em 2x e com um café do lado.",
+    "post": {
+      "frase": "Dica de hoje: áudio de cinco minutos do cliente se ouve em 2x e com um café do lado.",
+      "detalhe": "Os três primeiros minutos são 'oi, tudo bem, então, deixa eu te falar'. O assunto mesmo vem no fim.",
+      "pose": "falando"
+    },
+    "imagens": [
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/2026-11-23-story-umbi-v1-1-BMFJVyUPP6cYvMp0KRXQNIAxyIas6n.jpg"
+    ],
+    "legenda": "",
+    "status": "pendente"
+  },
+  {
+    "conta": "leme",
+    "id": "leme-2026-11-23-story",
+    "data": "2026-11-23",
+    "tipo": "story",
+    "diario": true,
+    "assunto": "Story diário de bom humor sobre a rotina do corretor. Assunto de hoje: Perder a chance de um contato simples com a carteira. Formato de hoje: expectativa contra realidade.",
+    "etapa": "story",
+    "versao": 1,
+    "frase": "Expectativa: dar parabéns ao cliente logo cedinho, com mensagem caprichada.",
+    "post": {
+      "frase": "Expectativa: dar parabéns ao cliente logo cedinho, com mensagem caprichada.",
+      "detalhe": "Realidade: descobrir o aniversário pelo story dele, quatro dias depois, com o bolo já no fim.",
+      "pose": "pensando"
+    },
+    "imagens": [
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/leme-2026-11-23-story-v1-1-0UPVO7wyO7QNy6rXKZZ2kc4MV5MaqF.jpg"
+    ],
+    "legenda": "",
+    "status": "pendente"
+  },
+  {
+    "conta": "lemehub",
+    "id": "lemehub-2026-11-23-story",
+    "data": "2026-11-23",
+    "tipo": "story",
+    "diario": true,
+    "assunto": "Story diário leve e próximo. Assunto de hoje: Grupo de WhatsApp da equipe. Formato de hoje: um conselho rápido de uma linha.",
+    "etapa": "story",
+    "versao": 1,
+    "frase": "Conselho rápido: no grupo da equipe, combine quem responde cada assunto.",
+    "post": {
+      "frase": "Conselho rápido: no grupo da equipe, combine quem responde cada assunto.",
+      "detalhe": "Um nome por assunto evita mensagem duplicada, cliente confuso e aquele 'achei que você tinha visto'."
+    },
+    "imagens": [
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/lemehub-2026-11-23-story-v1-1-QeedsgTYgbDX1nvIbFtmAaoEfEsztZ.jpg"
+    ],
+    "legenda": "",
+    "status": "pendente"
   }
 ]
