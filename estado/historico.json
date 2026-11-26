@@ -2180,7 +2180,7 @@
       "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/2026-11-25-story-umbi-v1-1-C7Dpdn0JgIiclngTQTnCyWmInSGMWP.jpg"
     ],
     "legenda": "",
-    "status": "pendente"
+    "status": "expirado"
   },
   {
     "conta": "leme",
@@ -2201,7 +2201,7 @@
       "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/leme-2026-11-25-story-v1-1-MTTZMSE8saVbshHAKcXNlOnS0DZymQ.jpg"
     ],
     "legenda": "",
-    "status": "pendente"
+    "status": "expirado"
   },
   {
     "conta": "lemehub",
@@ -2219,6 +2219,67 @@
     },
     "imagens": [
       "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/lemehub-2026-11-25-story-v1-1-qnka1vaWUEp2hnORHwTkZjRqVYx9t9.jpg"
+    ],
+    "legenda": "",
+    "status": "expirado"
+  },
+  {
+    "id": "2026-11-26-story-umbi",
+    "data": "2026-11-26",
+    "tipo": "story",
+    "diario": true,
+    "assunto": "Story diário de bom humor sobre a rotina do corretor. Assunto de hoje: Leads que esfriam porque ninguém viu que pararam. Formato de hoje: uma observação engraçada sobre uma mania.",
+    "etapa": "story",
+    "versao": 1,
+    "frase": "Arquivar a conversa do lead não é estratégia, é esconder a louça suja dentro do forno.",
+    "post": {
+      "frase": "Arquivar a conversa do lead não é estratégia, é esconder a louça suja dentro do forno.",
+      "detalhe": "Me pergunta quais leads estão parados que eu mostro a lista na hora. E julgo só um pouquinho.",
+      "pose": "falando"
+    },
+    "imagens": [
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/2026-11-26-story-umbi-v1-1-uv7XLvp2xLdSN3D4Qvm1j3ybTlFcWY.jpg"
+    ],
+    "legenda": "",
+    "status": "pendente"
+  },
+  {
+    "conta": "leme",
+    "id": "leme-2026-11-26-story",
+    "data": "2026-11-26",
+    "tipo": "story",
+    "diario": true,
+    "assunto": "Story diário de bom humor sobre a rotina do corretor. Assunto de hoje: Marcar reunião entre um compromisso e outro e esquecer de lançar. Formato de hoje: uma cena de um horário específico do dia.",
+    "etapa": "story",
+    "versao": 1,
+    "frase": "11h52, saindo de uma visita: 'fechado, terça às três!' E o celular segue no bolso.",
+    "post": {
+      "frase": "11h52, saindo de uma visita: 'fechado, terça às três!' E o celular segue no bolso.",
+      "detalhe": "Terça, três da tarde, só o cliente lembrou. Me avisa que eu mando pra sua agenda, você só confirma.",
+      "pose": "falando"
+    },
+    "imagens": [
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/leme-2026-11-26-story-v1-1-XOU5KMLBFTrSNqfyL0Ne972Xtv9IZV.jpg"
+    ],
+    "legenda": "",
+    "status": "pendente"
+  },
+  {
+    "conta": "lemehub",
+    "id": "lemehub-2026-11-26-story",
+    "data": "2026-11-26",
+    "tipo": "story",
+    "diario": true,
+    "assunto": "Story diário leve e próximo. Assunto de hoje: Recepção de academia ou studio ainda no papel e na planilha. Formato de hoje: uma observação engraçada sobre uma mania.",
+    "etapa": "story",
+    "versao": 1,
+    "frase": "Lei da recepção de studio: a caneta da lista de presença some bem na hora da aula.",
+    "post": {
+      "frase": "Lei da recepção de studio: a caneta da lista de presença some bem na hora da aula.",
+      "detalhe": "E no fim do dia a lista ainda vira planilha, decifrando aquela letra que ninguém entende."
+    },
+    "imagens": [
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/lemehub-2026-11-26-story-v1-1-5s6ziDrt6HdKobnxuP2hQWyFZG31vA.jpg"
     ],
     "legenda": "",
     "status": "pendente"
