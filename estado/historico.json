@@ -2242,7 +2242,7 @@
       "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/2026-11-26-story-umbi-v1-1-uv7XLvp2xLdSN3D4Qvm1j3ybTlFcWY.jpg"
     ],
     "legenda": "",
-    "status": "pendente"
+    "status": "expirado"
   },
   {
     "conta": "leme",
@@ -2263,7 +2263,7 @@
       "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/leme-2026-11-26-story-v1-1-XOU5KMLBFTrSNqfyL0Ne972Xtv9IZV.jpg"
     ],
     "legenda": "",
-    "status": "pendente"
+    "status": "expirado"
   },
   {
     "conta": "lemehub",
@@ -2285,5 +2285,92 @@
     "legenda": "",
     "status": "publicado",
     "media_id": "18131792071869645"
+  },
+  {
+    "id": "2026-11-27-comeco-do-dia-dor",
+    "data": "2026-11-27",
+    "tema": "comeco-do-dia",
+    "etapa": "dor",
+    "versao": 1,
+    "frase": "\"Por onde eu começo hoje?\" E o café esfriando enquanto você decide",
+    "post": {
+      "eyebrow": "Segunda, 8h da manhã",
+      "titulo": "\"Por onde eu começo hoje?\"",
+      "destaque": "E o café esfriando enquanto você decide",
+      "legenda": "Você senta, abre o celular e a cabeça já começa a girar.\n\nTem a reunião das 10h que você marcou semana passada. Tem o retorno que prometeu pra Fernanda. Tem a proposta do Marcos que ficou parada. E tem aquela tarefa que você jura que anotou em algum lugar.\n\nA agenda está num app, os retornos no caderno, os combinados perdidos no WhatsApp.\n\nQuando você termina de juntar tudo, a manhã já foi. E o que estava atrasado continua atrasado.\n\nNão é falta de vontade. É que ninguém consegue priorizar o que não está enxergando.\n\nComo é o começo do seu dia? Conta aqui nos comentários.",
+      "hashtags": [
+        "#corretordeseguros",
+        "#segurodevida",
+        "#rotinadocorretor",
+        "#produtividade"
+      ],
+      "apoio": "Agenda num app, retornos no caderno, tarefa no WhatsApp. Quando você junta tudo, o primeiro cliente já ligou."
+    },
+    "imagens": [
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/2026-11-27-comeco-do-dia-dor-v1-1-FIvJeAXjU6lWVU1RIt06pDhbwySxVe.jpg"
+    ],
+    "legenda": "Você senta, abre o celular e a cabeça já começa a girar.\n\nTem a reunião das 10h que você marcou semana passada. Tem o retorno que prometeu pra Fernanda. Tem a proposta do Marcos que ficou parada. E tem aquela tarefa que você jura que anotou em algum lugar.\n\nA agenda está num app, os retornos no caderno, os combinados perdidos no WhatsApp.\n\nQuando você termina de juntar tudo, a manhã já foi. E o que estava atrasado continua atrasado.\n\nNão é falta de vontade. É que ninguém consegue priorizar o que não está enxergando.\n\nComo é o começo do seu dia? Conta aqui nos comentários.\n\n#corretordeseguros #segurodevida #rotinadocorretor #produtividade",
+    "status": "pendente"
+  },
+  {
+    "id": "2026-11-27-story-umbi",
+    "data": "2026-11-27",
+    "tipo": "story",
+    "diario": true,
+    "assunto": "Story diário de bom humor sobre a rotina do corretor. Assunto de hoje: Fim de mês correndo atrás de proposta. Formato de hoje: uma pergunta para o seguidor responder de cabeça.",
+    "etapa": "story",
+    "versao": 1,
+    "frase": "Dia 28 e a meta te encarando: quantas propostas você jurou que 'essa semana fecha'?",
+    "post": {
+      "frase": "Dia 28 e a meta te encarando: quantas propostas você jurou que 'essa semana fecha'?",
+      "detalhe": "Responde aí de cabeça, sem olhar o WhatsApp. Eu espero. A meta é que não tem essa paciência toda.",
+      "pose": "falando"
+    },
+    "imagens": [
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/2026-11-27-story-umbi-v1-1-ze9J5q3OyZ6ZWOg3vSdjddeZrOMtCl.jpg"
+    ],
+    "legenda": "",
+    "status": "pendente"
+  },
+  {
+    "conta": "leme",
+    "id": "leme-2026-11-27-story",
+    "data": "2026-11-27",
+    "tipo": "story",
+    "diario": true,
+    "assunto": "Story diário de bom humor sobre a rotina do corretor. Assunto de hoje: Documentos de cliente espalhados pelo celular. Formato de hoje: um \"quem nunca?\".",
+    "etapa": "story",
+    "versao": 1,
+    "frase": "Foto do RG do cliente perdida entre print de meme e foto do almoço. Quem nunca?",
+    "post": {
+      "frase": "Foto do RG do cliente perdida entre print de meme e foto do almoço. Quem nunca?",
+      "detalhe": "Dica de bordo: me manda e pede pra anexar. Confirmou, vai pra ficha do cliente e sai da galeria.",
+      "pose": "falando"
+    },
+    "imagens": [
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/leme-2026-11-27-story-v1-1-elvoYJLinvuhGLjTQR3RL2rpW20C0O.jpg"
+    ],
+    "legenda": "",
+    "status": "pendente"
+  },
+  {
+    "conta": "lemehub",
+    "id": "lemehub-2026-11-27-story",
+    "data": "2026-11-27",
+    "tipo": "story",
+    "diario": true,
+    "assunto": "Story diário leve e próximo. Assunto de hoje: Aquela tarefa que todo mundo acha que é do outro. Formato de hoje: uma pergunta para o seguidor responder de cabeça.",
+    "etapa": "story",
+    "versao": 1,
+    "frase": "Na sua empresa, qual tarefa fica parada porque cada um jura que é do colega?",
+    "post": {
+      "frase": "Na sua empresa, qual tarefa fica parada porque cada um jura que é do colega?",
+      "detalhe": "Vale de tudo: do café que acabou ao e-mail do fornecedor que ninguém abriu. Pensa aí."
+    },
+    "imagens": [
+      "https://ghkfpsl6dwges6z9.public.blob.vercel-storage.com/instagram/lemehub-2026-11-27-story-v1-1-Rok6XyaEMmRMGpqxTIDItOwvFUqxTh.jpg"
+    ],
+    "legenda": "",
+    "status": "pendente"
   }
 ]
